@@ -49,7 +49,7 @@
   </div>
   <div class="section-02">
     <div class="left-section-02">
-      <span class="title-right-section-02">Je suis un individue</span>
+      <span class="title-right-section-02">Je suis un individu</span>
       <a href="/" class="button-section-02"
         ><img alt="fleche Gauche" src={IconLeft} /> Je souhaite contribuer au
         projet
