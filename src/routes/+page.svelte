@@ -20,7 +20,7 @@
 
   import Illutrastion2 from "./../lib/assets/img/illustrator/img-accueil-2.png";
 
-  let selectedType = "";
+  let selectedType = "individu"; // Définir "individu" par défaut
   let options = [];
 
   $: if (selectedType === "individu") {

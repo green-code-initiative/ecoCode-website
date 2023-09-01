@@ -1,4 +1,5 @@
 <script>
+  // @ts-nocheck
   import "../lib/assets/css/header.css";
   import Footer from "../routes/footer.svelte";
   import { onMount } from "svelte";
