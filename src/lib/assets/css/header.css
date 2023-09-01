@@ -49,7 +49,3 @@ header {
 .text-header:hover {
   cursor: pointer;
 }
-
-.text-header:nth-child(3) {
-  margin-right: 82px;
-}
