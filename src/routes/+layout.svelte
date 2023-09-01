@@ -41,7 +41,13 @@
 
 <header class={headerColor}>
   <a data-sveltekit-reload href="/"
-    ><img alt="logo-accueil" class="logo-header" src={Logo} /></a
+    ><img
+      width="160"
+      height="71.84"
+      alt="logo-accueil"
+      class="logo-header"
+      src={Logo}
+    /></a
   >
   <div id="menu-desktop" class="topnav">
     <a
@@ -52,6 +58,8 @@
       href="/contributeur"
     >
       <img
+        width="160"
+        height="71.84"
         alt="fleche gauche"
         class="icon-header {currentURL.includes('contributeur')
           ? ''
@@ -60,6 +68,8 @@
       />
       <span>Contributeur</span>
       <img
+        width="160"
+        height="71.84"
         alt="fleche droite"
         class="icon-header {currentURL.includes('contributeur')
           ? ''
@@ -74,6 +84,8 @@
       href="/entreprise"
     >
       <img
+        width="160"
+        height="71.84"
         alt="fleche gauche"
         class="icon-header {currentURL.includes('entreprise')
           ? ''
@@ -82,6 +94,8 @@
       />
       <span>Entreprise</span>
       <img
+        width="160"
+        height="71.84"
         alt="fleche droite"
         class="icon-header {currentURL.includes('entreprise')
           ? ''
@@ -96,12 +110,16 @@
       href="/team"
     >
       <img
+        width="160"
+        height="71.84"
         alt="fleche gauche"
         class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}"
         src={IconLeftWhite}
       />
       <span>Team</span>
       <img
+        width="160"
+        height="71.84"
         alt="fleche droite"
         class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}"
         src={IconRightWhite}

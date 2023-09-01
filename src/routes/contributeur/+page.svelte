@@ -34,8 +34,9 @@
       durable.</span
     >
     <a href="/" class="button-section-02"
-      ><img alt="Fleche Gauche" src={IconLeft} /> Je rejoins la communauté
-      <img alt="Fleche Droite" src={IconRight} /></a
+      ><img width="160" height="71.84" alt="Fleche Gauche" src={IconLeft} /> Je
+      rejoins la communauté
+      <img width="160" height="71.84" alt="Fleche Droite" src={IconRight} /></a
     >
   </div>
 
@@ -52,21 +53,21 @@
     >
     <div class="list-section-02">
       <div class="line-list-section-02">
-        <img alt="Icon Dev Liste" src={IconDev} />
+        <img width="160" height="71.84" alt="Icon Dev Liste" src={IconDev} />
         <span class="text-list-section-02"
           >Salariées et salariés en poste avec un temps dédié par leur
           organisation sur ecoCode</span
         >
       </div>
       <div class="line-list-section-02">
-        <img alt="Icon Dev Liste" src={IconDev} />
+        <img width="160" height="71.84" alt="Icon Dev Liste" src={IconDev} />
         <span class="text-list-section-02"
           >Indépendantes et indépendants pour une contribution bénévole à l'Open
           Source</span
         >
       </div>
       <div class="line-list-section-02">
-        <img alt="Icon Dev Liste" src={IconDev} />
+        <img width="160" height="71.84" alt="Icon Dev Liste" src={IconDev} />
         <span class="text-list-section-02"
           >Salariées et salariés sur leur temps libre...</span
         >
@@ -79,20 +80,76 @@
 
     <div class="display-techn-section-02">
       <div class="top-display-section-02">
-        <img alt="logo python" class="img-techn-section-02" src={LogoPython} />
-        <img alt="logo Java" class="img-techn-section-02" src={LogoJava} />
-        <img alt="logo php" class="img-techn-section-02" src={LogoPhp} />
-        <img alt="logo JS" class="img-techn-section-02" src={LogoJs} />
-        <img alt="logo html" class="img-techn-section-02" src={LogoHtml} />
-        <img alt="logo rust" class="img-techn-section-02" src={LogoRust} />
-        <img alt="logo ts" class="img-techn-section-02" src={LogoTs} />
-        <img alt="logo xml" class="img-techn-section-02" src={LogoXml} />
         <img
+          width="160"
+          height="71.84"
+          alt="logo python"
+          class="img-techn-section-02"
+          src={LogoPython}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo Java"
+          class="img-techn-section-02"
+          src={LogoJava}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo php"
+          class="img-techn-section-02"
+          src={LogoPhp}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo JS"
+          class="img-techn-section-02"
+          src={LogoJs}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo html"
+          class="img-techn-section-02"
+          src={LogoHtml}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo rust"
+          class="img-techn-section-02"
+          src={LogoRust}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo ts"
+          class="img-techn-section-02"
+          src={LogoTs}
+        />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo xml"
+          class="img-techn-section-02"
+          src={LogoXml}
+        />
+        <img
+          width="160"
+          height="71.84"
           alt="logo android"
           class="img-techn-section-02"
           src={LogoAndroid}
         />
-        <img alt="logo ios" class="img-techn-section-02" src={LogoIos} />
+        <img
+          width="160"
+          height="71.84"
+          alt="logo ios"
+          class="img-techn-section-02"
+          src={LogoIos}
+        />
       </div>
     </div>
   </div>
@@ -104,8 +161,14 @@
         <h2 class="number-section-03">1</h2>
         <span class="title-box-section-03">Renseigne ton email</span>
         <a href="/" class="button-section-03"
-          ><img alt="Fleche Gauche" src={IconLeft} /> Ton email ?
-          <img alt="Fleche Droite" src={IconRight} /></a
+          ><img width="160" height="71.84" alt="Fleche Gauche" src={IconLeft} />
+          Ton email ?
+          <img
+            width="160"
+            height="71.84"
+            alt="Fleche Droite"
+            src={IconRight}
+          /></a
         >
       </div>
 
@@ -115,8 +178,14 @@
           >Reçois par email toutes les informations pour devenir contributeur</span
         >
         <a href="/" class="button-section-03"
-          ><img alt="Fleche Gauche" src={IconLeft} /> Je m’inscris
-          <img alt="Fleche Droite" src={IconRight} /></a
+          ><img width="160" height="71.84" alt="Fleche Gauche" src={IconLeft} />
+          Je m’inscris
+          <img
+            width="160"
+            height="71.84"
+            alt="Fleche Droite"
+            src={IconRight}
+          /></a
         >
       </div>
 
@@ -124,8 +193,14 @@
         <h2 class="number-section-03">3</h2>
         <span class="title-box-section-03">Contribue à ecoCode</span>
         <a href="/" class="button-section-03"
-          ><img alt="Fleche Gauche" src={IconLeft} /> Allons-y !
-          <img alt="Fleche Droite" src={IconRight} /></a
+          ><img width="160" height="71.84" alt="Fleche Gauche" src={IconLeft} />
+          Allons-y !
+          <img
+            width="160"
+            height="71.84"
+            alt="Fleche Droite"
+            src={IconRight}
+          /></a
         >
       </div>
     </div>
@@ -139,6 +214,8 @@
           <div class="box-int-schema-section-04">
             <div class="int-box-schema-section-04">Rejoindre GitHub</div>
             <img
+              width="160"
+              height="71.84"
               alt="Fleche Droite"
               id="hidden-mobile"
               class="icon-arrow-section-04"
@@ -146,6 +223,8 @@
             />
           </div>
           <img
+            width="160"
+            height="71.84"
             alt="Fleche vers le bas"
             id="hidden-desktop"
             class="icon-arrow-bottom-section-04"
@@ -160,6 +239,8 @@
               langage
             </div>
             <img
+              width="160"
+              height="71.84"
               alt="Fleche Droite"
               id="hidden-mobile"
               class="icon-arrow-section-04"
@@ -167,6 +248,8 @@
             />
           </div>
           <img
+            width="160"
+            height="71.84"
             alt="Fleche vers le bas"
             id="hidden-desktop"
             class="icon-arrow-bottom-section-04"
@@ -182,6 +265,8 @@
             </div>
           </div>
           <img
+            width="160"
+            height="71.84"
             alt="fleche vers le bas"
             class="icon-arrow-bottom-section-04"
             src={IconBottomBlue}
@@ -196,6 +281,8 @@
               Intégration définitive à la solution open source ecoCode
             </div>
             <img
+              width="160"
+              height="71.84"
               alt="fleche gauche"
               id="hidden-mobile"
               class="icon-arrow-section-04"
@@ -210,6 +297,8 @@
               Validation des règles par une Core Team
             </div>
             <img
+              width="160"
+              height="71.84"
               alt="fleche gauche"
               id="hidden-mobile"
               class="icon-arrow-section-04"
@@ -217,6 +306,8 @@
             />
           </div>
           <img
+            width="160"
+            height="71.84"
             alt="fleche vers le bas"
             id="hidden-desktop"
             class="icon-arrow-bottom-section-04"
@@ -231,6 +322,8 @@
             </div>
           </div>
           <img
+            width="160"
+            height="71.84"
             alt="fleche vers le bas"
             id="hidden-desktop"
             class="icon-arrow-bottom-section-04"
@@ -248,9 +341,19 @@
     >
     <input class="input-section-05" type="text" placeholder="Ton e-mail" />
     <a href="/" class="button-section-05"
-      ><img alt="fleche gauche" src={IconLeftWhite} />
+      ><img
+        width="160"
+        height="71.84"
+        alt="fleche gauche"
+        src={IconLeftWhite}
+      />
       Recevoir les informations
-      <img alt="fleche droite" src={IconRightWhite} /></a
+      <img
+        width="160"
+        height="71.84"
+        alt="fleche droite"
+        src={IconRightWhite}
+      /></a
     >
   </div>
 </main>

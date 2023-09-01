@@ -84,6 +84,8 @@
         <div class="container-box-section-02">
           <div id="container-ecocode" class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo ecocode"
               id="ecocode"
               class="img-carousel-section-02"
@@ -96,6 +98,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo Snapp"
               id="snapp"
               class="img-carousel-section-02"
@@ -108,6 +112,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo Aquitaine"
               id="aquitaine"
               class="img-carousel-section-02"
@@ -122,6 +128,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo Pau"
               id="pau"
               class="img-carousel-section-02"
@@ -134,6 +142,8 @@
         <div class="container-box-section-02">
           <div id="last" class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo page jaune"
               id="societe"
               class="img-carousel-section-02"
@@ -146,6 +156,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo davidson"
               id="societe"
               class="img-carousel-section-02"
@@ -158,6 +170,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="Logo crédit agricole"
               id="societe"
               class="img-carousel-section-02"
@@ -170,6 +184,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo Sonar"
               id="societe"
               class="img-carousel-section-02"
@@ -182,6 +198,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="logo Enedis"
               id="societe"
               class="img-carousel-section-02"
@@ -194,6 +212,8 @@
         <div class="container-box-section-02">
           <div id="last" class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="Logo Cgi"
               id="societe"
               class="img-carousel-section-02"
@@ -206,6 +226,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="Logo Tosit"
               id="societe"
               class="img-carousel-section-02"
@@ -218,6 +240,8 @@
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="Logo Banque de france"
               id="societe"
               class="img-carousel-section-02"
@@ -230,6 +254,8 @@
         <div class="container-box-section-02">
           <div id="aubay-container" class="container-logo-section-02">
             <img
+              width="160"
+              height="71.84"
               alt="Logo Aubay"
               id="aubay"
               class="img-carousel-section-02"
@@ -241,9 +267,18 @@
       </div>
       <div class="box-button-section-02">
         <a href="/" class="button-section-02"
-          ><img alt="fleche gauche" src={IconLeft} />Devenir une entreprise
-          cliente
-          <img alt="fleche droite" src={IconRight} /></a
+          ><img
+            width="160"
+            height="71.84"
+            alt="fleche gauche"
+            src={IconLeft}
+          />Devenir une entreprise cliente
+          <img
+            width="160"
+            height="71.84"
+            alt="fleche droite"
+            src={IconRight}
+          /></a
         >
       </div>
     </div>
@@ -257,6 +292,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilDavidDCO}
@@ -268,6 +305,8 @@
             target="_blank"
             href="https://www.linkedin.com/in/david--de--carvalho/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -278,6 +317,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilJulesDR}
@@ -290,6 +331,8 @@
             target="_blank"
             href="https://www.linkedin.com/in/jules-delecour-498680118/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -300,6 +343,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilMaximeDS}
@@ -311,6 +356,8 @@
             target="_blank"
             href="https://www.linkedin.com/in/maxime-dubois-649a3a3/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -321,6 +368,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilGillesGT}
@@ -330,6 +379,8 @@
           <span class="subdetail-container-section-03">inside|app</span>
           <a target="_blank" href="https://www.linkedin.com/in/gillesgrousset/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -340,6 +391,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilJulienHT}
@@ -351,6 +404,8 @@
             target="_blank"
             href="https://www.linkedin.com/in/julien-hertout-b1175449/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -361,6 +416,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilGeoffreyLE}
@@ -372,6 +429,8 @@
           <span class="subdetail-container-section-03" />
           <a target="_blank" href="https://www.linkedin.com/in/geoffreylalloue/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -382,6 +441,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilOlivierLGR}
@@ -391,6 +452,8 @@
           <span class="subdetail-container-section-03">LIUPPA</span>
           <a target="_blank" href="https://www.linkedin.com/in/olivierlegoaer/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -401,6 +464,8 @@
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-03"
               src={ProfilMaximeMN}
@@ -410,6 +475,8 @@
           <span class="subdetail-container-section-03">Natixis</span>
           <a target="_blank" href="https://www.linkedin.com/in/maximemalgorn/"
             ><img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="icon-section-03"
               src={iconLinkedin}
@@ -426,6 +493,8 @@
         <div class="colum-section-04">
           <div class="line-list-section-04">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-line-section-04"
               src={iconLinkedin}
@@ -437,6 +506,8 @@
         <div class="colum-section-04">
           <div class="line-list-section-04">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-line-section-04"
               src={iconLinkedin}
@@ -448,6 +519,8 @@
         <div class="colum-section-04">
           <div class="line-list-section-04">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-line-section-04"
               src={iconLinkedin}
@@ -467,6 +540,8 @@
         <div class="container-box-section-05">
           <div id="container-team" class="container-logo-section-05">
             <img
+              width="160"
+              height="71.84"
               alt="icon-linkedin"
               class="img-carousel-section-05"
               src={ProfilMaximeDS}
@@ -474,21 +549,47 @@
           </div>
           <span class="detail-container-section-05">Maxime Dubois</span>
           <span class="subdetail-container-section-05">Snapp'</span>
-          <img alt="icon-linkedin" class="icon-section-05" src={iconLinkedin} />
+          <img
+            width="160"
+            height="71.84"
+            alt="icon-linkedin"
+            class="icon-section-05"
+            src={iconLinkedin}
+          />
         </div>
       </div>
       <div class="container-button-section-05">
         <div class="left-section-05">
           <a href="/" class="button-section-05"
-            ><img alt="fleche gauche" src={IconLeft} />Nos entreprises
-            partenaires
-            <img alt="fleche droite" src={IconRight} /></a
+            ><img
+              width="160"
+              height="71.84"
+              alt="fleche gauche"
+              src={IconLeft}
+            />Nos entreprises partenaires
+            <img
+              width="160"
+              height="71.84"
+              alt="fleche droite"
+              src={IconRight}
+            /></a
           >
         </div>
         <div class="right-section-05">
           <a href="/" class="button-section-05"
-            ><img alt="fleche gauche" src={IconLeft} /> Rejoindre l’équipe
-            <img alt="fleche droite" src={IconRight} /></a
+            ><img
+              width="160"
+              height="71.84"
+              alt="fleche gauche"
+              src={IconLeft}
+            />
+            Rejoindre l’équipe
+            <img
+              width="160"
+              height="71.84"
+              alt="fleche droite"
+              src={IconRight}
+            /></a
           >
         </div>
       </div>

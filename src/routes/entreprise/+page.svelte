@@ -19,14 +19,26 @@
     <div class="container-button-section-01">
       <div class="left-section-01">
         <a href="/" class="button-section-01"
-          ><img alt="fleche gauche" src={IconLeft} /> Demande de contact
-          <img alt="fleche droite" src={IconRight} /></a
+          ><img width="160" height="71.84" alt="fleche gauche" src={IconLeft} />
+          Demande de contact
+          <img
+            width="160"
+            height="71.84"
+            alt="fleche droite"
+            src={IconRight}
+          /></a
         >
       </div>
       <div class="right-section-01">
         <a href="/" class="button-section-01"
-          ><img alt="fleche gauche" src={IconLeft} /> Recevez le cas client
-          Société Générale <img alt="fleche droite" src={IconRight} /></a
+          ><img width="160" height="71.84" alt="fleche gauche" src={IconLeft} />
+          Recevez le cas client Société Générale
+          <img
+            width="160"
+            height="71.84"
+            alt="fleche droite"
+            src={IconRight}
+          /></a
         >
       </div>
     </div>
@@ -95,8 +107,19 @@
       >
       <h2 class="title-section-03">Exemple de règles produites</h2>
       <a href="/" class="button-section-03"
-        ><img alt="fleche gauche" src={IconLeftWhite} /> Demande de devis
-        <img alt="fleche droite" src={IconRightWhite} /></a
+        ><img
+          width="160"
+          height="71.84"
+          alt="fleche gauche"
+          src={IconLeftWhite}
+        />
+        Demande de devis
+        <img
+          width="160"
+          height="71.84"
+          alt="fleche droite"
+          src={IconRightWhite}
+        /></a
       >
       <h2 class="title-section-03">Exemple de règles produites</h2>
     </div>
@@ -138,8 +161,19 @@
       </form>
 
       <a href="/" class="button-section-04"
-        ><img alt="fleche gauche" src={IconLeftWhite} /> Recevez notre cas
-        client <img alt="fleche droite" src={IconRightWhite} /></a
+        ><img
+          width="160"
+          height="71.84"
+          alt="fleche gauche"
+          src={IconLeftWhite}
+        />
+        Recevez notre cas client
+        <img
+          width="160"
+          height="71.84"
+          alt="fleche droite"
+          src={IconRightWhite}
+        /></a
       >
     </div>
   </div>
