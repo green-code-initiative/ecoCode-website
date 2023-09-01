@@ -202,7 +202,7 @@
             alt="Fleche Gauche"
             id="hidden-desktop"
             class="icon-arrow-bottom-section-04"
-            src={IconLeftBlue}
+            src={IconBottomBlue}
           />
         </div>
 

@@ -16,7 +16,14 @@
   import IconLeft from "../../lib/assets/img/icon/arrow-left.webp";
   import IconRight from "../../lib/assets/img/icon/arrow-right.webp";
 
-  import PictureProfil from "../../lib/assets/img/logo/test.jpg";
+  import ProfilDavidDCO from "../../lib/assets/img/profil/David_De_Carvalho.jpeg";
+  import ProfilJulesDR from "../../lib/assets/img/profil/Jules_Delecour.jpeg";
+  import ProfilMaximeDS from "../../lib/assets/img/profil/Maxime_Dubois.jpeg";
+  import ProfilGillesGT from "../../lib/assets/img/profil/Gilles_Grousset.jpeg";
+  import ProfilJulienHT from "../../lib/assets/img/profil/Julien_Hertout.jpeg";
+  import ProfilGeoffreyLE from "../../lib/assets/img/profil/Geoffrey_Lalloué.jpeg";
+  import ProfilOlivierLGR from "../../lib/assets/img/profil/Olivier_Le_Goaer.jpeg";
+  import ProfilMaximeMN from "../../lib/assets/img/profil/Maxime_Malgorn.jpeg";
 
   import iconLinkedin from "../../lib/assets/img/icon/icon-linkedIn.png";
 
@@ -252,12 +259,162 @@
             <img
               alt="icon-linkedin"
               class="img-carousel-section-03"
-              src={PictureProfil}
+              src={ProfilDavidDCO}
+            />
+          </div>
+          <span class="detail-container-section-03">David De Carvalho</span>
+          <span class="subdetail-container-section-03">Pages Jaunes</span>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/david--de--carvalho/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilJulesDR}
+            />
+          </div>
+          <span class="detail-container-section-03">Jules Delecour</span>
+          <span class="subdetail-container-section-03">Davidson Consulting</span
+          >
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/jules-delecour-498680118/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilMaximeDS}
             />
           </div>
           <span class="detail-container-section-03">Maxime Dubois</span>
           <span class="subdetail-container-section-03">Snapp'</span>
-          <img alt="icon-linkedin" class="icon-section-03" src={iconLinkedin} />
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/maxime-dubois-649a3a3/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilGillesGT}
+            />
+          </div>
+          <span class="detail-container-section-03">Gilles Grousset</span>
+          <span class="subdetail-container-section-03">inside|app</span>
+          <a target="_blank" href="https://www.linkedin.com/in/gillesgrousset/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilJulienHT}
+            />
+          </div>
+          <span class="detail-container-section-03">Julien Hertout</span>
+          <span class="subdetail-container-section-03">Snapp'</span>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/julien-hertout-b1175449/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilGeoffreyLE}
+            />
+          </div>
+          <span class="detail-container-section-03 no-entreprise"
+            >Geoffrey Lalloué</span
+          >
+          <span class="subdetail-container-section-03" />
+          <a target="_blank" href="https://www.linkedin.com/in/geoffreylalloue/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilOlivierLGR}
+            />
+          </div>
+          <span class="detail-container-section-03">Olivier Le Goaër</span>
+          <span class="subdetail-container-section-03">LIUPPA</span>
+          <a target="_blank" href="https://www.linkedin.com/in/olivierlegoaer/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
+        </div>
+
+        <div class="container-box-section-03">
+          <div id="container-team" class="container-logo-section-03">
+            <img
+              alt="icon-linkedin"
+              class="img-carousel-section-03"
+              src={ProfilMaximeMN}
+            />
+          </div>
+          <span class="detail-container-section-03">Maxime Malgorn</span>
+          <span class="subdetail-container-section-03">Natixis</span>
+          <a target="_blank" href="https://www.linkedin.com/in/maximemalgorn/"
+            ><img
+              alt="icon-linkedin"
+              class="icon-section-03"
+              src={iconLinkedin}
+            /></a
+          >
         </div>
       </div>
     </div>
@@ -312,7 +469,7 @@
             <img
               alt="icon-linkedin"
               class="img-carousel-section-05"
-              src={PictureProfil}
+              src={ProfilMaximeDS}
             />
           </div>
           <span class="detail-container-section-05">Maxime Dubois</span>

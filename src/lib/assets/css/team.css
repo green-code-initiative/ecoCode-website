@@ -11,6 +11,10 @@ a {
   width: 181px;
 }
 
+.no-entreprise {
+  margin-bottom: 16px !important;
+}
+
 .is-active {
   opacity: 1 !important;
 }
