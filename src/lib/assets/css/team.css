@@ -1,4 +1,7 @@
 a {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   text-decoration: none;
 }
 
@@ -57,7 +60,7 @@ main {
   font-family: "Mulish", sans-serif;
   font-size: 30px;
   font-weight: 900;
-  width: 348px;
+  width: 440px;
   text-align: center;
   margin: 0px 78px 23px 78px;
   background-color: transparent;
@@ -68,6 +71,7 @@ main {
 .title-accueil:hover {
   cursor: pointer;
 }
+
 .section-02 {
   background-color: #ffffff;
   width: 100%;
@@ -84,7 +88,7 @@ main {
   font-size: 40px;
   font-weight: 900;
   text-align: center;
-  width: 1089px;
+  width: 1300px;
   margin: 92px 0px 25px 0px;
 }
 
@@ -127,7 +131,28 @@ main {
   justify-content: center;
 }
 
-.container-box-section-02:last-child > .container-logo-section-05 {
+
+.container-box-section-02:last-child>.container-logo-section-02 {
+  padding: 17px 48.7px 21px;
+  width: 181px;
+}
+
+.container-box-section-02:last-child>.container-logo-section-02>.img-carousel-section-02 {
+  width: 69px !important;
+}
+
+.container-box-section-02:first-child>.container-logo-section-02 {
+  padding: 17px 48.7px 21px;
+  width: 181px;
+}
+
+.container-box-section-02:first-child>.container-logo-section-02>.img-carousel-section-02 {
+  width: 82px !important;
+}
+
+
+
+.container-box-section-02:last-child>.container-logo-section-05 {
   margin: 0px 0px 9px 0px;
 }
 
@@ -196,7 +221,7 @@ main {
   margin: 0px 60px 0px 60px;
 }
 
-.button-section-02 > img {
+.button-section-02>img {
   width: 24px;
   height: auto;
 }
@@ -274,7 +299,7 @@ main {
   position: relative;
 }
 
-.container-box-section-03:last-child > .container-logo-section-05 {
+.container-box-section-03:last-child>.container-logo-section-05 {
   margin: 0px 0px 9px 0px;
 }
 
@@ -321,7 +346,16 @@ main {
   font-family: "Mulish", sans-serif;
   font-size: 13px;
   font-weight: normal;
+  text-align: center;
   margin: 0px 23.5px 0px 23.5px;
+}
+
+.no-entreprise {
+  margin-bottom: 81px;
+}
+
+.no-reseaux {
+  margin-left: 36px;
 }
 
 .icon-section-03 {
@@ -363,13 +397,14 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 60px;
+  width: 1330px;
 }
 
 .colum-section-04 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: center;
   margin: 0px 114px 0px 114px;
@@ -379,7 +414,8 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0px 0px 30px 0px;
+  margin: 0px 114px 30px 114px;
+  width: 200px;
 }
 
 .img-line-section-04 {
@@ -461,7 +497,7 @@ main {
   position: relative;
 }
 
-.container-box-section-05:last-child > .container-logo-section-05 {
+.container-box-section-05:last-child>.container-logo-section-05 {
   margin: 0px 0px 9px 0px;
 }
 
@@ -527,7 +563,7 @@ main {
   margin: 0px 0px 268px 0px;
 }
 
-.left-section-05 > .button-section-05 {
+.left-section-05>.button-section-05 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -542,7 +578,8 @@ main {
   width: 380px;
   border: solid 2px #57c18b;
 }
-.right-section-05 > .button-section-05 {
+
+.right-section-05>.button-section-05 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -558,7 +595,7 @@ main {
   border: solid 2px #57c18b;
 }
 
-.button-section-05 > img {
+.button-section-05>img {
   width: 24px;
   height: auto;
   margin-top: 4px;
@@ -579,14 +616,14 @@ main {
 }
 
 #blockMembreContributeur {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
 #blockEntreprisePartenaire {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   width: 100%;

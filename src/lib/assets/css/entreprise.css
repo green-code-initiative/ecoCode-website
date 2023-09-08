@@ -45,23 +45,7 @@ main {
     justify-content: center;
     margin: 0px 0px 44px 0px;
   }
-  
-  .left-section-01 > .button-section-01 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    padding: 8.4px 13px 10px;
-    border-radius: 12px;
-    font-family: "Mulish", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #355086;
-    width: 279px;
-    margin: 0px 0px 0px 0px;
-    border: solid 2px #57c18b;
-  }
+
   .right-section-01 > .button-section-01 {
     display: flex;
     flex-direction: row;
@@ -84,18 +68,12 @@ main {
     margin-top: 4px;
   }
   
-  .left-section-01 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px 282px 0px 258px;
-  }
   
   .right-section-01 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 175px 0px 0px;
+    margin: 0px 0px 0px 0px;
   }
   
   .title-right-section-01 {
@@ -246,6 +224,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
   }
   
   .title-section-03 {

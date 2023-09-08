@@ -1,0 +1,54 @@
+[
+    {
+        "img": "../../src/lib/assets/img/logo/logo-ecocode-carousel.webp",
+        "name": "Eco Code"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-snapp-carousel.webp",
+        "name": "Snapp"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-aquitaine-carousel.jpg",
+        "name": "Région Nouvelle Aquitaine'"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-pau-carousel.jpg",
+        "name": "UPPA"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-page-jaune.webp",
+        "name": "Pages Jaunes"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-davidson.jpg",
+        "name": "Davidson"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-ca.png",
+        "name": "Crédit Agricole"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-sonar.png",
+        "name": "Sonar"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-enedis.svg",
+        "name": "Enedis"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-cgi.png",
+        "name": "CGI"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-tosit.jpeg",
+        "name": "TOSIT"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-banque.svg",
+        "name": "Banque de France"
+    },
+    {
+        "img": "../../src/lib/assets/img/logo/logo-aubay.svg",
+        "name": "Aubay"
+    }
+]

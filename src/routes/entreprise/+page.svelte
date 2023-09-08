@@ -9,39 +9,25 @@
 <main>
   <div class="section-01">
     <h1 class="title-accueil">
-      Nous proposons aux entreprises et aux organisations la créations de règles
-      d'éco-conception logicielle sur-mesure.
+      Nous proposons aux organisations la création de règles d'éco-conception
+      logicielle sur-mesure.
     </h1>
-    <span class="subtitle-accueil"
-      >En collaborant avec nous, vous réduisez votre impact numérique et
-      contribuez à l'Open Source.</span
-    >
+    <span class="subtitle-accueil">En collaborant avec nous, vous réduisez votre impact numérique et
+      contribuez à l'Open Source.</span>
     <div class="container-button-section-01">
-      <div class="left-section-01">
-        <a href="/" class="button-section-01"
-          ><img width="160" height="71.84" alt="fleche gauche" src={IconLeft} />
-          Demande de contact
-          <img
-            width="160"
-            height="71.84"
-            alt="fleche droite"
-            src={IconRight}
-          /></a
-        >
-      </div>
       <div class="right-section-01">
-        <a href="/" class="button-section-01"
-          ><img width="160" height="71.84" alt="fleche gauche" src={IconLeft} />
+        <a href="/" class="button-section-01"><img width="160" height="71.84" alt="fleche gauche" src={IconLeft} />
           Recevez le cas client Société Générale
-          <img
-            width="160"
-            height="71.84"
-            alt="fleche droite"
-            src={IconRight}
-          /></a
-        >
+          <img width="160" height="71.84" alt="fleche droite" src={IconRight} /></a>
       </div>
     </div>
+  </div>
+
+  <div class="section-03">
+    <h2 class="title-section-03">Notre offre</h2>
+    <span class="subtitle-section-03">Nous créons des extensions SonarQube pour analyser votre code et vous
+      permettre de réduire son impact.</span>
+    
   </div>
 
   <div class="section-02">
@@ -69,10 +55,7 @@
         </div>
 
         <div class="box-schema-section-02">
-          <span
-            id="lastTitle-box-schema-section-02"
-            class="title-schema-box-section-02">Test</span
-          >
+          <span id="lastTitle-box-schema-section-02" class="title-schema-box-section-02">Test</span>
           <div class="box-int-schema-section-02">
             <div class="int-box-schema-section-02">
               Test des règles produites pour s’assurer de leur efficacité dans
@@ -92,36 +75,10 @@
           </div>
         </div>
       </div>
-      <span class="text-detail-schema-section-02"
-        >Toutes les règles sur-mesure, produites pour le compte d'organisations,
+      <span class="text-detail-schema-section-02">Toutes les règles sur-mesure, produites pour le compte
+        d'organisations,
         tombent dans l'Open Source. C'est votre contribution à rendre le
-        numérique plus responsable.</span
-      >
-    </div>
-
-    <div class="section-03">
-      <h2 class="title-section-03">Notre offre</h2>
-      <span class="subtitle-section-03"
-        >Nous créons des extensions SonarQube pour analyser votre code et vous
-        permettre de réduire son impact.</span
-      >
-      <h2 class="title-section-03">Exemple de règles produites</h2>
-      <a href="/" class="button-section-03"
-        ><img
-          width="160"
-          height="71.84"
-          alt="fleche gauche"
-          src={IconLeftWhite}
-        />
-        Demande de devis
-        <img
-          width="160"
-          height="71.84"
-          alt="fleche droite"
-          src={IconRightWhite}
-        /></a
-      >
-      <h2 class="title-section-03">Exemple de règles produites</h2>
+        numérique plus responsable.</span>
     </div>
 
     <div class="section-04">
@@ -134,47 +91,19 @@
             <input class="input-section-04" type="text" placeholder="Nom" />
             <input class="input-section-04" type="text" placeholder="Prénom" />
           </div>
-          <input
-            class="input-section-04"
-            type="text"
-            placeholder="Votre organisation"
-          />
-          <input
-            class="input-section-04"
-            type="text"
-            placeholder="Votre rôle"
-          />
+          <input class="input-section-04" type="text" placeholder="Votre organisation" />
+          <input class="input-section-04" type="text" placeholder="Votre rôle" />
           <div class="merge-input-section-04">
-            <input
-              class="input-section-04"
-              type="text"
-              placeholder="Téléphone"
-            />
+            <input class="input-section-04" type="text" placeholder="Téléphone" />
             <input class="input-section-04" type="text" placeholder="E-mail" />
           </div>
-          <textarea
-            class="text-area-section-04"
-            type="text"
-            placeholder="Votre besoin"
-          />
+          <textarea class="text-area-section-04" type="text" placeholder="Votre besoin" />
         </div>
       </form>
 
-      <a href="/" class="button-section-04"
-        ><img
-          width="160"
-          height="71.84"
-          alt="fleche gauche"
-          src={IconLeftWhite}
-        />
+      <a href="/" class="button-section-04"><img width="160" height="71.84" alt="fleche gauche" src={IconLeftWhite} />
         Recevez notre cas client
-        <img
-          width="160"
-          height="71.84"
-          alt="fleche droite"
-          src={IconRightWhite}
-        /></a
-      >
+        <img width="160" height="71.84" alt="fleche droite" src={IconRightWhite} /></a>
     </div>
   </div>
 </main>

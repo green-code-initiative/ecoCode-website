@@ -93,7 +93,7 @@
   }
 
   #hidden-desktop {
-    display: flex;
+    display: flex !important;
   }
 
   #hidden-mobile {

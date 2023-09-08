@@ -81,8 +81,12 @@
     flex-direction: column;
   }
 
+  .container-form-section-06 {
+    margin: 0px 0px 31px 0px;
+  }
+
   #hidden-desktop {
-    display: flex;
+    display: flex !important;
   }
 
   #hidden-mobile {

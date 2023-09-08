@@ -1,18 +1,21 @@
 <script>
-  // @ts-nocheck
+  // Import des fichiers CSS, composants Svelte, et fonctions Svelte nécessaires
   import "../lib/assets/css/header.css";
   import Footer from "../routes/footer.svelte";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
 
+  // Déclaration de variables
   let headerColor = "";
   let active = "";
   let currentURL = "";
 
+  // Souscription au store 'page' pour obtenir l'URL actuelle
   page.subscribe((value) => {
     currentURL = value.url.pathname;
   });
 
+  // Définition de la couleur et de la classe active en fonction de 'currentURL'
   if (currentURL.includes("/contributeur")) {
     headerColor = "contributeur-background";
     active = "is-active";
@@ -26,6 +29,7 @@
     headerColor = "";
   }
 
+  // Définition de la fonction 'Menu' pour gérer le menu mobile
   function Menu() {
     const x = document.getElementById("menu-desktop");
     if (x.className === "topnav") {
@@ -34,106 +38,59 @@
       x.className = "topnav";
     }
   }
+
+  // Import d'images et de logos
   import IconLeftWhite from "./../lib/assets/img/icon/arrow-left-white.webp";
   import IconRightWhite from "./../lib/assets/img/icon/arrow-right-white.webp";
   import Logo from "./../lib/assets/img/logo/logo-ecocode.webp";
 </script>
 
 <header class={headerColor}>
-  <a data-sveltekit-reload href="/"
-    ><img
-      width="160"
-      height="71.84"
-      alt="logo-accueil"
-      class="logo-header"
-      src={Logo}
-    /></a
-  >
+  <a data-sveltekit-reload href="/"><img width="160" height="71.84" alt="logo-accueil" class="logo-header"
+      src={Logo} /></a>
   <div id="menu-desktop" class="topnav">
-    <a
-      data-sveltekit-reload
-      class="text-header {currentURL.includes('contributeur')
+
+    <!-- Liens de navigation avec des classes dynamiques en fonction de 'currentURL' -->
+    <a data-sveltekit-reload class="text-header {currentURL.includes('contributeur')
         ? 'is-active'
-        : ''}"
-      href="/contributeur"
-    >
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche gauche"
-        class="icon-header {currentURL.includes('contributeur')
+        : ''}" href="/contributeur">
+      <img width="160" height="71.84" alt="fleche gauche" class="icon-header {currentURL.includes('contributeur')
           ? ''
-          : 'hide-arrow'}"
-        src={IconLeftWhite}
-      />
+          : 'hide-arrow'}" src={IconLeftWhite} />
       <span>Contributeur</span>
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche droite"
-        class="icon-header {currentURL.includes('contributeur')
+      <img width="160" height="71.84" alt="fleche droite" class="icon-header {currentURL.includes('contributeur')
           ? ''
-          : 'hide-arrow'}"
-        src={IconRightWhite}
-      />
+          : 'hide-arrow'}" src={IconRightWhite} />
     </a>
 
-    <a
-      data-sveltekit-reload
-      class="text-header {currentURL.includes('entreprise') ? 'is-active' : ''}"
-      href="/entreprise"
-    >
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche gauche"
-        class="icon-header {currentURL.includes('entreprise')
+    <a data-sveltekit-reload class="text-header {currentURL.includes('entreprise') ? 'is-active' : ''}"
+      href="/entreprise">
+      <img width="160" height="71.84" alt="fleche gauche" class="icon-header {currentURL.includes('entreprise')
           ? ''
-          : 'hide-arrow'}"
-        src={IconLeftWhite}
-      />
+          : 'hide-arrow'}" src={IconLeftWhite} />
       <span>Entreprise</span>
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche droite"
-        class="icon-header {currentURL.includes('entreprise')
+      <img width="160" height="71.84" alt="fleche droite" class="icon-header {currentURL.includes('entreprise')
           ? ''
-          : 'hide-arrow'}"
-        src={IconRightWhite}
-      />
+          : 'hide-arrow'}" src={IconRightWhite} />
     </a>
 
-    <a
-      data-sveltekit-reload
-      class="text-header {currentURL.includes('team') ? 'is-active' : ''}"
-      href="/team"
-    >
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche gauche"
-        class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}"
-        src={IconLeftWhite}
-      />
+    <a data-sveltekit-reload class="text-header {currentURL.includes('team') ? 'is-active' : ''}" href="/team">
+      <img width="160" height="71.84" alt="fleche gauche"
+        class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}" src={IconLeftWhite} />
       <span>Team</span>
-      <img
-        width="160"
-        height="71.84"
-        alt="fleche droite"
-        class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}"
-        src={IconRightWhite}
-      />
+      <img width="160" height="71.84" alt="fleche droite"
+        class="icon-header {currentURL.includes('team') ? '' : 'hide-arrow'}" src={IconRightWhite} />
     </a>
+
   </div>
-  <button class="button-header text-header" on:click={Menu}
-    ><i id="menu-mobile" class="fa-solid fa-bars" />
+  <!-- Bouton pour le menu mobile -->
+  <button class="button-header text-header" on:click={Menu}><i id="menu-mobile" class="fa-solid fa-bars" />
   </button>
 </header>
-<slot />
-<Footer />
-
+<slot /> <!-- Emplacement pour le contenu dynamique -->
+<Footer /> <!-- Inclusion du composant Footer -->
 <style>
+  /* Définition des styles CSS */
   .contributeur-background {
     background-color: #529a75;
   }

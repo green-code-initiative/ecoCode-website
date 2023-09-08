@@ -80,6 +80,11 @@
     margin-right: 47px;
   }
 
+  .line-list-section-04{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   #container-ecocode {
     margin-left: 47px;
     margin-right: 47px;
@@ -169,6 +174,8 @@
 
   .tab-list-section-04 {
     flex-wrap: wrap;
+    width: inherit;
+    justify-content: center;
   }
 
   .subtitle-section-05 {
