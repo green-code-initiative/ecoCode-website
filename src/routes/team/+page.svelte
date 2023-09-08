@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount} from "svelte";
+  import { get } from "svelte/store"; 
   import IconLeft from "../../lib/assets/img/icon/arrow-left.webp";
   import IconRight from "../../lib/assets/img/icon/arrow-right.webp";
 
@@ -69,6 +70,16 @@
     fetchJSONContribution();
     fetchJSONEmeriti();
     fetchLogo();
+
+
+    const params = new URLSearchParams(window.location.search);
+    const espace = params.get("espace");
+
+    if (espace === "entreprise") {
+      changeDisplayEntreprise();
+    } else if (espace === "membre") {
+      changeDisplayMembre();
+    }
   });
 </script>
 
@@ -182,6 +193,7 @@
       </div>
       </div>
     </div>-->
+    </div>
   </div>
 </main>
 
