@@ -256,7 +256,7 @@
     <div class="box-button-section-05">
       <a data-sveltekit-reload href="/team?espace=entreprise" class="button-section-05"><img width="24" height="24" alt="Fleche Gauche"
           src={IconLeft} />
-        Toutes les entreprises partenaires
+        Toutes les organisations partenaires
         <img width="24" height="24" alt="Fleche Droite" src={IconRight} /></a>
       <a data-sveltekit-reload href="/team?espace=membre" class="button-section-05"><img width="24" height="24" alt="Fleche Gauche"
           src={IconLeft} /> Tous

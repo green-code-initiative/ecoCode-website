@@ -1,30 +1,30 @@
 [
   {
-    "img": "../../src/lib/assets/img/profil/Justin_Berque.jpeg",
+    "img": "/img/profil/Justin_Berque.jpeg",
     "name": "Justin Berque",
     "entreprise": "Snapp'",
     "link": "https://www.linkedin.com/in/justin-berque-444412140/"
   },
   {
-    "img": "../../src/lib/assets/img/profil/Jean-Yves-Cronier.jpeg",
+    "img": "/img/profil/Jean-Yves-Cronier.jpeg",
     "name": "Jean-Yves Cronier",
     "entreprise": "Crédit Agricole Payment Services ",
     "link": "https://www.linkedin.com/in/jean-yves-cronier-ba3b7a18/"
   },
   {
-    "img": "../../src/lib/assets/img/profil/Johanna_Duigou.jpeg",
+    "img": "/img/profil/Johanna_Duigou.jpeg",
     "name": "Johanna Duigou",
     "entreprise": "Orange Business Services",
     "link": "https://www.linkedin.com/in/johannaduigou/"
   },
   {
-    "img": "../../src/lib/assets/img/profil/Emmanuel_Espias.jpeg",
+    "img": "/img/profil/Emmanuel_Espias.jpeg",
     "name": "Emmanuel Espias",
     "entreprise": "Indépendant",
     "link": "https://www.linkedin.com/in/eespias/"
   },
   {
-    "img": "../../src/lib/assets/img/profil/Mikael_Picard.jpg",
+    "img": "/img/profil/Mikael_Picard.jpg",
     "name": "Mikaël Picard",
     "entreprise": "Aubay",
     "link": ""

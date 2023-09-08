@@ -6,6 +6,14 @@
 
   import iconLinkedin from "../../lib/assets/img/icon/icon-linkedIn.png";
 
+  import JSONDATATEAM from "../../lib/assets/data/core-team.json";
+  import JSONDATACONTRIBUTEUR from "../../lib/assets/data/contribution.json";
+  import JSONDATAENTPARTENAIRE from "../../lib/assets/data/entreprisePartenaire.json";
+
+  
+  
+
+
   function changeDisplayEntreprise() {
     blockEntreprisePartenaire.style.display = "flex";
     blockMembreContributeur.style.display = "none";
@@ -35,43 +43,11 @@
     }
   }
 
-  let jsonDataTeam = "";
-  let jsonDataContribution = "";
-  let jsonDataTeamEmeriti = "";
-
-  let jsonEntreprisePartenaire = "";
   let isMounted = false;
+  
 
-  async function fetchJSONTeam() {
-    const response = await fetch("../../data/core-team.json");
-    jsonDataTeam = await response.json();
-  }
-
-  async function fetchJSONContribution() {
-    const response = await fetch("../../data/contribution.json");
-
-    jsonDataContribution = await response.json();
-  }
-
-  async function fetchJSONEmeriti() {
-    const response = await fetch("../../data/team-emeriti.json");
-
-    jsonDataTeamEmeriti = await response.json();
-  }
-
-  async function fetchLogo() {
-    const response = await fetch("../../data/entreprisePartenaire.json");
-
-    jsonEntreprisePartenaire = await response.json();
-  }
 
   onMount(() => {
-    fetchJSONTeam();
-    fetchJSONContribution();
-    fetchJSONEmeriti();
-    fetchLogo();
-
-
     const params = new URLSearchParams(window.location.search);
     const espace = params.get("espace");
 
@@ -99,7 +75,7 @@
         De nombreuses organisations s'impliquent sur ecoCode
       </h2>
       <div class="carousel-section-02">
-        {#each jsonEntreprisePartenaire as item}
+        {#each JSONDATAENTPARTENAIRE as item}
         <div class="container-box-section-02">
           <div class="container-logo-section-02">
             <img id="snapp" width="160" height="71.84" alt="logo ecocode" class="img-carousel-section-02"
@@ -117,7 +93,7 @@
       <h2 class="title-section-03">Core team</h2>
       <span class="subtitle-section-03">La team renforcée d’ecoCode</span>
       <div class="carousel-section-03">
-        {#each jsonDataTeam as item}
+        {#each JSONDATATEAM as item}
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img width="160" height="71.84" alt="icon-linkedin" class="img-carousel-section-03" src={item.img} />
@@ -141,7 +117,7 @@
       <h2 class="title-section-04">Contributrices et contributeurs</h2>
       <span class="subtitle-section-04">La team active sur ecoCode</span>
       <div class="carousel-section-03">
-        {#each jsonDataContribution as item}
+        {#each JSONDATACONTRIBUTEUR as item}
         <div class="container-box-section-03">
           <div id="container-team" class="container-logo-section-03">
             <img width="160" height="71.84" alt="icon-linkedin" class="img-carousel-section-03" src={item.img} />

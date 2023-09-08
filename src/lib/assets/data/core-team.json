@@ -1,51 +1,50 @@
 [
     {
-      "img": "../../src/lib/assets/img/profil/David_De_Carvalho.jpeg",
+      "img": "/img/profil/David_De_Carvalho.jpeg",
       "name": "David De Carvalho",
       "entreprise": "Pages Jaunes",
       "link": "https://www.linkedin.com/in/david--de--carvalho/"
     },
     {
-      "img": "../../src/lib/assets/img/profil/Jules_Delecour.jpeg",
+      "img": "/img/profil/Jules_Delecour.jpeg",
       "name": "Jules Delecour",
       "entreprise": "Davidson Consultin",
       "link": "https://www.linkedin.com/in/jules-delecour-498680118/"
     },
     {
-      "img": "../../src/lib/assets/img/profil/Maxime_Dubois.jpeg",
+      "img": "/img/profil/Maxime_Dubois.jpeg",
       "name": "Maxime Dubois",
       "entreprise": "Snapp'",
       "link": "https://www.linkedin.com/in/maxime-dubois-649a3a3/"
     },
     {
-        "img": "../../src/lib/assets/img/profil/Gilles_Grousset.jpeg",
+        "img": "/img/profil/Gilles_Grousset.jpeg",
         "name": "Gilles Brousset",
         "entreprise": "Inside|App",
         "link": "https://www.linkedin.com/in/gillesgrousset/"
       },
       {
-        "img": "../../src/lib/assets/img/profil/Julien_Hertout.jpeg",
+        "img": "/img/profil/Julien_Hertout.jpeg",
         "name": "Julien Hertout",
         "entreprise": "Snapp'",
         "link": "https://www.linkedin.com/in/julien-hertout-b1175449/"
       },
       {
-        "img": "../../src/lib/assets/img/profil/Geoffrey_Lalloué.jpeg",
+        "img": "/img/profil/Geoffrey_Lalloué.jpeg",
         "name": "Geoffrey Lalloué",
         "entreprise": "",
         "link": "https://www.linkedin.com/in/geoffreylalloue/"
       },
       {
-        "img": "../../src/lib/assets/img/profil/Olivier_Le_Goaer.jpeg",
+        "img": "/img/profil/Olivier_Le_Goaer.jpeg",
         "name": "Olivier Le Goaër",
         "entreprise": "LIUUPA",
         "link": "https://www.linkedin.com/in/olivierlegoaer/"
       },
       {
-        "img": "../../src/lib/assets/img/profil/Maxime_Malgorn.jpeg",
+        "img": "/img/profil/Maxime_Malgorn.jpeg",
         "name": "Maxime Malgorn",
         "entreprise": "Natixis",
         "link": "https://www.linkedin.com/in/maximemalgorn/"
       }
-  ]
-  
+]
