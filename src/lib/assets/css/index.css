@@ -533,6 +533,7 @@ main {
   flex-direction: row;
   justify-content: center;
   margin: 0px 0px 31px 25px;
+  align-items: center;
 }
 
 .top-form-section-06 {
@@ -550,7 +551,7 @@ main {
 }
 
 .select-section-06 {
-  margin: 0px 0px 60px 25px;
+  margin: 0px 0px 0px 25px;
   background-color: #ffffff;
   padding: 15px 50px 17px 20px;
   border-radius: 8px;
