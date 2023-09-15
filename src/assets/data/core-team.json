@@ -1,0 +1,65 @@
+[
+    { "img":"/David_De_Carvalho.jpeg",
+      "name": "David De Carvalho",
+      "entreprise": "Pages Jaunes",
+      "width": 80,
+      "height": 80, 
+      "link": "https://www.linkedin.com/in/david--de--carvalho/"
+    },
+    {
+      "img": "/Jules_Delecour.jpeg",
+      "name": "Jules Delecour",
+      "entreprise": "Davidson",
+      "width": 80,
+      "height": 80, 
+      "link": "https://www.linkedin.com/in/jules-delecour-498680118/"
+    },
+    {
+      "img": "/Maxime_Dubois.jpeg",
+      "name": "Maxime Dubois",
+      "entreprise": "Snapp'",
+      "width": 80,
+      "height": 80, 
+      "link": "https://www.linkedin.com/in/maxime-dubois-649a3a3/"
+    },
+    {
+        "img": "/Gilles_Grousset.jpeg",
+        "name": "Gilles Grousset",
+        "entreprise": "inside|app",
+        "width": 80,
+        "height": 80, 
+        "link": "https://www.linkedin.com/in/gillesgrousset/"
+      },
+      {
+        "img": "/Julien_Hertout.jpeg",
+        "name": "Julien Hertout",
+        "entreprise": "Snapp'",
+        "width": 80,
+        "height": 80, 
+        "link": "https://www.linkedin.com/in/julien-hertout-b1175449/"
+      },
+      {
+        "img": "/Geoffrey_Lalloué.jpeg",
+        "name": "Geoffrey Lalloué",
+        "entreprise": "",
+        "width": 80,
+        "height": 80, 
+        "link": "https://www.linkedin.com/in/geoffreylalloue/"
+      },
+      {
+        "img": "/Olivier_Le_Goaer.jpeg",
+        "name": "Olivier Le Goaër",
+        "entreprise": "LIUPPA",
+        "width": 80,
+        "height": 80, 
+        "link": "https://www.linkedin.com/in/olivierlegoaer/"
+      },
+      {
+        "img": "/Maxime_Malgorn.jpeg",
+        "name": "Maxime Malgorn",
+        "entreprise": "Natixis",
+        "width": 80,
+        "height": 80, 
+        "link": "https://www.linkedin.com/in/maximemalgorn/"
+      }
+]
