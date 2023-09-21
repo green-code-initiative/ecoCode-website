@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <span class="text-footer">Started with 💚 in France in 2019</span>
+        <span class="text-footer">Initié avec 💚 en France en 2019</span>
       </footer>
 </template>
 <script setup lang="ts">
