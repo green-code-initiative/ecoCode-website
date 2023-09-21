@@ -23,6 +23,8 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build
+    - name: Replace symlinks by the targeted file
+      run: find ./dist -type l -exec sh -c 'cp --remove-destination "$(readlink "{}")" "{}"' \;
     - name: Archive production artifacts
       uses: actions/upload-pages-artifact@v2
       with:
