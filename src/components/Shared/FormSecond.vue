@@ -132,8 +132,8 @@ const submitForm = async () => {
       detail: detail.value,
     };
     try {
-      const response = await axios.post("https://api.snapp.fr/client_case", formData);
-      success.value = "Votre demande a bien été enregistrer";  
+      const response = await axios.post("https://api.ecocode.io/client_case", formData);
+      success.value = "Votre demande a bien été enregistrer";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
