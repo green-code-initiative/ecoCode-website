@@ -39,10 +39,10 @@ const submitForm = async () => {
             email: email.value,
         };
         try {
-            const response = await axios.post("https://api.snapp.fr/newsletter", formData);
-            success.value = "Votre demande a bien été enregistrer";  
+            const response = await axios.post("https://api.ecocode.io/newsletter", formData);
+            success.value = "Votre demande a bien été enregistrer";
         } catch (err) {
-            error.value = "Erreur d'envoie, veuillez réessayer plus tard.";  
+            error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
         }
     }
 };
