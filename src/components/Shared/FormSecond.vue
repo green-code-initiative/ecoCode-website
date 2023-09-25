@@ -125,14 +125,21 @@ const submitForm = async () => {
     const formData = {
       firstname: firstname.value,
       lastname: lastname.value,
-      compagny: compagny.value,
+      company: compagny.value,
       role: role.value,
-      tel: tel.value,
+      phone: tel.value,
       email: email.value,
-      detail: detail.value,
+      message: detail.value,
+    };
+    const headers = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
     };
     try {
-      const response = await axios.post("https://api.ecocode.io/client_case", formData);
+      // const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
+      const response = await axios.post("http://localhost:4567/client_case", formData, headers);
       success.value = "Votre demande a bien été enregistrer";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";

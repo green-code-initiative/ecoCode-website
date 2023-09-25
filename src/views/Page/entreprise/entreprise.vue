@@ -22,5 +22,5 @@ import ButtonBlock from '@/components/global/Button.vue';
 import Form from '@/components/Shared/FormSecond.vue';
 </script>
 <style lang="scss" scoped>
-@import './scss/style.scss'
+@import './scss/style.scss';
 </style>
