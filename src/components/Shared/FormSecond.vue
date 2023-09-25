@@ -7,13 +7,13 @@
             <input v-model="firstname" class="input" type="text" placeholder="Nom" />
             <input v-model="lastname" class="input" type="text" placeholder="Prénom" />
           </div>
-          <input v-model="compagny" class="input" type="text" placeholder="Votre organisation" />
+          <input v-model="company" class="input" type="text" placeholder="Votre organisation" />
           <input v-model="role" class="input" type="text" placeholder="Votre rôle" />
           <div class="merge-input">
-            <input v-model="tel" class="input" type="text" placeholder="Téléphone" />
+            <input v-model="phone" class="input" type="text" placeholder="Téléphone" />
             <input v-model="email" class="input" type="text" placeholder="E-mail" />
           </div>
-          <textarea v-model="detail" class="text-area" placeholder="Votre besoin"></textarea>
+          <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
           <div class="error-message" v-if="error" :class="{ show: error }">
             {{ error }}
           </div>
@@ -48,8 +48,8 @@ const validateLastName = () => {
   }
 };
 
-const validateCompagny = () => {
-  if (!compagny.value) {
+const validateCompany = () => {
+  if (!company.value) {
     error.value = "Votre organisation est requis.";
   } else {
     error.value = "";
@@ -78,13 +78,13 @@ const validateEmail = () => {
   }
 };
 
-const validateTel = () => {
-  const telPattern = /^\d+$/;
-  if (!tel.value) {
+const validatePhone = () => {
+  const phonePattern = /^\d+$/;
+  if (!phone.value) {
     error.value = "Le téléphone est requis.";
-  } else if (!telPattern.test(tel.value)) {
+  } else if (!phonePattern.test(phone.value)) {
     error.value = "Le téléphone doit contenir uniquement des chiffres.";
-  } else if (tel.value.length < 10 || tel.value.length > 10) {
+  } else if (phone.value.length < 10 || phone.value.length > 10) {
     error.value = "Le numéro de téléphone doit contenir 10 chiffres.";
   } else {
     error.value = "";
@@ -92,8 +92,8 @@ const validateTel = () => {
   }
 };
 
-const validateDetail = () => {
-  if (!detail.value) {
+const validateMessage = () => {
+  if (!message.value) {
     error.value = "Veuillez fournir des détails supplémentaires si nécessaire.";
   } else {
     error.value = "";
@@ -105,11 +105,11 @@ const validateForm = () => {
   const validationFunctions = [
     validateFirstName,
     validateLastName,
-    validateCompagny,
+    validateCompany,
     validateRole,
     validateEmail,
-    validateTel,
-    validateDetail,
+    validatePhone,
+    validateMessage,
   ];
 
   const isValid = validationFunctions.every((validationFunction) => validationFunction());
@@ -125,11 +125,11 @@ const submitForm = async () => {
     const formData = {
       firstname: firstname.value,
       lastname: lastname.value,
-      company: compagny.value,
+      company: company.value,
       role: role.value,
-      phone: tel.value,
+      phone: phone.value,
       email: email.value,
-      message: detail.value,
+      message: message.value,
     };
     const headers = {
       headers: {
@@ -149,11 +149,11 @@ const submitForm = async () => {
 const error = ref("");
 const firstname = ref("");
 const lastname = ref("");
-const compagny = ref("");
+const company = ref("");
 const role = ref("");
-const tel = ref("");
+const phone = ref("");
 const email = ref("");
-const detail = ref("");
+const message = ref("");
 const success = ref("");
 </script>
 
