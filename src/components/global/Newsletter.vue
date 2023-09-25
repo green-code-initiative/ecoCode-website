@@ -6,11 +6,12 @@
             <input v-model="email" type="email" placeholder="E-mail" />
             <div style="margin-top: 15px;" class="error-message" v-if="error">{{ error }}</div>
             <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
-            <ButtonBlock type="submit" typebutton="blue" text="Recevoir les informations">
-            </ButtonBlock>
+            <ButtonBlock type="submit" typebutton="blue" text="Recevoir les informations"></ButtonBlock>
             <span class="link">Tu souhaites contribuer sans plus attendre ? Rejoins-nous sur
-                <a href="https://github.com/green-code-initiative" target="_blank"><img width="120" height="60"
-                        src="/img/logo/LogoGithub.png" /></a></span>
+                <a href="https://github.com/green-code-initiative" target="_blank">
+                  <img width="120" height="60" src="/img/logo/LogoGithub.png" />
+                </a>
+            </span>
         </div>
     </form>
 </template>
@@ -34,17 +35,24 @@ const validateEmail = () => {
 };
 
 const submitForm = async () => {
-    if (validateEmail()) {
-        const formData = {
-            email: email.value,
-        };
-        try {
-            const response = await axios.post("https://api.ecocode.io/newsletter", formData);
-            success.value = "Votre demande a bien été enregistrer";
-        } catch (err) {
-            error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
-        }
+  if (validateEmail()) {
+    const formData = {
+      email: email.value,
+    };
+    const headers = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    };
+    try {
+      // const response = await axios.post("https://api.ecocode.io/newsletter", formData, headers);
+      const response = await axios.post("http://localhost:4567/newsletter", formData, headers);
+      success.value = "Votre demande a bien été enregistrer";
+    } catch (err) {
+      error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
+  }
 };
 
 const email = ref("");
