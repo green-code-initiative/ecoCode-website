@@ -15,7 +15,7 @@
           </div>
           <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
           <div style="margin-top: 15px;">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="10000000-ffff-ffff-ffff-000000000001"></vue-hcaptcha>
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
           </div>
           <div class="error-message" v-if="error" :class="{ show: error }">
             {{ error }}
@@ -152,8 +152,7 @@ const submitForm = async () => {
       }
     };
     try {
-      // const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
-      const response = await axios.post("http://localhost:4567/client_case", formData, headers);
+      const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
       success.value = "Votre demande a bien été enregistrer";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
