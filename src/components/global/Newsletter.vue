@@ -4,6 +4,9 @@
             <span class="title">Rejoins ecoCode !</span>
             <span class="subtitle">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</span>
             <input v-model="email" type="email" placeholder="E-mail" />
+            <div style="margin-top: 15px;">
+                <vue-hcaptcha @verify="getCaptcha" sitekey="10000000-ffff-ffff-ffff-000000000001"></vue-hcaptcha>
+            </div>
             <div style="margin-top: 15px;" class="error-message" v-if="error">{{ error }}</div>
             <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
             <ButtonBlock type="submit" typebutton="blue" text="Recevoir les informations"></ButtonBlock>
@@ -20,12 +23,12 @@
 import ButtonBlock from "@/components/global/Button.vue";
 import axios from "axios";
 import { ref } from "vue";
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
 const validateEmail = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.value) {
         error.value = 'L\'e-mail est requis.';
-
     } else if (!emailPattern.test(email.value)) {
         error.value = 'L\'e-mail n\'est pas valide.';
     } else {
@@ -34,10 +37,20 @@ const validateEmail = () => {
     }
 };
 
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
+  } else {
+    error.value = '';
+    return true
+  }
+};
+
 const submitForm = async () => {
-  if (validateEmail()) {
+  if (validateEmail() && validateCaptcha()) {
     const formData = {
       email: email.value,
+      captcha: captcha.value
     };
     const headers = {
       headers: {
@@ -55,9 +68,14 @@ const submitForm = async () => {
   }
 };
 
-const email = ref("");
-const error = ref("");
-const success = ref("");
+function getCaptcha(response: any) {
+  captcha.value = response;
+};
+
+let email = ref("");
+let captcha = ref("");
+let error = ref("");
+let success = ref("");
 </script>
 
 <style scoped lang="scss">
