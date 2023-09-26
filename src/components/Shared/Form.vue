@@ -5,13 +5,13 @@
       <div class="container-form">
         <div class="box">
           <span class="title-box">Je suis :</span>
-          <div><input type="radio" v-model="selectedType" value="individu" /> Un individu</div>
-          <div><input type="radio" v-model="selectedType" value="organisation" /> Une
+          <div><input type="radio" v-model="type" value="individu" /> Un individu</div>
+          <div><input type="radio" v-model="type" value="organisation" /> Une
             organisation</div>
         </div>
         <div class="box">
           <span class="title-box">Je souhaite :</span>
-          <select v-model="selectedOption">
+          <select v-model="subject">
             <option v-for="option in options" :key="option">{{ option }}</option>
           </select>
         </div>
@@ -19,10 +19,13 @@
           <input class="input" v-model="name" type="text" placeholder="Nom de l’entreprise / personne" />
           <div class="merge-input">
             <input class="input" v-model="email" type="mail" placeholder="E-mail" />
-            <input class="input" v-model="tel" type="text" placeholder="Téléphone" />
+            <input class="input" v-model="phone" type="text" placeholder="Téléphone" />
           </div>
-          <input class="input" v-model="detail" type="text" placeholder="Des éléments supplémentaires ?" />
+          <input class="input" v-model="message" type="text" placeholder="Des éléments supplémentaires ?" />
         </div>
+      </div>
+      <div style="margin: 15px 0px 0 121.84px;">
+        <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
       </div>
       <div class="error-message" v-if="error">{{ error }}</div>
       <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
@@ -40,12 +43,14 @@
 <script lang="ts" setup>
 import axios from 'axios';
 import { ref, watch } from "vue";
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
+let captcha = ref("");
 const error = ref("");
 const name = ref("");
 const email = ref("");
-const tel = ref("");
-const detail = ref("");
+const phone = ref("");
+const message = ref("");
 const success = ref("");
 
 const validateName = () => {
@@ -70,13 +75,13 @@ const validateEmail = () => {
   }
 };
 
-const validateTel = () => {
-  const telPattern = /^\d+$/;
-  if (!tel.value) {
+const validatePhone = () => {
+  const phonePattern = /^\d+$/;
+  if (!phone.value) {
     error.value = 'Le téléphone est requis.';
-  } else if (!telPattern.test(tel.value)) {
+  } else if (!phonePattern.test(phone.value)) {
     error.value = 'Le téléphone doit contenir uniquement des chiffres.';
-  } else if (tel.value.length < 10 || tel.value.length > 10) {
+  } else if (phone.value.length < 10 || phone.value.length > 10) {
     error.value = 'Le numéro de téléphone doit contenir 10 chiffres.';
   } else {
     error.value = '';
@@ -84,9 +89,8 @@ const validateTel = () => {
   }
 };
 
-
-const validateDetail = () => {
-  if (!detail.value) {
+const validateMessage = () => {
+  if (!message.value) {
     error.value = 'Veuillez fournir des détails supplémentaires si nécessaire.';
   } else {
     error.value = '';
@@ -94,12 +98,23 @@ const validateDetail = () => {
   }
 };
 
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
+  } else {
+    error.value = '';
+    return true
+  }
+};
+
 const validateForm = () => {
   if (validateName()) {
     if (validateEmail()) {
-      if (validateTel()) {
-        if (validateDetail()) {
-          return true
+      if (validatePhone()) {
+        if (validateMessage()) {
+          if (validateCaptcha()) {
+            return true
+          }
         }
       }
     }
@@ -114,15 +129,22 @@ const validateForm = () => {
 const submitForm = async () => {
   if (validateForm()) {
     const formData = {
-      selectedType: selectedType.value,
-      selectedOption: selectedOption.value,
+      type: type.value,
+      subject: subject.value,
       name: name.value,
       email: email.value,
-      tel: tel.value,
-      detail: detail.value,
+      phone: phone.value,
+      message: message.value,
+      captcha: captcha.value
+    };
+    const headers = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
     };
     try {
-      const response = await axios.post('https://api.ecocode.io/contact', formData);
+      const response = await axios.post('https://api.ecocode.io/contact', formData, headers);
       success.value = "Votre demande a bien été enregistrer";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
@@ -130,24 +152,26 @@ const submitForm = async () => {
   }
 };
 
+function getCaptcha(response: any) {
+  captcha.value = response;
+};
 
-
-const selectedType = ref("individu");
-const selectedOption = ref("Je souhaite contribuer à la création de règles sur ecoCode");
+const type = ref("individu");
+const subject = ref("Je souhaite contribuer à la création de règles sur ecoCode");
 const options = ref([
   "Je souhaite contribuer à la création de règles sur ecoCode",
   "Je souhaite m’impliquer sur d’autres aspects d’ecoCode",
   "Je souhaite des informations sur ecoCode",
 ]);
 
-watch(selectedType, (newValue) => {
+watch(type, (newValue) => {
   if (newValue === "individu") {
     options.value = [
       "Je souhaite contribuer à la création de règles sur ecoCode",
       "Je souhaite m’impliquer sur d’autres aspects d’ecoCode",
       "Je souhaite des informations sur ecoCode",
     ];
-    selectedOption.value = "Je souhaite contribuer à la création de règles sur ecoCode";
+    subject.value = "Je souhaite contribuer à la création de règles sur ecoCode";
   } else if (newValue === "organisation") {
     options.value = [
       "Je souhaite développer des règles pour mon organisation",
@@ -155,7 +179,7 @@ watch(selectedType, (newValue) => {
       "Je souhaite soutenir ecoCode financièrement",
       "Je souhaite des informations sur ecoCode",
     ];
-    selectedOption.value = "Je souhaite développer des règles pour mon organisation";
+    subject.value = "Je souhaite développer des règles pour mon organisation";
   }
 });
 

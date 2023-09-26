@@ -4,7 +4,7 @@
         subtitle="ecoCode est un outil Open Source basé sur un référentiel de règles d'éco-conception logicielle.">
         <div style=" background-color: #57c18b; margin-top: 50px;" class="block-button-section-1">
             <ButtonBlock typebutton="white" link="/contributeur" text="Je souhaite contribuer au projet"></ButtonBlock>
-            <ButtonBlock typebutton="white" link="/Entreprise" text="Je souhaite une intégration sur-mesure"></ButtonBlock>
+            <ButtonBlock typebutton="white" link="/entreprise" text="Je souhaite une intégration sur-mesure"></ButtonBlock>
         </div>
     </TitleBox>
     <TitleBox typetitle="title blue" title="ecoCode est une initiative qui prend racine dans la force du collectif"

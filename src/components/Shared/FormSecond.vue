@@ -7,13 +7,16 @@
             <input v-model="firstname" class="input" type="text" placeholder="Nom" />
             <input v-model="lastname" class="input" type="text" placeholder="Prénom" />
           </div>
-          <input v-model="compagny" class="input" type="text" placeholder="Votre organisation" />
+          <input v-model="company" class="input" type="text" placeholder="Votre organisation" />
           <input v-model="role" class="input" type="text" placeholder="Votre rôle" />
           <div class="merge-input">
-            <input v-model="tel" class="input" type="text" placeholder="Téléphone" />
+            <input v-model="phone" class="input" type="text" placeholder="Téléphone" />
             <input v-model="email" class="input" type="text" placeholder="E-mail" />
           </div>
-          <textarea v-model="detail" class="text-area" placeholder="Votre besoin"></textarea>
+          <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
+          <div style="margin-top: 15px;">
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
+          </div>
           <div class="error-message" v-if="error" :class="{ show: error }">
             {{ error }}
           </div>
@@ -29,6 +32,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import ButtonBlock from "@/components/global/Button.vue";
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
 const validateFirstName = () => {
   if (!firstname.value) {
@@ -48,8 +52,8 @@ const validateLastName = () => {
   }
 };
 
-const validateCompagny = () => {
-  if (!compagny.value) {
+const validateCompany = () => {
+  if (!company.value) {
     error.value = "Votre organisation est requis.";
   } else {
     error.value = "";
@@ -78,13 +82,13 @@ const validateEmail = () => {
   }
 };
 
-const validateTel = () => {
-  const telPattern = /^\d+$/;
-  if (!tel.value) {
+const validatePhone = () => {
+  const phonePattern = /^\d+$/;
+  if (!phone.value) {
     error.value = "Le téléphone est requis.";
-  } else if (!telPattern.test(tel.value)) {
+  } else if (!phonePattern.test(phone.value)) {
     error.value = "Le téléphone doit contenir uniquement des chiffres.";
-  } else if (tel.value.length < 10 || tel.value.length > 10) {
+  } else if (phone.value.length < 10 || phone.value.length > 10) {
     error.value = "Le numéro de téléphone doit contenir 10 chiffres.";
   } else {
     error.value = "";
@@ -92,8 +96,8 @@ const validateTel = () => {
   }
 };
 
-const validateDetail = () => {
-  if (!detail.value) {
+const validateMessage = () => {
+  if (!message.value) {
     error.value = "Veuillez fournir des détails supplémentaires si nécessaire.";
   } else {
     error.value = "";
@@ -101,15 +105,25 @@ const validateDetail = () => {
   }
 };
 
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
+  } else {
+    error.value = '';
+    return true
+  }
+};
+
 const validateForm = () => {
   const validationFunctions = [
     validateFirstName,
     validateLastName,
-    validateCompagny,
+    validateCompany,
     validateRole,
     validateEmail,
-    validateTel,
-    validateDetail,
+    validatePhone,
+    validateMessage,
+    validateCaptcha
   ];
 
   const isValid = validationFunctions.every((validationFunction) => validationFunction());
@@ -119,34 +133,46 @@ const validateForm = () => {
   return isValid;
 };
 
-
 const submitForm = async () => {
   if (validateForm()) {
     const formData = {
       firstname: firstname.value,
       lastname: lastname.value,
-      compagny: compagny.value,
+      company: company.value,
       role: role.value,
-      tel: tel.value,
+      phone: phone.value,
       email: email.value,
-      detail: detail.value,
+      message: message.value,
+      captcha: captcha.value
+    };
+    const headers = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
     };
     try {
-      const response = await axios.post("https://api.ecocode.io/client_case", formData);
+      const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
       success.value = "Votre demande a bien été enregistrer";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
   }
 };
+
+function getCaptcha(response: any) {
+  captcha.value = response;
+};
+
+let captcha = ref("");
 const error = ref("");
 const firstname = ref("");
 const lastname = ref("");
-const compagny = ref("");
+const company = ref("");
 const role = ref("");
-const tel = ref("");
+const phone = ref("");
 const email = ref("");
-const detail = ref("");
+const message = ref("");
 const success = ref("");
 </script>
 
