@@ -24,6 +24,9 @@
           <input class="input" v-model="message" type="text" placeholder="Des éléments supplémentaires ?" />
         </div>
       </div>
+      <div style="margin: 15px 0px 0 121.84px;">
+        <vue-hcaptcha @verify="getCaptcha" sitekey="10000000-ffff-ffff-ffff-000000000001"></vue-hcaptcha>
+      </div>
       <div class="error-message" v-if="error">{{ error }}</div>
       <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
       <div class="container-button">
@@ -40,7 +43,9 @@
 <script lang="ts" setup>
 import axios from 'axios';
 import { ref, watch } from "vue";
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
+let captcha = ref("");
 const error = ref("");
 const name = ref("");
 const email = ref("");
@@ -93,12 +98,23 @@ const validateMessage = () => {
   }
 };
 
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
+  } else {
+    error.value = '';
+    return true
+  }
+};
+
 const validateForm = () => {
   if (validateName()) {
     if (validateEmail()) {
       if (validatePhone()) {
         if (validateMessage()) {
-          return true
+          if (validateCaptcha()) {
+            return true
+          }
         }
       }
     }
@@ -119,6 +135,7 @@ const submitForm = async () => {
       email: email.value,
       phone: phone.value,
       message: message.value,
+      captcha: captcha.value
     };
     const headers = {
       headers: {
@@ -134,6 +151,10 @@ const submitForm = async () => {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
   }
+};
+
+function getCaptcha(response: any) {
+  captcha.value = response;
 };
 
 const type = ref("individu");

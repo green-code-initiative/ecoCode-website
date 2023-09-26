@@ -14,6 +14,9 @@
             <input v-model="email" class="input" type="text" placeholder="E-mail" />
           </div>
           <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
+          <div style="margin-top: 15px;">
+            <vue-hcaptcha @verify="getCaptcha" sitekey="10000000-ffff-ffff-ffff-000000000001"></vue-hcaptcha>
+          </div>
           <div class="error-message" v-if="error" :class="{ show: error }">
             {{ error }}
           </div>
@@ -29,6 +32,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import ButtonBlock from "@/components/global/Button.vue";
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
 const validateFirstName = () => {
   if (!firstname.value) {
@@ -101,6 +105,15 @@ const validateMessage = () => {
   }
 };
 
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
+  } else {
+    error.value = '';
+    return true
+  }
+};
+
 const validateForm = () => {
   const validationFunctions = [
     validateFirstName,
@@ -110,6 +123,7 @@ const validateForm = () => {
     validateEmail,
     validatePhone,
     validateMessage,
+    validateCaptcha
   ];
 
   const isValid = validationFunctions.every((validationFunction) => validationFunction());
@@ -118,7 +132,6 @@ const validateForm = () => {
 
   return isValid;
 };
-
 
 const submitForm = async () => {
   if (validateForm()) {
@@ -130,6 +143,7 @@ const submitForm = async () => {
       phone: phone.value,
       email: email.value,
       message: message.value,
+      captcha: captcha.value
     };
     const headers = {
       headers: {
@@ -146,6 +160,12 @@ const submitForm = async () => {
     }
   }
 };
+
+function getCaptcha(response: any) {
+  captcha.value = response;
+};
+
+let captcha = ref("");
 const error = ref("");
 const firstname = ref("");
 const lastname = ref("");
