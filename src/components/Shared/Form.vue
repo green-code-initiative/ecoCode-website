@@ -205,7 +205,7 @@ watch(type, (newValue) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0px 0px 40px 121.84px;
+  margin: 0px 0px 40px 120px;
 }
 
 .title {
@@ -307,9 +307,9 @@ input[type="radio"]:checked {
 }
 
 .input {
-  width: calc(100% - 121.84px);
+  width: calc(100% - 120px);
   height: 60px;
-  margin: 0px 0px 40px 121.84px;
+  margin: 0px 0px 40px 120px;
   background-color: #ffffff;
   padding: 15px 42.5px 17px 20px;
   border-radius: 8px;
@@ -321,11 +321,11 @@ input[type="radio"]:checked {
 }
 
 .error-message {
-  margin: 15px 0px 0 121.84px;
+  margin: 15px 0px 0 120px;
 }
 
 .success-message {
-  margin: 15px 0px 0 121.84px;
+  margin: 15px 0px 0 120px;
 }
 
 .input:last-child {
@@ -380,7 +380,7 @@ input[type="radio"]:checked {
 }
 
 .hcaptcha {
-  margin: 0px 0px 20px 121.84px;
+  margin: 0px 0px 20px 120px;
 }
 
 @media screen and (max-width: 768px) {
