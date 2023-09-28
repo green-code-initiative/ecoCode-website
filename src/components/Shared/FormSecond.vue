@@ -14,7 +14,7 @@
             <input v-model="email" class="input" type="text" placeholder="E-mail" />
           </div>
           <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
-          <div style="margin-top: 15px;">
+          <div class="hcaptcha">
             <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
           </div>
           <div class="error-message" v-if="error" :class="{ show: error }">
@@ -259,6 +259,10 @@ const success = ref("");
   margin-left: 40px;
 }
 
+.hcaptcha {
+  margin-top: 15px;
+}
+
 @media screen and (max-width: 768px) {
   .box {
     flex-direction: column;
@@ -318,6 +322,10 @@ const success = ref("");
   }
 
   .title-box {
+    margin: 0 25px 0 25px;
+  }
+
+  .hcaptcha {
     margin: 0 25px 0 25px;
   }
 }
