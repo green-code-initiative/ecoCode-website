@@ -43,7 +43,7 @@ const isPage = computed(
 
 const subtitleStyle = computed(() => ({
   backgroundColor: isPage.value ? `rgba(135, 204, 255, ${props.opacity})` : "white",
-  border: isPage.value ? "solid 2px #87ccff" : "solid 2px rgba(135, 204, 255, 0);",
+  border: isPage.value ? "solid 2px #87ccff" : "solid 2px rgba(135, 204, 255, 0)",
 }));
 
 const isMobile = ref(false);

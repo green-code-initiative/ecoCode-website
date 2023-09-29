@@ -22,10 +22,11 @@
             <input class="input" v-model="phone" type="text" placeholder="Téléphone" />
           </div>
           <input class="input" v-model="message" type="text" placeholder="Des éléments supplémentaires ?" />
+
+          <div class="hcaptcha">
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
+          </div>
         </div>
-      </div>
-      <div style="margin: 15px 0px 0 121.84px;">
-        <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
       </div>
       <div class="error-message" v-if="error">{{ error }}</div>
       <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
@@ -204,7 +205,7 @@ watch(type, (newValue) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0px 0px 40px 121.84px;
+  margin: 0px 0px 40px 120px;
 }
 
 .title {
@@ -306,9 +307,9 @@ input[type="radio"]:checked {
 }
 
 .input {
-  width: calc(100% - 121.84px);
+  width: calc(100% - 120px);
   height: 60px;
-  margin: 0px 0px 40px 121.84px;
+  margin: 0px 0px 40px 120px;
   background-color: #ffffff;
   padding: 15px 42.5px 17px 20px;
   border-radius: 8px;
@@ -320,17 +321,16 @@ input[type="radio"]:checked {
 }
 
 .error-message {
-  margin: 15px 0px 0 121.84px;
+  margin: 15px 0px 0 120px;
 }
 
 .success-message {
-  margin: 15px 0px 0 121.84px;
+  margin: 15px 0px 0 120px;
 }
 
 .input:last-child {
   margin-bottom: 20px;
 }
-
 
 .merge-input {
   display: flex;
@@ -379,19 +379,21 @@ input[type="radio"]:checked {
   }
 }
 
+.hcaptcha {
+  margin: 0px 0px 20px 120px;
+}
+
 @media screen and (max-width: 768px) {
   .title {
     padding: 0 50px 0 50px;
     font-size: 32px;
     margin: 0 36px 0 36px;
   }
-}
 
-@media screen and (max-width: 768px) {
   .box {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 25px 20px 25px;
+    padding: 0 25px 20px 10px;
 
     >div {
       display: flex;
@@ -403,7 +405,7 @@ input[type="radio"]:checked {
   }
 
   .box-column {
-    padding: 0 25px 0 25px;
+    padding: 0 25px 0 10px;
   }
 
   .merge-input {
@@ -447,6 +449,10 @@ input[type="radio"]:checked {
 
   .title-box {
     margin: 0 25px 0 25px;
+  }
+
+  .hcaptcha {
+    margin: 0 25px 10px 25px;
   }
 }
 </style>
