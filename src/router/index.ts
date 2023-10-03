@@ -36,4 +36,14 @@ const router = createRouter({
   ]
 })
 
+router.afterEach((to, from) => {
+  if (to.hash) {
+    const element = document.querySelector(to.hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
 export default router
