@@ -335,7 +335,7 @@ input[type="radio"]:checked {
 .merge-input {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
 }

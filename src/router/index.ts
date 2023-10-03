@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/Accueil/Home.vue'
 import Documentation from '../views/Accueil/Doc.vue'
 import ContributeurView from '../views/Page/contributeur/contributeur.vue'
@@ -6,7 +6,7 @@ import EntrepriseView from '../views/Page/entreprise/entreprise.vue'
 import TeamView from '../views/Page/team/team.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -36,4 +36,14 @@ const router = createRouter({
   ]
 })
 
+router.afterEach((to, from) => {
+  if (to.hash) {
+    const element = document.querySelector(to.hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
 export default router
