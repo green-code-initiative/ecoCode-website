@@ -5,8 +5,8 @@
       <div class="container-form">
         <div class="box">
           <span class="title-box">Je suis :</span>
-          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionnez 'Un individu'" /> Un individu</div>
-          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionnez 'Une organisation'" /> Une organisation</div>
+          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionner 'Un individu'" /> Un individu</div>
+          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionner 'Une organisation'" /> Une organisation</div>
         </div>
         <div class="box">
           <span class="title-box">Je souhaite :</span>
@@ -31,7 +31,7 @@
           <input class="input" v-model="message" type="text" id="message" aria-label="Entrez des éléments supplémentaires" />
     
           <div class="hcaptcha">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Captcha de sécurité"></vue-hcaptcha>
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ const validateEmail = () => {
 };
 
 const validatePhone = () => {
-  const phonePattern = /^[\d+,. ]+$/;
+  const phonePattern = /^\+?[\d,. ]+$/;
   if (!phone.value) {
     error.value = '';
     return true;

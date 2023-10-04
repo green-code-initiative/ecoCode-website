@@ -32,7 +32,7 @@
         </div>
         
         <div class="hcaptcha">
-          <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Captcha de sécurité"></vue-hcaptcha>
+          <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
         </div>
         <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
         <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
@@ -163,7 +163,7 @@ const submitForm = async () => {
       }
     };
     try {
-      const response = await axios.post("https://api.snapp.fr/client_case", formData);
+      const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
