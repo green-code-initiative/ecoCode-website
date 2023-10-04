@@ -97,7 +97,7 @@ const validateEmail = () => {
 };
 
 const validatePhone = () => {
-  const phonePattern = /^[\d+,. ]+$/;
+  const phonePattern = /^\+?[\d,. ]+$/;
   if (!phone.value) {
     error.value = '';
     return true;
