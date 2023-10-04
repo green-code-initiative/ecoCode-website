@@ -1,31 +1,45 @@
 <template>
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
     <div class="container">
       <div class="container-form">
         <div class="box-column">
           <div class="merge-input">
-            <input v-model="firstname" class="input" type="text" placeholder="Nom" />
-            <input v-model="lastname" class="input" type="text" placeholder="Prénom" />
+            <div>
+              <label class="text-input" for="firstname">Nom :</label>
+              <input v-model="firstname" class="input" type="text" id="firstname" aria-label="Entrez votre nom" />
+            </div>
+            <div>
+              <label class="text-input" for="lastname">Prénom :</label>
+              <input v-model="lastname" class="input" type="text" id="lastname" aria-label="Entrez votre prénom" />
+            </div>
           </div>
-          <input v-model="company" class="input" type="text" placeholder="Votre organisation" />
-          <input v-model="role" class="input" type="text" placeholder="Votre rôle" />
+          <label class="text-input" for="company">Organisation :</label>
+          <input v-model="company" class="input" type="text" id="company" aria-label="Entrez le nom de votre organisation" />
+          <label class="text-input" for="role">Rôle :</label>
+          <input v-model="role" class="input" type="text" id="role" aria-label="Entrez votre rôle" />
           <div class="merge-input">
-            <input v-model="phone" class="input" type="text" placeholder="Téléphone" />
-            <input v-model="email" class="input" type="text" placeholder="E-mail" />
+            <div>
+              <label class="text-input" for="phone">Téléphone :</label>
+              <input v-model="phone" class="input" type="text" id="phone" aria-label="Entrez votre numéro de téléphone" />
+            </div>
+            <div>
+              <label class="text-input" for="email">E-mail * :</label>
+              <input v-model="email" required class="input" type="text" id="email" aria-label="Entrez votre adresse e-mail" />
+            </div>
           </div>
-          <textarea v-model="message" class="text-area" placeholder="Votre besoin"></textarea>
-          <div class="hcaptcha">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
-          </div>
-          <div class="error-message" v-if="error" :class="{ show: error }">
-            {{ error }}
-          </div>
-          <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
+          <label class="text-input" for="message">Votre besoin :</label>
+        <textarea v-model="message" class="text-area" id="message" aria-label="Entrez votre besoin"></textarea>
         </div>
+        
+        <div class="hcaptcha">
+          <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
+        </div>
+        <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
+        <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
       </div>
-      <ButtonBlock type="submit" typebutton="blue" text="Recevez notre cas client"></ButtonBlock>
     </div>
-  </form>
+    <ButtonBlock type="submit" typebutton="blue" text="Recevez notre cas client" aria-label="Soumettez le formulaire"></ButtonBlock>
+  </form>  
 </template>
 
 <script setup lang="ts">
@@ -83,16 +97,13 @@ const validateEmail = () => {
 };
 
 const validatePhone = () => {
-  const phonePattern = /^\d+$/;
+  const phonePattern = /^\+?[\d,. ]+$/;
   if (!phone.value) {
-    error.value = "Le téléphone est requis.";
-  } else if (!phonePattern.test(phone.value)) {
-    error.value = "Le téléphone doit contenir uniquement des chiffres.";
-  } else if (phone.value.length < 10 || phone.value.length > 10) {
-    error.value = "Le numéro de téléphone doit contenir 10 chiffres.";
-  } else {
-    error.value = "";
+    error.value = '';
     return true;
+  } else if (!phonePattern.test(phone.value)) {
+    error.value = 'Le téléphone doit contenir uniquement des chiffres, +, ,, . ou un espace.';
+    return false;
   }
 };
 
@@ -153,7 +164,7 @@ const submitForm = async () => {
     };
     try {
       const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
-      success.value = "Votre demande a bien été enregistrer";
+      success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
@@ -207,6 +218,16 @@ const success = ref("");
   max-width: 700px;
 }
 
+.text-input {
+  height: max-content;
+  margin: 0px 0px 0px 0px;
+  color: #355086;
+  font-size: 18px;
+  font-weight: 900;
+  outline: none;
+  margin-bottom: 20px;
+}
+
 .input {
   width: 100%;
   height: 60px;
@@ -238,12 +259,46 @@ const success = ref("");
   resize: none;
 }
 
+
 .merge-input {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.merge-input>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.merge-input>div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.merge-input>div:last-child>.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
+  margin-left: 0px;
+}
+
+.merge-input>div:last-child>.text-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0px;
 }
 
 .error-message {
@@ -264,6 +319,33 @@ const success = ref("");
 }
 
 @media screen and (max-width: 768px) {
+
+
+  .text-input{
+    margin-left: 25px;
+  }
+
+  .merge-input > div>.text-input{
+    margin-left: 0px;
+  }
+
+  .merge-input > div{
+    width: 100%;
+  }
+
+  .merge-input > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 0px;
+}
+
+  .merge-input > div> .input{
+    margin-left: 0px;
+    width: 100%;
+  }
+  
   .box {
     flex-direction: column;
     align-items: flex-start;
@@ -327,6 +409,21 @@ const success = ref("");
 
   .hcaptcha {
     margin: 0 25px 0 25px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hcaptcha {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0px 10px 0px;
+  }
+
+  .box-column {
+    padding: 0 0px 0 0px;
   }
 }
 </style>
