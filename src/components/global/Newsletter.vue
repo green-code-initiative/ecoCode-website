@@ -3,7 +3,8 @@
         <div class="container">
             <span class="title">Rejoins ecoCode !</span>
             <span class="subtitle">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</span>
-            <input v-model="email" type="email" placeholder="E-mail" />
+            <label class="text-input" for="email">E-mail * :</label>
+            <input v-model="email" id="email" type="email" aria-label="Entrez votre adresse e-mail"/>
             <div style="margin-top: 15px;">
                 <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
             </div>
@@ -60,7 +61,7 @@ const submitForm = async () => {
     };
     try {
       const response = await axios.post("https://api.ecocode.io/newsletter", formData, headers);
-      success.value = "Votre demande a bien été enregistrer";
+      success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
@@ -105,6 +106,17 @@ let success = ref("");
     padding: 0px 0 0 0;
 }
 
+.text-input {
+  height: max-content;
+  margin: 55px 0px 20px 0px;
+  color: #355086;
+  font-size: 18px;
+  font-weight: 900;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+
 .subtitle {
     font-size: 32px;
     font-weight: 900;
@@ -121,7 +133,7 @@ let success = ref("");
 input {
     max-width: 322px;
     height: 60px;
-    margin: 55px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     background-color: #ffffff;
     padding: 15px 42.5px 17px 20px;
     border-radius: 8px;

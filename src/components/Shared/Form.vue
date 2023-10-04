@@ -1,43 +1,50 @@
 <template>
   <div class="container">
     <h2 class="title">On discute d’ecoCode ?</h2>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
       <div class="container-form">
         <div class="box">
           <span class="title-box">Je suis :</span>
-          <div><input type="radio" v-model="type" value="individu" /> Un individu</div>
-          <div><input type="radio" v-model="type" value="organisation" /> Une
-            organisation</div>
+          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionnez 'Un individu'" /> Un individu</div>
+          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionnez 'Une organisation'" /> Une organisation</div>
         </div>
         <div class="box">
           <span class="title-box">Je souhaite :</span>
-          <select v-model="subject">
+          <select v-model="subject" aria-label="Sélectionnez votre sujet">
             <option v-for="option in options" :key="option">{{ option }}</option>
           </select>
         </div>
         <div class="box-column">
-          <input class="input" v-model="name" type="text" placeholder="Nom de l’entreprise / personne" />
+          <label class="text-input" for="name">Nom de l’entreprise / Personne :</label>
+          <input class="input" v-model="name" type="text" id="name" aria-label="Entrez le nom de l’entreprise ou de la personne" />
           <div class="merge-input">
-            <input class="input" v-model="email" type="mail" placeholder="E-mail" />
-            <input class="input" v-model="phone" type="text" placeholder="Téléphone" />
+            <div>
+              <label class="text-input" for="email">E-mail * :</label>
+              <input class="input" required v-model="email" type="email" id="email" aria-label="Entrez votre adresse e-mail" />
+            </div>
+            <div>
+              <label class="text-input" for="phone">Téléphone :</label>
+              <input class="input" v-model="phone" type="tel" id="phone" aria-label="Entrez votre numéro de téléphone" />
+            </div>
           </div>
-          <input class="input" v-model="message" type="text" placeholder="Des éléments supplémentaires ?" />
-
+          <label class="text-input" for="message">Des éléments supplémentaires ?</label>
+          <input class="input" v-model="message" type="text" id="message" aria-label="Entrez des éléments supplémentaires" />
+    
           <div class="hcaptcha">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Captcha de sécurité"></vue-hcaptcha>
           </div>
         </div>
       </div>
-      <div class="error-message" v-if="error">{{ error }}</div>
-      <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
+      <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
+      <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
       <div class="container-button">
-        <button type="submit" class="button">
+        <button type="submit" class="button" aria-label="Envoyer le formulaire de contact">
           <img src="@/assets/img/icon/arrow-left-white.webp" />
           Envoyer
           <img src="@/assets/img/icon/arrow-right-white.webp" />
         </button>
       </div>
-    </form>
+    </form>    
   </div>
 </template>
 
@@ -77,16 +84,13 @@ const validateEmail = () => {
 };
 
 const validatePhone = () => {
-  const phonePattern = /^\d+$/;
+  const phonePattern = /^[\d+,. ]+$/;
   if (!phone.value) {
-    error.value = 'Le téléphone est requis.';
-  } else if (!phonePattern.test(phone.value)) {
-    error.value = 'Le téléphone doit contenir uniquement des chiffres.';
-  } else if (phone.value.length < 10 || phone.value.length > 10) {
-    error.value = 'Le numéro de téléphone doit contenir 10 chiffres.';
-  } else {
     error.value = '';
     return true;
+  } else if (!phonePattern.test(phone.value)) {
+    error.value = 'Le téléphone doit contenir uniquement des chiffres, +, ,, . ou un espace.';
+    return false;
   }
 };
 
@@ -146,7 +150,7 @@ const submitForm = async () => {
     };
     try {
       const response = await axios.post('https://api.ecocode.io/contact', formData, headers);
-      success.value = "Votre demande a bien été enregistrer";
+      success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
@@ -219,6 +223,7 @@ watch(type, (newValue) => {
   text-align: center;
   color: #355086;
   padding: 0px 0 0 0;
+  margin-bottom: 20px;
 }
 
 .container-form {
@@ -227,6 +232,15 @@ watch(type, (newValue) => {
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.text-input {
+  height: max-content;
+  margin: 0px 0px 20px 120px;
+  color: #355086;
+  font-size: 18px;
+  font-weight: 900;
+  outline: none;
 }
 
 .title-box {
@@ -238,14 +252,23 @@ watch(type, (newValue) => {
   letter-spacing: 0.21px;
   color: #355086;
   padding: 0 10px 0 0;
+  margin: 0px 0px 20px 120px;
+}
+
+.box>div{
+  margin: 0px 0px 20px 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .box {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  padding: 31px 0 0 0;
+  padding: 20px 0 0 0;
   flex-wrap: wrap;
 }
 
@@ -275,6 +298,7 @@ select {
   background-repeat: no-repeat;
   background-position: right 30px top 50%;
   background-size: 0.65rem auto;
+  margin-left: 120px;
 }
 
 input[type="radio"] {
@@ -296,7 +320,7 @@ input[type="radio"] {
   line-height: 1.56;
   letter-spacing: 0.21px;
   color: #022826;
-  margin: 0 10px 0 20px;
+  margin: 0 10px 0 0px;
 }
 
 input[type="radio"]:checked {
@@ -336,17 +360,41 @@ input[type="radio"]:checked {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.merge-input > div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.merge-input > div:last-child{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.merge-input > div:last-child>.input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
+  margin-left: 0px;
 }
 
-.merge-input>.input {
+.merge-input > div:last-child>.text-input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
-  padding: 15px 33.4px 17px 20px;
-}
-
-.merge-input>.input:last-child {
-  margin-left: 40px;
+  margin-left: 0px;
 }
 
 .button {
@@ -388,6 +436,31 @@ input[type="radio"]:checked {
     padding: 0 50px 0 50px;
     font-size: 32px;
     margin: 0 36px 0 36px;
+  }
+
+  .text-input{
+    margin-left: 25px;
+  }
+
+  .merge-input > div>.text-input{
+    margin-left: 0px;
+  }
+
+  .merge-input > div{
+    width: 100%;
+  }
+
+  .merge-input > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 0px;
+}
+
+  .merge-input > div>.input{
+    margin-left: 0px;
+    width: 100%;
   }
 
   .box {
@@ -453,6 +526,21 @@ input[type="radio"]:checked {
 
   .hcaptcha {
     margin: 0 25px 10px 25px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hcaptcha {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0px 10px 0px;
+  }
+
+  .box-column {
+    padding: 0 0px 0 0px;
   }
 }
 </style>
