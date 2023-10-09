@@ -63,7 +63,8 @@ const success = ref("");
 
 const validateName = () => {
   if (!name.value) {
-    error.value = 'Le nom est requis.';
+    error.value = '';
+    return true;
   } else {
     error.value = '';
     return true;
@@ -96,7 +97,8 @@ const validatePhone = () => {
 
 const validateMessage = () => {
   if (!message.value) {
-    error.value = 'Veuillez fournir des détails supplémentaires si nécessaire.';
+    error.value = '';
+    return true;
   } else {
     error.value = '';
     return true;

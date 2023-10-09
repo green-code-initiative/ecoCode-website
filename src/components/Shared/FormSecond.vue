@@ -50,7 +50,8 @@ import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
 const validateFirstName = () => {
   if (!firstname.value) {
-    error.value = "Le nom est requis.";
+    error.value = "";
+    return true;
   } else {
     error.value = "";
     return true;
@@ -59,7 +60,8 @@ const validateFirstName = () => {
 
 const validateLastName = () => {
   if (!lastname.value) {
-    error.value = "Le prénom est requis.";
+    error.value = "";
+    return true;
   } else {
     error.value = "";
     return true;
@@ -68,7 +70,8 @@ const validateLastName = () => {
 
 const validateCompany = () => {
   if (!company.value) {
-    error.value = "Votre organisation est requis.";
+    error.value = "";
+    return true;
   } else {
     error.value = "";
     return true;
@@ -77,7 +80,8 @@ const validateCompany = () => {
 
 const validateRole = () => {
   if (!role.value) {
-    error.value = "Votre role est requis.";
+    error.value = "";
+    return true;
   } else {
     error.value = "";
     return true;
@@ -109,7 +113,8 @@ const validatePhone = () => {
 
 const validateMessage = () => {
   if (!message.value) {
-    error.value = "Veuillez fournir des détails supplémentaires si nécessaire.";
+    error.value = "";
+    return true;
   } else {
     error.value = "";
     return true;
