@@ -48,46 +48,6 @@ import { ref } from "vue";
 import ButtonBlock from "@/components/global/Button.vue";
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
-const validateFirstName = () => {
-  if (!firstname.value) {
-    error.value = "";
-    return true;
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateLastName = () => {
-  if (!lastname.value) {
-    error.value = "";
-    return true;
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateCompany = () => {
-  if (!company.value) {
-    error.value = "";
-    return true;
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateRole = () => {
-  if (!role.value) {
-    error.value = "";
-    return true;
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
 const validateEmail = () => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email.value) {
@@ -111,15 +71,6 @@ const validatePhone = () => {
   }
 };
 
-const validateMessage = () => {
-  if (!message.value) {
-    error.value = "";
-    return true;
-  } else {
-    error.value = "";
-    return true;
-  }
-};
 
 const validateCaptcha = () => {
   if (!captcha.value) {
@@ -132,13 +83,8 @@ const validateCaptcha = () => {
 
 const validateForm = () => {
   const validationFunctions = [
-    validateFirstName,
-    validateLastName,
-    validateCompany,
-    validateRole,
     validateEmail,
     validatePhone,
-    validateMessage,
     validateCaptcha
   ];
 

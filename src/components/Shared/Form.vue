@@ -61,15 +61,7 @@ const phone = ref("");
 const message = ref("");
 const success = ref("");
 
-const validateName = () => {
-  if (!name.value) {
-    error.value = '';
-    return true;
-  } else {
-    error.value = '';
-    return true;
-  }
-};
+
 
 const validateEmail = () => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -95,15 +87,6 @@ const validatePhone = () => {
   }
 };
 
-const validateMessage = () => {
-  if (!message.value) {
-    error.value = '';
-    return true;
-  } else {
-    error.value = '';
-    return true;
-  }
-};
 
 const validateCaptcha = () => {
   if (!captcha.value) {
@@ -115,17 +98,13 @@ const validateCaptcha = () => {
 };
 
 const validateForm = () => {
-  if (validateName()) {
     if (validateEmail()) {
       if (validatePhone()) {
-        if (validateMessage()) {
           if (validateCaptcha()) {
             return true
           }
         }
       }
-    }
-  }
   if (error.value || error.value || error.value || error.value) {
     return false;
   }
