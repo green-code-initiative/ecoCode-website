@@ -27,7 +27,7 @@ import { ref } from "vue";
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
 const validateEmail = () => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!email.value) {
         error.value = 'L\'e-mail est requis.';
     } else if (!emailPattern.test(email.value)) {

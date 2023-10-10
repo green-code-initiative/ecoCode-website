@@ -48,17 +48,37 @@ import { ref } from "vue";
 import ButtonBlock from "@/components/global/Button.vue";
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
+/*
+ * validateEmail est une fonction pour vérifier si l'e-mail n'est pas vide 
+ * et qu'il respecte la forme d'une adresse e-mail valide.
+ * La regex ci-dessous vérifie une adresse e-mail :
+ * - Elle permet des caractères alphanumériques, des points, des tirets, des pourcentages et des signes plus ou moins.
+ * - Elle exige un "@" après le nom d'utilisateur.
+ * - Elle permet ensuite un domaine composé de caractères alphanumériques, de tirets et de points.
+ * - Le domaine doit se terminer par un point suivi d'au moins deux caractères alphabétiques.
+*/
 const validateEmail = () => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
   if (!email.value) {
     error.value = "L'e-mail est requis.";
   } else if (!emailPattern.test(email.value)) {
     error.value = "L'e-mail n'est pas valide.";
   } else {
-    error.value = "";
+    error.value = '';
     return true;
   }
 };
+
+
+/*
+  * validatePhone est une fonction pour vérifier si le numéro de téléphone n'est pas vide 
+  * et qu'il respecte la forme d'un numéro de téléphone valide.
+  * La regex ci-dessous vérifie un numéro de téléphone :
+  * - Il peut commencer éventuellement par un signe plus (+).
+  * - Ensuite, il peut contenir un ou plusieurs chiffres (0-9), virgules, points ou espaces blancs.
+  * - La chaîne doit se terminer après les caractères autorisés.
+*/
 
 const validatePhone = () => {
   const phonePattern = /^\+?[\d,. ]+$/;
@@ -71,27 +91,46 @@ const validatePhone = () => {
   }
 };
 
-
+/*
+  * validateCaptcha est une fonction utilisée pour vérifier si le champ de captcha est rempli.
+  * Elle prend la valeur du champ de captcha, `captcha.value`, et effectue la validation suivante :
+  * - Si le champ de captcha est vide, un message d'erreur est défini dans `error.value`
+  *   indiquant que le captcha est requis.
+  * - Si le champ de captcha n'est pas vide, tout message d'erreur précédent est effacé
+  *   en attribuant une chaîne vide à `error.value`, et la fonction renvoie true
+  *   pour indiquer que le captcha est valide.
+*/
 const validateCaptcha = () => {
   if (!captcha.value) {
     error.value = 'Le captcha est requis.';
   } else {
     error.value = '';
-    return true
+    return true;
   }
 };
 
+
+/*
+  * validateForm est une fonction qui effectue la validation de plusieurs champs de formulaire.
+  * Elle prend en charge un tableau de fonctions de validation, `validationFunctions`, qui sont
+  * des fonctions individuelles pour valider différents champs du formulaire.
+  * La fonction parcourt toutes ces fonctions de validation et vérifie si chacune renvoie true.
+  * Si toutes les fonctions de validation renvoient true, cela signifie que tous les champs de
+  * formulaire sont valides, et la fonction renvoie true.
+  * Sinon, si au moins une des fonctions de validation renvoie false (ce qui signifie qu'un champ
+  * n'est pas valide), la fonction renvoie false.
+*/
 const validateForm = () => {
   const validationFunctions = [
-    validateEmail,
-    validatePhone,
-    validateCaptcha
+    validateEmail,    // Fonction de validation de l'e-mail
+    validatePhone,    // Fonction de validation du numéro de téléphone
+    validateCaptcha  // Fonction de validation du captcha
   ];
 
+  // Utilise la méthode `every` pour vérifier si toutes les fonctions de validation renvoient true.
   const isValid = validationFunctions.every((validationFunction) => validationFunction());
 
-
-
+  // Renvoie true si tous les champs du formulaire sont valides, sinon renvoie false.
   return isValid;
 };
 
