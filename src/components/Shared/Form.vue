@@ -98,19 +98,14 @@ const validateCaptcha = () => {
 };
 
 const validateForm = () => {
-    if (validateEmail()) {
-      if (validatePhone()) {
-          if (validateCaptcha()) {
-            return true
-          }
-        }
-      }
-  if (error.value || error.value || error.value || error.value) {
-    return false;
-  }
-  error.value = '';
-  return true;
-}
+  const validationFunctions = [
+    validateEmail,
+    validatePhone,
+    validateCaptcha
+  ];
+  const isValid = validationFunctions.every((validationFunction) => validationFunction());
+  return isValid;
+};
 
 const submitForm = async () => {
   if (validateForm()) {
