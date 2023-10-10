@@ -86,7 +86,6 @@ const validatePhone = () => {
    * - The string must end after the allowed characters.
    */
   const phonePattern = /^\+?[\d,. ]+$/;
-
   if (!phone.value) {
     error.value = '';
     return true;

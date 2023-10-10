@@ -72,7 +72,7 @@ const success = ref("");
  *
  * @returns {boolean} True if the email is valid, false otherwise.
  */
- const validateEmail = () => {
+const validateEmail = () => {
   /**
    * Regular expression to validate an email address:
    * - It allows alphanumeric characters, dots, hyphens, percent signs, and plus or minus signs.
@@ -81,7 +81,6 @@ const success = ref("");
    * - The domain must end with a dot followed by at least two alphabetic characters.
    */
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
   if (!email.value) {
     error.value = "L'e-mail est requis.";
   } else if (!emailPattern.test(email.value)) {
