@@ -5,8 +5,10 @@
       <div class="container-form">
         <div class="box">
           <span class="title-box">Je suis :</span>
-          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionner 'Un individu'" /> Un individu</div>
-          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionner 'Une organisation'" /> Une organisation</div>
+          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionner 'Un individu'" /> Un individu
+          </div>
+          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionner 'Une organisation'" /> Une
+            organisation</div>
         </div>
         <div class="box">
           <span class="title-box">Je souhaite :</span>
@@ -16,11 +18,13 @@
         </div>
         <div class="box-column">
           <label class="text-input" for="name">Nom de l’entreprise / Personne :</label>
-          <input class="input" v-model="name" type="text" id="name" aria-label="Entrez le nom de l’entreprise ou de la personne" />
+          <input class="input" v-model="name" type="text" id="name"
+            aria-label="Entrez le nom de l’entreprise ou de la personne" />
           <div class="merge-input">
             <div>
               <label class="text-input" for="email">E-mail * :</label>
-              <input class="input" required v-model="email" type="email" id="email" aria-label="Entrez votre adresse e-mail" />
+              <input class="input" required v-model="email" type="email" id="email"
+                aria-label="Entrez votre adresse e-mail" />
             </div>
             <div>
               <label class="text-input" for="phone">Téléphone :</label>
@@ -28,10 +32,12 @@
             </div>
           </div>
           <label class="text-input" for="message">Des éléments supplémentaires ?</label>
-          <input class="input" v-model="message" type="text" id="message" aria-label="Entrez des éléments supplémentaires" />
-    
+          <input class="input" v-model="message" type="text" id="message"
+            aria-label="Entrez des éléments supplémentaires" />
+
           <div class="hcaptcha">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
+            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
+              aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
           </div>
         </div>
       </div>
@@ -44,7 +50,7 @@
           <img src="@/assets/img/icon/arrow-right-white.webp" />
         </button>
       </div>
-    </form>    
+    </form>
   </div>
 </template>
 
@@ -61,30 +67,44 @@ const phone = ref("");
 const message = ref("");
 const success = ref("");
 
-const validateName = () => {
-  if (!name.value) {
-    error.value = 'Le nom est requis.';
+/**
+ * Validates an email address to ensure it is not empty and follows a valid email format.
+ *
+ * @returns {boolean} True if the email is valid, false otherwise.
+ */
+const validateEmail = () => {
+  /**
+   * Regular expression to validate an email address:
+   * - It allows alphanumeric characters, dots, hyphens, percent signs, and plus or minus signs.
+   * - It requires an "@" symbol after the username.
+   * - It allows a domain consisting of alphanumeric characters, hyphens, and dots.
+   * - The domain must end with a dot followed by at least two alphabetic characters.
+   */
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!email.value) {
+    error.value = "L'e-mail est requis.";
+  } else if (!emailPattern.test(email.value)) {
+    error.value = "L'e-mail n'est pas valide.";
   } else {
     error.value = '';
     return true;
   }
 };
 
-const validateEmail = () => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email.value) {
-    error.value = 'L\'e-mail est requis.';
-
-  } else if (!emailPattern.test(email.value)) {
-    error.value = 'L\'e-mail n\'est pas valide.';
-  } else {
-    error.value = '';
-    return true
-  }
-};
-
+/**
+ * Validates a phone number to ensure it is not empty and follows a valid phone number format.
+ *
+ * @returns {boolean} True if the phone number is valid, false otherwise.
+ */
 const validatePhone = () => {
+  /**
+   * Regular expression to validate a phone number:
+   * - It can optionally start with a plus sign (+).
+   * - It can then contain one or more digits (0-9), commas, periods, or whitespace.
+   * - The string must end after the allowed characters.
+   */
   const phonePattern = /^\+?[\d,. ]+$/;
+
   if (!phone.value) {
     error.value = '';
     return true;
@@ -94,42 +114,40 @@ const validatePhone = () => {
   }
 };
 
-const validateMessage = () => {
-  if (!message.value) {
-    error.value = 'Veuillez fournir des détails supplémentaires si nécessaire.';
+/**
+ * Validates whether a CAPTCHA field is empty.
+ *
+ * @returns {boolean} True if the CAPTCHA field is not empty, false otherwise.
+ */
+const validateCaptcha = () => {
+  if (!captcha.value) {
+    error.value = 'Le captcha est requis.';
   } else {
     error.value = '';
     return true;
   }
 };
 
-const validateCaptcha = () => {
-  if (!captcha.value) {
-    error.value = 'Le captcha est requis.';
-  } else {
-    error.value = '';
-    return true
-  }
+/**
+ * Validates a complete form by executing a set of validation functions.
+ *
+ * @returns {boolean} True if all fields are valid, false otherwise.
+ */
+const validateForm = () => {
+  const validationFunctions = [
+    validateEmail,    // Function to validate email
+    validatePhone,    // Function to validate phone number
+    validateCaptcha  // Function to validate CAPTCHA
+  ];
+
+  // Check if all validation functions return true.
+  const isValid = validationFunctions.every((validationFunction) => validationFunction());
+
+  // Return true if all form fields are valid, otherwise return false.
+  return isValid;
 };
 
-const validateForm = () => {
-  if (validateName()) {
-    if (validateEmail()) {
-      if (validatePhone()) {
-        if (validateMessage()) {
-          if (validateCaptcha()) {
-            return true
-          }
-        }
-      }
-    }
-  }
-  if (error.value || error.value || error.value || error.value) {
-    return false;
-  }
-  error.value = '';
-  return true;
-}
+
 
 const submitForm = async () => {
   if (validateForm()) {
@@ -142,18 +160,21 @@ const submitForm = async () => {
       message: message.value,
       captcha: captcha.value
     };
+
     const headers = {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     };
+
     try {
       const response = await axios.post('https://api.ecocode.io/contact', formData, headers);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
     }
+
   }
 };
 
@@ -255,7 +276,7 @@ watch(type, (newValue) => {
   margin: 0px 0px 20px 120px;
 }
 
-.box>div{
+.box>div {
   margin: 0px 0px 20px 120px;
   display: flex;
   flex-direction: row;
@@ -364,14 +385,14 @@ input[type="radio"]:checked {
   width: 100%;
 }
 
-.merge-input > div{
+.merge-input>div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
 
-.merge-input > div:last-child{
+.merge-input>div:last-child {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -379,7 +400,7 @@ input[type="radio"]:checked {
   margin-left: 40px;
 }
 
-.merge-input > div:last-child>.input{
+.merge-input>div:last-child>.input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -388,7 +409,7 @@ input[type="radio"]:checked {
   margin-left: 0px;
 }
 
-.merge-input > div:last-child>.text-input{
+.merge-input>div:last-child>.text-input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -438,27 +459,27 @@ input[type="radio"]:checked {
     margin: 0 36px 0 36px;
   }
 
-  .text-input{
+  .text-input {
     margin-left: 25px;
   }
 
-  .merge-input > div>.text-input{
+  .merge-input>div>.text-input {
     margin-left: 0px;
   }
 
-  .merge-input > div{
+  .merge-input>div {
     width: 100%;
   }
 
-  .merge-input > div:last-child {
+  .merge-input>div:last-child {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     margin-left: 0px;
-}
+  }
 
-  .merge-input > div>.input{
+  .merge-input>div>.input {
     margin-left: 0px;
     width: 100%;
   }

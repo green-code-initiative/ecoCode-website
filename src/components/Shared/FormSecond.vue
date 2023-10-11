@@ -48,55 +48,43 @@ import { ref } from "vue";
 import ButtonBlock from "@/components/global/Button.vue";
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
-const validateFirstName = () => {
-  if (!firstname.value) {
-    error.value = "Le nom est requis.";
-  } else {
-    error.value = "";
-    return true;
-  }
-};
+/**
+ * Validates an email address to ensure it is not empty and follows a valid email format.
+ *
+ * @returns {boolean} True if the email is valid, false otherwise.
+ */
+ const validateEmail = () => {
+  /**
+   * Regular expression to validate an email address:
+   * - It allows alphanumeric characters, dots, hyphens, percent signs, and plus or minus signs.
+   * - It requires an "@" symbol after the username.
+   * - It allows a domain consisting of alphanumeric characters, hyphens, and dots.
+   * - The domain must end with a dot followed by at least two alphabetic characters.
+   */
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const validateLastName = () => {
-  if (!lastname.value) {
-    error.value = "Le prénom est requis.";
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateCompany = () => {
-  if (!company.value) {
-    error.value = "Votre organisation est requis.";
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateRole = () => {
-  if (!role.value) {
-    error.value = "Votre role est requis.";
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
-const validateEmail = () => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email.value) {
     error.value = "L'e-mail est requis.";
   } else if (!emailPattern.test(email.value)) {
     error.value = "L'e-mail n'est pas valide.";
   } else {
-    error.value = "";
+    error.value = '';
     return true;
   }
 };
 
+/**
+ * Validates a phone number to ensure it is not empty and follows a valid phone number format.
+ *
+ * @returns {boolean} True if the phone number is valid, false otherwise.
+ */
 const validatePhone = () => {
+  /**
+   * Regular expression to validate a phone number:
+   * - It can optionally start with a plus sign (+).
+   * - It can then contain one or more digits (0-9), commas, periods, or whitespace.
+   * - The string must end after the allowed characters.
+   */
   const phonePattern = /^\+?[\d,. ]+$/;
   if (!phone.value) {
     error.value = '';
@@ -107,42 +95,39 @@ const validatePhone = () => {
   }
 };
 
-const validateMessage = () => {
-  if (!message.value) {
-    error.value = "Veuillez fournir des détails supplémentaires si nécessaire.";
-  } else {
-    error.value = "";
-    return true;
-  }
-};
-
+/**
+ * Validates whether a CAPTCHA field is empty.
+ *
+ * @returns {boolean} True if the CAPTCHA field is not empty, false otherwise.
+ */
 const validateCaptcha = () => {
   if (!captcha.value) {
     error.value = 'Le captcha est requis.';
   } else {
     error.value = '';
-    return true
+    return true;
   }
 };
 
+/**
+ * Validates a complete form by executing a set of validation functions.
+ *
+ * @returns {boolean} True if all fields are valid, false otherwise.
+ */
 const validateForm = () => {
   const validationFunctions = [
-    validateFirstName,
-    validateLastName,
-    validateCompany,
-    validateRole,
-    validateEmail,
-    validatePhone,
-    validateMessage,
-    validateCaptcha
+    validateEmail,    // Function to validate email
+    validatePhone,    // Function to validate phone number
+    validateCaptcha  // Function to validate CAPTCHA
   ];
 
+  // Check if all validation functions return true.
   const isValid = validationFunctions.every((validationFunction) => validationFunction());
 
-
-
+  // Return true if all form fields are valid, otherwise return false.
   return isValid;
 };
+
 
 const submitForm = async () => {
   if (validateForm()) {
