@@ -1,53 +1,66 @@
 <template>
   <div class="container">
     <h2 class="title">On discute d’ecoCode ?</h2>
-    <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
-      <div class="container-form">
-        <div class="box">
-          <span class="title-box">Je suis :</span>
-          <div><input type="radio" v-model="type" value="individu" aria-label="Sélectionner 'Un individu'" /> Un individu
-          </div>
-          <div><input type="radio" v-model="type" value="organisation" aria-label="Sélectionner 'Une organisation'" /> Une
-            organisation</div>
-        </div>
-        <div class="box">
-          <span class="title-box">Je souhaite :</span>
-          <select v-model="subject" aria-label="Sélectionnez votre sujet">
-            <option v-for="option in options" :key="option">{{ option }}</option>
-          </select>
-        </div>
-        <div class="box-column">
-          <label class="text-input" for="name">Nom de l’entreprise / Personne :</label>
-          <input class="input" v-model="name" type="text" id="name"
-            aria-label="Entrez le nom de l’entreprise ou de la personne" />
-          <div class="merge-input">
-            <div>
-              <label class="text-input" for="email">E-mail * :</label>
-              <input class="input" required v-model="email" type="email" id="email"
-                aria-label="Entrez votre adresse e-mail" />
-            </div>
-            <div>
-              <label class="text-input" for="phone">Téléphone :</label>
-              <input class="input" v-model="phone" type="tel" id="phone" aria-label="Entrez votre numéro de téléphone" />
-            </div>
-          </div>
-          <label class="text-input" for="message">Des éléments supplémentaires ?</label>
-          <input class="input" v-model="message" type="text" id="message"
-            aria-label="Entrez des éléments supplémentaires" />
 
-          <div class="hcaptcha">
-            <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
-              aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
-          </div>
+    <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
+      <div class="form-field">
+        <span class="text-label">Je suis :</span>
+        <div class="radio-field">
+          <input type="radio" id="individual" v-model="type" value="individu"
+                 aria-label="Sélectionner 'Un individu'"/>
+          <label for="individual">Un individu</label>
+        </div>
+        <div class="radio-field">
+          <input type="radio" id="organization" v-model="type" value="organisation"
+                 aria-label="Sélectionner 'Une organisation'"/>
+          <label for="organization">Une organisation</label>
         </div>
       </div>
-      <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
-      <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
-      <div class="container-button">
-        <button type="submit" class="button" aria-label="Envoyer le formulaire de contact">
-          <img src="@/assets/img/icon/arrow-left-white.webp" />
+
+      <div class="form-field">
+        <label for="subject" class="text-label">Je souhaite :</label>
+        <select v-model="subject" id="subject" aria-label="Sélectionnez votre sujet">
+          <option v-for="option in options" :key="option">{{ option }}</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label class="text-label" for="name">Nom de l’entreprise / Personne :</label>
+        <input class="input" v-model="name" type="text" id="name"
+               aria-label="Entrez le nom de l’entreprise ou de la personne"/>
+      </div>
+
+      <div class="form-fieldset">
+        <div class="form-field">
+          <label class="text-label" for="email">E-mail * :</label>
+          <input class="input" required v-model="email" type="email" id="email"
+                 aria-label="Entrez votre adresse e-mail"/>
+        </div>
+        <div class="form-field">
+          <label class="text-label" for="phone">Téléphone :</label>
+          <input class="input" v-model="phone" type="tel" id="phone" aria-label="Entrez votre numéro de téléphone"/>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="text-label" for="message">Des éléments supplémentaires ?</label>
+        <input class="input" v-model="message" type="text" id="message"
+               aria-label="Entrez des éléments supplémentaires"/>
+      </div>
+
+      <div class="hcaptcha">
+        <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
+                      aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
+      </div>
+
+      <div class="form-submit">
+        <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
+        <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
+
+        <button type="submit" aria-label="Envoyer le formulaire de contact">
+          <ChevronLeft />
           Envoyer
-          <img src="@/assets/img/icon/arrow-right-white.webp" />
+          <ChevronRight />
         </button>
       </div>
     </form>
@@ -58,6 +71,8 @@
 import axios from 'axios';
 import { ref, watch } from "vue";
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
+import ChevronLeft from '@/assets/icons/chevron_left.svg';
+import ChevronRight from '@/assets/icons/chevron_right.svg';
 
 let captcha = ref("");
 const error = ref("");
@@ -148,7 +163,6 @@ const validateForm = () => {
 };
 
 
-
 const submitForm = async () => {
   if (validateForm()) {
     const formData = {
@@ -180,7 +194,7 @@ const submitForm = async () => {
 
 function getCaptcha(response: any) {
   captcha.value = response;
-};
+}
 
 const type = ref("individu");
 const subject = ref("Je souhaite contribuer à la création de règles sur ecoCode");
@@ -213,113 +227,68 @@ watch(type, (newValue) => {
 
 <style scoped lang="scss">
 .container {
-  width: 100%;
-  padding-top: 50px;
-  min-height: 396px;
-  height: max-content;
-  z-index: 2;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  gap: 2rem;
   background-color: #f3f3f3;
 }
 
-.container-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 0px 40px 120px;
-}
-
 .title {
-  max-width: 1089px;
-  font-size: 40px;
+  font-size: 1.5rem;
   font-weight: 900;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
   letter-spacing: normal;
   text-align: center;
   color: #355086;
-  padding: 0px 0 0 0;
-  margin-bottom: 20px;
 }
 
-.container-form {
+form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.text-input {
-  height: max-content;
-  margin: 0px 0px 20px 120px;
+.text-label {
   color: #355086;
   font-size: 18px;
   font-weight: 900;
   outline: none;
 }
 
-.title-box {
-  font-size: 18px;
-  font-weight: 800;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.56;
-  letter-spacing: 0.21px;
-  color: #355086;
-  padding: 0 10px 0 0;
-  margin: 0px 0px 20px 120px;
-}
-
-.box>div {
-  margin: 0px 0px 20px 120px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.box {
+.form-field {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px 0 0 0;
-  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.box-column {
+.form-fieldset {
+  display: grid;
+  gap: 1rem;
+}
+
+.radio-field {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 40px 0 0 0;
-  flex-wrap: wrap;
-  width: 100%;
+  gap: 1rem;
+  margin-block-end: 0.5rem;
 }
 
 select {
-  padding: 15px 50px 15px 25px;
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 1rem;
   border-radius: 8px;
   border: solid 1px rgba(0, 0, 0, 0.2);
   font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.56;
-  letter-spacing: 0.21px;
   color: #022826;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
   background-position: right 30px top 50%;
   background-size: 0.65rem auto;
-  margin-left: 120px;
+}
+
+label {
+  cursor: pointer;
 }
 
 input[type="radio"] {
@@ -341,22 +310,19 @@ input[type="radio"] {
   line-height: 1.56;
   letter-spacing: 0.21px;
   color: #022826;
-  margin: 0 10px 0 0px;
-}
 
-input[type="radio"]:checked {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #57c18b;
-  background-color: #57c18b;
+  &:checked {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #57c18b;
+    background-color: #57c18b;
+  }
 }
 
 .input {
-  width: calc(100% - 120px);
   height: 60px;
-  margin: 0px 0px 40px 120px;
   background-color: #ffffff;
-  padding: 15px 42.5px 17px 20px;
+  padding: 1rem;
   border-radius: 8px;
   border: solid 1px rgba(0, 0, 0, 0.2);
   color: #022826;
@@ -365,65 +331,17 @@ input[type="radio"]:checked {
   outline: none;
 }
 
-.error-message {
-  margin: 15px 0px 0 120px;
-}
-
-.success-message {
-  margin: 15px 0px 0 120px;
-}
-
-.input:last-child {
-  margin-bottom: 20px;
-}
-
-.merge-input {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.merge-input>div {
+.form-submit {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.merge-input>div:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 40px;
-}
-
-.merge-input>div:last-child>.input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  margin-left: 0px;
-}
-
-.merge-input>div:last-child>.text-input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  margin-left: 0px;
-}
-
-.button {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 8.4px 13px 10px;
+  gap: 1rem;
+}
+
+button[type="submit"] {
+  display: flex;
+  justify-items: center;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
   text-align: center;
   font-size: 20px;
@@ -431,137 +349,27 @@ input[type="radio"]:checked {
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
-  letter-spacing: 0.24px;
-  text-align: center;
-  margin: 0 auto 0 auto;
   background-color: #355086;
   border: 2px solid white;
   color: white;
 
   &:hover {
+    background-color: #283d66;
     cursor: pointer;
   }
-
-  >img {
-    width: 24px;
-    height: auto;
-  }
 }
 
-.hcaptcha {
-  margin: 0px 0px 20px 120px;
-}
-
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) {
   .title {
-    padding: 0 50px 0 50px;
-    font-size: 32px;
-    margin: 0 36px 0 36px;
+    font-size: 2.5rem;
   }
 
-  .text-input {
-    margin-left: 25px;
+  form {
+    width: 768px;
   }
 
-  .merge-input>div>.text-input {
-    margin-left: 0px;
-  }
-
-  .merge-input>div {
-    width: 100%;
-  }
-
-  .merge-input>div:last-child {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-left: 0px;
-  }
-
-  .merge-input>div>.input {
-    margin-left: 0px;
-    width: 100%;
-  }
-
-  .box {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 25px 20px 10px;
-
-    >div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      margin: 10px 25px 0 25px;
-    }
-  }
-
-  .box-column {
-    padding: 0 25px 0 10px;
-  }
-
-  .merge-input {
-    width: 80%;
-    margin: 0px 25px 0px 25px;
-    flex-direction: column;
-  }
-
-  .merge-input>.input:last-child {
-    margin-left: inherit;
-  }
-
-  input[type=radio] {
-    margin: 0 10px 0 0;
-  }
-
-  .input {
-    width: 80%;
-    margin: 0px 25px 20px 25px;
-  }
-
-  .error-message {
-    margin: 0px 0px 20px 53px;
-  }
-
-  .container-button {
-    width: 80%;
-    margin-left: 0px;
-  }
-
-  .title {
-    padding: 0 50px 0 50px;
-    font-size: 25px;
-    margin: 0 36px 0 36px;
-  }
-
-  select {
-    width: 80%;
-    margin: 0 25px 0 25px;
-  }
-
-  .title-box {
-    margin: 0 25px 0 25px;
-  }
-
-  .hcaptcha {
-    margin: 0 25px 10px 25px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .hcaptcha {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0px 10px 0px;
-  }
-
-  .box-column {
-    padding: 0 0px 0 0px;
+  .form-fieldset {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
