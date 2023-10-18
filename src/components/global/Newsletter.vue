@@ -63,7 +63,7 @@ const submitForm = async () => {
       const response = await axios.post("https://api.ecocode.io/newsletter", formData, headers);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
-      error.value = "Erreur d'envoie, veuillez réessayer plus tard.";
+      error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
     }
   }
 };
