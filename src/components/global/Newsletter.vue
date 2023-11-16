@@ -21,10 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import ButtonBlock from "@/components/global/Button.vue";
-import axios from "axios";
-import { ref } from "vue";
+import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
+import ButtonBlock from '@/components/global/Button.vue';
+import { post } from '@/util/fetch';
 
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -53,14 +53,9 @@ const submitForm = async () => {
       email: email.value,
       captcha: captcha.value
     };
-    const headers = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    };
+
     try {
-      const response = await axios.post("https://api.ecocode.io/newsletter", formData, headers);
+      await post('newsletter', formData);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
