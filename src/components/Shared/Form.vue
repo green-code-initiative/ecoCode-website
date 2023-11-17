@@ -68,11 +68,11 @@
 </template>
 
 <script lang="ts" setup>
-import axios from 'axios';
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import ChevronLeft from '@/assets/icons/chevron_left.svg';
 import ChevronRight from '@/assets/icons/chevron_right.svg';
+import { post } from '@/util/fetch';
 
 let captcha = ref("");
 const error = ref("");
@@ -175,20 +175,12 @@ const submitForm = async () => {
       captcha: captcha.value
     };
 
-    const headers = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    };
-
     try {
-      const response = await axios.post('https://api.ecocode.io/contact', formData, headers);
+      await post('contact', formData);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
     }
-
   }
 };
 

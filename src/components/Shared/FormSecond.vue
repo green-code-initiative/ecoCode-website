@@ -30,7 +30,7 @@
           <label class="text-input" for="message">Votre besoin :</label>
         <textarea v-model="message" class="text-area" id="message" aria-label="Entrez votre besoin"></textarea>
         </div>
-        
+
         <div class="hcaptcha">
           <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d" aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"></vue-hcaptcha>
         </div>
@@ -39,14 +39,14 @@
       </div>
     </div>
     <ButtonBlock type="submit" typebutton="blue" text="Recevez notre cas client" aria-label="Soumettez le formulaire"></ButtonBlock>
-  </form>  
+  </form>
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
-import { ref } from "vue";
-import ButtonBlock from "@/components/global/Button.vue";
+import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
+import ButtonBlock from '@/components/global/Button.vue';
+import { post } from '@/util/fetch';
 
 /**
  * Validates an email address to ensure it is not empty and follows a valid email format.
@@ -141,14 +141,9 @@ const submitForm = async () => {
       message: message.value,
       captcha: captcha.value
     };
-    const headers = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
-    };
+
     try {
-      const response = await axios.post("https://api.ecocode.io/client_case", formData, headers);
+      await post('client_case', formData);
       success.value = "Votre demande a bien été enregistrée";
     } catch (err) {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
@@ -330,7 +325,7 @@ const success = ref("");
     margin-left: 0px;
     width: 100%;
   }
-  
+
   .box {
     flex-direction: column;
     align-items: flex-start;
