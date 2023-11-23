@@ -134,7 +134,6 @@ input {
     border-radius: 8px;
     border: solid 1px rgba(0, 0, 0, 0.2);
     color: #022826;
-    font-family: "Mulish", sans-serif;
     font-size: 18px;
     font-weight: 500;
     outline: none;

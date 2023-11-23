@@ -18,7 +18,6 @@ footer {
   }
 
   .text-footer {
-    font-family: "Mulish", sans-serif;
     font-weight: bold;
     font-style: italic;
   }
