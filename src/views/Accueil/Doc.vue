@@ -31,11 +31,6 @@
         <GraphStep></GraphStep>
     </div>
 
-        <div class="container-doc">
-            <h3>Voici le composant BoxCarousel :</h3>
-            <BoxCarousel></BoxCarousel>
-        </div>
-
     <div class="container-doc">
         <h3>Voici le composant BoxTechno :</h3>
         <BoxTechno></BoxTechno>
@@ -64,11 +59,6 @@
             <li>Block3 title="params : title" /Block3</li>
         </ul>
         <Block3 title="params: title"></Block3>
-    </div>
-
-    <div class="container-doc">
-        <h3>Voici le composant Espace Entreprise :</h3>
-        <EspaceEntreprise></EspaceEntreprise>
     </div>
 
     <div class="container-doc">
@@ -135,16 +125,15 @@ import ProcessRule from '@/components/global/ProcessRule.vue';
 import GraphRule from '@/components/Shared/GraphRule.vue';
 import GraphStep from '@/components/Shared/GraphStep.vue';
 import ButtonBlock from '@/components/global/Button.vue';
-import BoxCarousel from '@/components/global/BoxCarousel.vue';
 import Boxinfo from '@/components/global/BoxInfo.vue';
 import Form from '@/components/Shared/Form.vue';
 import BoxTechno from '@/components/global/BoxTechno.vue';
 import Newsletter from '@/components/global/Newsletter.vue';
 import Block3 from '@/components/Shared/Block3.vue';
 import FormSecond from '@/components/Shared/FormSecond.vue';
-import EspaceEntreprise from '@/components/global/BoxOrganisation.vue';
 import EspaceMembre from '@/components/global/BoxMembre.vue';
 </script>
+
 <style scoped lang="scss">
 .container-doc {
     padding: 50px 0 50px 0;

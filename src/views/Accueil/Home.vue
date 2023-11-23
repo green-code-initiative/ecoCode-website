@@ -31,22 +31,21 @@
     <GraphRule />
     <TitleBox typetitle="title blue" title="ecoCode est rendu possible grâce aux nombreux acteurs impliqués"
         subtitle="Quelques structures partenaires :">
-        <BoxCarousel>
-            <div class="block-button-section-1">
-                <ButtonBlock typebutton="white" link="/collectif?tab=entreprise" text="Toutes les entreprises partenaires">
-                </ButtonBlock>
-                <ButtonBlock typebutton="white" link="/collectif?tab=membre" text="Tous nos membres contributeurs"></ButtonBlock>
-            </div>
-        </BoxCarousel>
+      <PartnerOrganizationList :featured="true" />
+      <div class="block-button-section-1">
+        <ButtonBlock typebutton="white" link="/collectif?tab=entreprise" text="Toutes les entreprises partenaires">
+        </ButtonBlock>
+        <ButtonBlock typebutton="white" link="/collectif?tab=membre" text="Tous nos membres contributeurs"></ButtonBlock>
+      </div>
     </TitleBox>
     <Form />
 </template>
 
 <script setup lang="ts">
+import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
 import GraphRule from '@/components/Shared/GraphRule.vue';
 import ButtonBlock from '@/components/global/Button.vue';
 import TitleBox from '@/components/global/Title.vue';
-import BoxCarousel from '@/components/global/BoxCarousel.vue';
 import Form from '@/components/Shared/Form.vue';
 </script>
 

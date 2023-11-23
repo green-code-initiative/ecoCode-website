@@ -1,0 +1,85 @@
+[
+  {
+    "img": "snapp.webp",
+    "name": "Snapp'",
+    "width": 160,
+    "height": 72,
+    "featured": 2
+  },
+  {
+    "img": "region-nouvelle-aquitaine.webp",
+    "name": "Région Nouvelle Aquitaine",
+    "width": 160,
+    "height": 72
+  },
+  {
+    "img": "uppa.webp",
+    "name": "UPPA",
+    "width": 160,
+    "height": 72,
+    "featured": 4
+  },
+  {
+    "img": "pages-jaunes.webp",
+    "name": "Pages Jaunes",
+    "width": 160,
+    "height": 37,
+    "featured": 3
+  },
+  {
+    "img": "davidson.webp",
+    "name": "Davidson",
+    "width": 160,
+    "height": 36,
+    "featured": 1
+  },
+  {
+    "img": "credit-agricole.webp",
+    "name": "Crédit Agricole",
+    "width": 160,
+    "height": 90
+  },
+  {
+    "img": "sonar.svg",
+    "name": "Sonar",
+    "width": 160,
+    "height": 82
+  },
+  {
+    "img": "enedis.svg",
+    "name": "Enedis",
+    "width": 160,
+    "height": 32
+  },
+  {
+    "img": "cgi.webp",
+    "name": "CGI",
+    "width": 80,
+    "height": 37
+  },
+  {
+    "img": "tosit.webp",
+    "name": "TOSIT",
+    "width": 160,
+    "height": 63
+  },
+  {
+    "img": "banque-de-france.svg",
+    "name": "Banque de France",
+    "width": 160,
+    "height": 75.88
+  },
+  {
+    "img": "aubay.svg",
+    "name": "Aubay",
+    "width": 90,
+    "height": 90
+  },
+  {
+    "img": "inside-app.webp",
+    "name": "inside|app",
+    "width": 160,
+    "height": 66,
+    "featured": 5
+  }
+]
