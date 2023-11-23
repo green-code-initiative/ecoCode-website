@@ -1,6 +1,6 @@
 <template>
   <div class="container-block">
-    <h3 class="title" :class="computedTitleClass">{{ title }}</h3>
+    <h2 class="title" :class="computedTitleClass">{{ title }}</h2>
     <div class="container">
       <div :style="subtitleStyle" class="container-text">
         <a
@@ -11,16 +11,19 @@
         /></a>
         <span v-else>{{ text }}</span>
       </div>
-      <img v-if="showRightArrow" src="@/assets/img/icon/arrow-right-blue.webp" />
-      <img v-if="showLeftArrow" src="@/assets/img/icon/arrow-left-blue.webp" />
+      <ArrowRight v-if="showRightArrow" class="arrow-icon" />
+      <ArrowLeft v-if="showLeftArrow" class="arrow-icon" />
     </div>
-    <img v-if="showBottomArrow && !isLastItem" src="@/assets/img/icon/arrow-bottom-blue.webp" />
+    <ArrowDown v-if="showBottomArrow && !isLastItem" class="arrow-icon" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { useRoute } from "vue-router";
+import ArrowDown from '@/assets/icons/arrow_down.svg';
+import ArrowLeft from '@/assets/icons/arrow_left.svg';
+import ArrowRight from '@/assets/icons/arrow_right.svg';
 
 const props = defineProps({
   title: String,
@@ -148,16 +151,18 @@ if (props.title === "utilisation" || props.image) {
   justify-content: center;
 }
 
-.container > img {
+.arrow-icon {
   width: 48px;
-  height: auto;
-  margin: 0 16px 0 16px;
+  height: 48px;
+  color: #355086;
 }
 
-.container-block > img {
-  width: 48px;
-  height: auto;
-  margin: 17px 0 17px 0;
+.container > .arrow-icon {
+  margin: 0 16px;
+}
+
+.container-block > .arrow-icon {
+  margin: 17px 0;
 }
 
 @media screen and (max-width: 1150px) {
@@ -174,9 +179,9 @@ if (props.title === "utilisation" || props.image) {
   .title{
     font-size: 22px;
   }
-   
+
   .container-text > span{
     font-size: 17px;
-  } 
+  }
 }
 </style>

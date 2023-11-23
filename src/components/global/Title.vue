@@ -1,7 +1,7 @@
 <template>
   <div :style="{ backgroundColor: colorBackground }">
     <div class="container">
-      <img v-if="image === 'true'" class="logo-img" src="/img/logo/logo-accueil.webp" />
+      <img v-if="image === 'true'" class="logo-img" src="@/assets/img/logo-large.webp" width="358" height="204" alt="ecoCode large logo" />
       <span :class="getTitleClass">{{ title }}</span>
       <span :class="getSubtitleClass">{{ subtitle }}</span>
       <slot></slot>
@@ -134,9 +134,8 @@ const getSubtitleClass = computed(() => {
 }
 
 .logo-img {
-  width: 358px;
   height: auto;
-  padding: 0px 0 40px 0;
+  padding: 0 0 40px 0;
 }
 
 @media screen and (max-width: 1150px) {

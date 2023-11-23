@@ -16,10 +16,10 @@
                     responsable : laboratoires de recherche, entreprises, personnes en poste sur leur temps de travail,
                     personnes indépendantes sur leur temps libre...
                 </p>
-                <img src="@/assets/img/illustration/img-accueil-1.png">
+                <img src="@/assets/img/illustration/img-accueil-1.webp" width="300" height="300" alt="" loading="lazy">
             </div>
             <div class="container-after">
-                <img src="@/assets/img/illustration/img-accueil-2.png">
+                <img src="@/assets/img/illustration/img-accueil-2.webp" width="300" height="300" alt="" loading="lazy">
                 <p>
                     Les membres contributeurs du collectif conceptualisent et implémentent des règles permettant de repérer
                     les défauts de qualité du code source d’un projet pouvant avoir un impact écologique négatif.
@@ -41,6 +41,7 @@
     </TitleBox>
     <Form />
 </template>
+
 <script setup lang="ts">
 import GraphRule from '@/components/Shared/GraphRule.vue';
 import ButtonBlock from '@/components/global/Button.vue';
@@ -48,4 +49,7 @@ import TitleBox from '@/components/global/Title.vue';
 import BoxCarousel from '@/components/global/BoxCarousel.vue';
 import Form from '@/components/Shared/Form.vue';
 </script>
-<style lang="scss" scoped>@import './scss/style.scss'</style>
+
+<style lang="scss" scoped>
+@import './scss/style.scss';
+</style>

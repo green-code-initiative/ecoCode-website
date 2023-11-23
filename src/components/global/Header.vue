@@ -1,6 +1,8 @@
 <template>
   <header :style="{ backgroundColor: pageColors[route.path] || defaultColor }">
-    <router-link to="/"><img class="logo-header" src="/img/logo/logo-ecocode.webp"  @click="closeMenu"/></router-link>
+    <router-link to="/">
+      <img class="logo-header" src="@/assets/img/logo.webp" width="167" height="25" alt="ecoCode logo" @click="closeMenu"/>
+    </router-link>
     <ul :style="{ backgroundColor: pageColors[route.path] || defaultColor }" :class="{ 'menu-open': isMenuOpen }">
       <router-link to="/contributeur" @click="closeMenu">
         <img width="40" height="40" v-if="isContributeurPage" src="@/assets/img/icon/arrow-left-white.webp">
@@ -27,7 +29,7 @@
     </div>
   </header>
 </template>
-  
+
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
@@ -57,7 +59,7 @@ const pageColors: Record<string, string> = {
 
 const defaultColor = '#3a4e72ff';
 </script>
-  
+
 <style lang="scss" scoped>
 header {
   height: 60px;
@@ -71,7 +73,7 @@ header {
 }
 
 .logo-header {
-  padding: 0 0 0 40px;
+  margin-left: 40px;
 }
 
 ul {
@@ -99,7 +101,7 @@ a {
 }
 
 .cross-icon{
-    transform: rotate(-45deg);  
+    transform: rotate(-45deg);
 }
 .cross-bar {
  transform: translateY(7px)
@@ -180,4 +182,3 @@ li {
   }
 }
 </style>
-  
