@@ -16,15 +16,15 @@
         </div>
         <div style="padding-bottom: 50px;" v-else id="entreprise">
             <TitleBox typetitle="title blue" title="De nombreuses organisations s'impliquent sur ecoCode">
-                <EspaceEntreprise></EspaceEntreprise>
+              <PartnerOrganizationList :featured="false" />
             </TitleBox>
         </div>
     </div>
 </template>
-  
+
 <script setup lang="ts">
+import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
 import TitleBox from '@/components/global/Title.vue';
-import EspaceEntreprise from '@/components/global/BoxOrganisation.vue';
 import EspaceMembre from '@/components/global/BoxMembre.vue';
 import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -48,8 +48,7 @@ onMounted(() => {
     }
 });
 </script>
-  
-  
+
 <style lang="scss" scoped>
 @import './scss/style.scss';
 
@@ -59,4 +58,3 @@ onMounted(() => {
     text-underline-offset: 15px;
 }
 </style>
-  
