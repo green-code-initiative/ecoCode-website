@@ -1,7 +1,7 @@
 <template>
     <div id="tabs">
         <div class="section-1">
-            <span @click="activateTab('membre')" :class="{ 'active': activeTab === 'membre' }">Membre contributeur</span>
+            <span @click="activateTab('membre')" :class="{ 'active': activeTab === 'membre' }">Membres contributeurs</span>
             <span @click="activateTab('entreprise')" :class="{ 'active': activeTab === 'entreprise' }">Organisations partenaires</span>
         </div>
         <div style="padding-bottom: 50px;" v-if="activeTab === 'membre'" id="membre">
