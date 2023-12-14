@@ -130,7 +130,7 @@ import Form from '@/components/Shared/Form.vue';
 import BoxTechno from '@/components/global/BoxTechno.vue';
 import Newsletter from '@/components/global/Newsletter.vue';
 import Block3 from '@/components/Shared/Block3.vue';
-import FormSecond from '@/components/Shared/FormSecond.vue';
+import FormSecond from '@/components/company/CaseStudyForm.vue';
 import EspaceMembre from '@/components/global/BoxMembre.vue';
 </script>
 

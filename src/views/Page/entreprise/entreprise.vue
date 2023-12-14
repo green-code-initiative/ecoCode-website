@@ -12,14 +12,14 @@
     </TitleBox>
     <Block3 title="Le processus de création d'une règle"></Block3>
     <TitleBox id="client-case" style="padding-bottom: 50px;" typetitle="title blue" title="Recevez notre cas client Société Générale par mail">
-        <Form></Form>
+        <CaseStudyForm />
     </TitleBox>
 </template>
 <script setup lang="ts">
 import TitleBox from '@/components/global/Title.vue';
 import Block3 from '@/components/Shared/Block3.vue';
 import ButtonBlock from '@/components/global/Button.vue';
-import Form from '@/components/Shared/FormSecond.vue';
+import CaseStudyForm from '@/components/company/CaseStudyForm.vue';
 
 const scroll=() => {
   const element = document.getElementById('client-case');
