@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import Technologies from '@/components/contributor/Technologies.vue';
+import TitleBox from '@/components/global/Title.vue';
+import ButtonBlock from '@/components/global/Button.vue';
+import Newsletter from '@/components/contributor/Newsletter.vue';
+import GraphStep from '@/components/Shared/GraphStep.vue';
+
+const scroll=() => {
+  const element = document.getElementById('newsletter');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+</script>
+
 <template>
     <TitleBox colorBackground="#57c18b" typetitle="full white" title="Tu te soucies de réduire l'impact environnemental et social des solutions numériques ?"
         subtitle="Rejoins ecoCode et contribue à faire du numérique un domaine plus durable.">
@@ -19,23 +34,12 @@
             </ul>
         </div>
         <span class="titleSimple">Les technologies couvertes par ecoCode (en attendant d’aller plus loin !)</span>
-        <BoxTechno></BoxTechno>
+        <Technologies />
     </TitleBox>
     <GraphStep />
-    <Newsletter id="newsletter"></Newsletter>
+    <Newsletter id="newsletter" />
 </template>
-<script setup lang="ts">
-import BoxTechno from '@/components/global/BoxTechno.vue';
-import TitleBox from '@/components/global/Title.vue';
-import ButtonBlock from '@/components/global/Button.vue';
-import Newsletter from '@/components/global/Newsletter.vue';
-import GraphStep from '@/components/Shared/GraphStep.vue';
 
-const scroll=() => {
-      const element = document.getElementById('newsletter');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-</script>
-<style lang="scss" scoped>@import './scss/style.scss'</style>
+<style lang="scss" scoped>
+@import './scss/style.scss';
+</style>
