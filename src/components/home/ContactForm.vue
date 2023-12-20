@@ -3,16 +3,14 @@
     <h2 class="title">On discute d’ecoCode ?</h2>
 
     <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
-      <div class="form-field">
-        <span class="text-label">Je suis :</span>
+      <div class="form-field" role="radiogroup" aria-labelledby="i-am">
+        <span class="text-label" id="i-am">Je suis :</span>
         <div class="radio-field">
-          <input type="radio" id="individual" v-model="type" value="individu"
-                 aria-label="Sélectionner 'Un individu'"/>
+          <input type="radio" id="individual" v-model="type" value="individu"/>
           <label for="individual">Un individu</label>
         </div>
         <div class="radio-field">
-          <input type="radio" id="organization" v-model="type" value="organisation"
-                 aria-label="Sélectionner 'Une organisation'"/>
+          <input type="radio" id="organization" v-model="type" value="organisation"/>
           <label for="organization">Une organisation</label>
         </div>
       </div>
@@ -25,27 +23,24 @@
       </div>
 
       <div class="form-field">
-        <label class="text-label" for="name">Nom de l’entreprise / Personne :</label>
-        <input class="input" v-model="name" type="text" id="name"
-               aria-label="Entrez le nom de l’entreprise ou de la personne"/>
+        <label class="text-label" for="entity-name">Nom de l’entreprise / Personne :</label>
+        <input class="input" v-model="name" type="text" id="entity-name"/>
       </div>
 
       <div class="form-fieldset">
         <div class="form-field">
           <label class="text-label" for="email">E-mail * :</label>
-          <input class="input" required v-model="email" type="email" id="email"
-                 aria-label="Entrez votre adresse e-mail"/>
+          <input class="input" required v-model="email" type="email" id="email" autocomplete="email"/>
         </div>
         <div class="form-field">
           <label class="text-label" for="phone">Téléphone :</label>
-          <input class="input" v-model="phone" type="tel" id="phone" aria-label="Entrez votre numéro de téléphone"/>
+          <input class="input" v-model="phone" type="tel" id="phone" autocomplete="tel"/>
         </div>
       </div>
 
       <div class="form-field">
         <label class="text-label" for="message">Des éléments supplémentaires ?</label>
-        <input class="input" v-model="message" type="text" id="message"
-               aria-label="Entrez des éléments supplémentaires"/>
+        <input class="input" v-model="message" type="text" id="message"/>
       </div>
 
       <div class="hcaptcha">
@@ -57,11 +52,7 @@
         <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
         <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
 
-        <button type="submit" aria-label="Envoyer le formulaire de contact">
-          <ChevronLeft />
-          Envoyer
-          <ChevronRight />
-        </button>
+        <ButtonBlock type="submit" typebutton="blue" text="Envoyer" aria-label="Envoyer le formulaire de contact"/>
       </div>
     </form>
   </div>
@@ -70,9 +61,8 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import ChevronLeft from '@/assets/icons/chevron_left.svg';
-import ChevronRight from '@/assets/icons/chevron_right.svg';
 import { post } from '@/util/fetch';
+import ButtonBlock from "@/components/global/Button.vue";
 
 let captcha = ref("");
 const error = ref("");
@@ -328,27 +318,6 @@ input[type="radio"] {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-button[type="submit"] {
-  display: flex;
-  justify-items: center;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  background-color: #355086;
-  border: 2px solid white;
-  color: white;
-
-  &:hover {
-    background-color: #283d66;
-    cursor: pointer;
-  }
 }
 
 @media (min-width: 768px) {

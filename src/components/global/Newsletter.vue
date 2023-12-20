@@ -4,7 +4,7 @@
             <span class="title">Rejoins ecoCode !</span>
             <span class="subtitle">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</span>
             <label class="text-input" for="email">E-mail * :</label>
-            <input v-model="email" id="email" type="email" aria-label="Entrez votre adresse e-mail"/>
+            <input v-model="email" id="email" type="email" autocomplete="email"/>
             <div style="margin-top: 15px;">
                 <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
             </div>

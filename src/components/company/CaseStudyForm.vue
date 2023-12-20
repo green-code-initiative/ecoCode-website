@@ -3,40 +3,38 @@
     <div class="form-fieldset">
       <div class="form-field">
         <label class="text-label" for="lastname">Nom :</label>
-        <input v-model="lastname" class="input" type="text" id="lastname" aria-label="Entrez votre nom"/>
+        <input v-model="lastname" class="input" type="text" id="lastname" autocomplete="family-name"/>
       </div>
       <div class="form-field">
         <label class="text-label" for="firstname">Prénom :</label>
-        <input v-model="firstname" class="input" type="text" id="firstname" aria-label="Entrez votre prénom"/>
+        <input v-model="firstname" class="input" type="text" id="firstname" autocomplete="given-name"/>
       </div>
     </div>
 
     <div class="form-field">
       <label class="text-label" for="company">Organisation :</label>
-      <input v-model="company" class="input" type="text" id="company"
-             aria-label="Entrez le nom de votre organisation"/>
+      <input v-model="company" class="input" type="text" id="company" autocomplete="organization"/>
     </div>
 
     <div class="form-field">
       <label class="text-label" for="role">Rôle :</label>
-      <input v-model="role" class="input" type="text" id="role" aria-label="Entrez votre rôle"/>
+      <input v-model="role" class="input" type="text" id="role" autocomplete="organization-title"/>
     </div>
 
     <div class="form-fieldset">
       <div class="form-field">
         <label class="text-label" for="phone">Téléphone :</label>
-        <input v-model="phone" class="input" type="text" id="phone" aria-label="Entrez votre numéro de téléphone"/>
+        <input v-model="phone" class="input" type="tel" id="phone" autocomplete="tel"/>
       </div>
       <div class="form-field">
         <label class="text-label" for="email">E-mail * :</label>
-        <input v-model="email" required class="input" type="text" id="email"
-               aria-label="Entrez votre adresse e-mail"/>
+        <input v-model="email" required class="input" type="email" id="email" autocomplete="email"/>
       </div>
     </div>
 
     <div class="form-field">
       <label class="text-label" for="message">Votre besoin :</label>
-      <textarea v-model="message" id="message" aria-label="Entrez votre besoin"></textarea>
+      <textarea v-model="message" id="message"></textarea>
     </div>
 
     <div class="hcaptcha">

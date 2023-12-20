@@ -33,12 +33,11 @@
         subtitle="Quelques structures partenaires :">
       <PartnerOrganizationList :featured="true" />
       <div class="block-button-section-1">
-        <ButtonBlock typebutton="white" link="/collectif?tab=entreprise" text="Toutes les entreprises partenaires">
-        </ButtonBlock>
-        <ButtonBlock typebutton="white" link="/collectif?tab=membre" text="Tous nos membres contributeurs"></ButtonBlock>
+        <ButtonBlock typebutton="white" link="/collectif?tab=entreprise" text="Toutes les entreprises partenaires" />
+        <ButtonBlock typebutton="white" link="/collectif?tab=membre" text="Tous nos membres contributeurs" />
       </div>
     </TitleBox>
-    <Form />
+    <ContactForm />
 </template>
 
 <script setup lang="ts">
@@ -46,7 +45,7 @@ import PartnerOrganizationList from '@/components/collective/PartnerOrganization
 import GraphRule from '@/components/Shared/GraphRule.vue';
 import ButtonBlock from '@/components/global/Button.vue';
 import TitleBox from '@/components/global/Title.vue';
-import Form from '@/components/Shared/Form.vue';
+import ContactForm from '@/components/home/ContactForm.vue';
 </script>
 
 <style lang="scss" scoped>

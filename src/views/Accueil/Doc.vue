@@ -126,7 +126,7 @@ import GraphRule from '@/components/Shared/GraphRule.vue';
 import GraphStep from '@/components/Shared/GraphStep.vue';
 import ButtonBlock from '@/components/global/Button.vue';
 import Boxinfo from '@/components/global/BoxInfo.vue';
-import Form from '@/components/Shared/Form.vue';
+import Form from '@/components/home/ContactForm.vue';
 import BoxTechno from '@/components/global/BoxTechno.vue';
 import Newsletter from '@/components/global/Newsletter.vue';
 import Block3 from '@/components/Shared/Block3.vue';
