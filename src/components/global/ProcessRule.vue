@@ -7,8 +7,10 @@
           v-if="image === 'true'"
           href="https://github.com/green-code-initiative"
           target="_blank"
-          >{{ text }} <img width="120" height="60" src="/img/logo/LogoGithub.png"
-        /></a>
+          >
+          <span>{{ text }}</span>
+          <img width="120" height="32" src="@/assets/img/github.webp" alt="GitHub logo"/>
+        </a>
         <span v-else>{{ text }}</span>
       </div>
       <ArrowRight v-if="showRightArrow" class="arrow-icon" />
@@ -141,6 +143,10 @@ if (props.title === "utilisation" || props.image) {
     justify-content: center;
     flex-direction: column;
     color: #022826;
+
+    > img {
+      margin-top: 1rem;
+    }
   }
 }
 
