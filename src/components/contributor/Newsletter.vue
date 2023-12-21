@@ -3,9 +3,8 @@
     <span class="title">Rejoins ecoCode !</span>
     <span class="subtitle">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</span>
 
-    <div class="form-field">
-      <label class="text-input" for="email">E-mail * :</label>
-      <input v-model="email" id="email" type="email" autocomplete="email"/>
+    <div class="text-field">
+      <Textfield id="email" v-model="email" type="email" label="E-mail * :" autocomplete="email" centered/>
     </div>
 
     <div style="margin-top: 15px;">
@@ -30,6 +29,7 @@ import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import ButtonBlock from '@/components/global/Button.vue';
 import { post } from '@/util/fetch';
+import Textfield from "@/components/Shared/Textfield.vue";
 
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -115,33 +115,10 @@ form {
     max-width: 779px;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 320px;
+.text-field {
   margin: 3rem 1rem 0;
+  width: 320px;
   max-width: 100%;
-
-  label {
-    color: #355086;
-    font-size: 18px;
-    font-weight: 900;
-    outline: none;
-    text-align: center;
-  }
-
-  input {
-    height: 60px;
-    background-color: #ffffff;
-    padding: 1rem;
-    border-radius: 8px;
-    border: solid 1px rgba(0, 0, 0, 0.2);
-    color: #022826;
-    font-size: 18px;
-    font-weight: 500;
-    outline: none;
-  }
 }
 
 .join-us {

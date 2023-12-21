@@ -1,46 +1,22 @@
 <template>
   <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
-    <div class="form-fieldset">
-      <div class="form-field">
-        <label class="text-label" for="lastname">Nom :</label>
-        <input v-model="lastname" class="input" type="text" id="lastname" autocomplete="family-name"/>
-      </div>
-      <div class="form-field">
-        <label class="text-label" for="firstname">Prénom :</label>
-        <input v-model="firstname" class="input" type="text" id="firstname" autocomplete="given-name"/>
-      </div>
-    </div>
+    <Fieldset>
+      <Textfield id="lastname" v-model="lastname" label="Nom :" autocomplete="family-name"/>
+      <Textfield id="firstname" v-model="firstname" label="Prénom :" autocomplete="given-name"/>
+    </Fieldset>
 
-    <div class="form-field">
-      <label class="text-label" for="company">Organisation :</label>
-      <input v-model="company" class="input" type="text" id="company" autocomplete="organization"/>
-    </div>
+    <Textfield id="company" v-model="company" label="Organisation :" autocomplete="organization"/>
+    <Textfield id="role" v-model="role" label="Rôle :" autocomplete="organization-title"/>
 
-    <div class="form-field">
-      <label class="text-label" for="role">Rôle :</label>
-      <input v-model="role" class="input" type="text" id="role" autocomplete="organization-title"/>
-    </div>
+    <Fieldset>
+      <Textfield id="email" v-model="email" type="email" label="E-mail * :" autocomplete="email"/>
+      <Textfield id="phone" v-model="phone" type="tel" label="Téléphone :" autocomplete="tel"/>
+    </Fieldset>
 
-    <div class="form-fieldset">
-      <div class="form-field">
-        <label class="text-label" for="phone">Téléphone :</label>
-        <input v-model="phone" class="input" type="tel" id="phone" autocomplete="tel"/>
-      </div>
-      <div class="form-field">
-        <label class="text-label" for="email">E-mail * :</label>
-        <input v-model="email" required class="input" type="email" id="email" autocomplete="email"/>
-      </div>
-    </div>
+    <Textfield id="message" type="textarea" v-model="message" label="Votre besoin :"/>
 
-    <div class="form-field">
-      <label class="text-label" for="message">Votre besoin :</label>
-      <textarea v-model="message" id="message"></textarea>
-    </div>
-
-    <div class="hcaptcha">
-      <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
-                    aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"/>
-    </div>
+    <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
+                  aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"/>
 
     <div class="form-submit">
       <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
@@ -57,6 +33,8 @@ import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import ButtonBlock from '@/components/global/Button.vue';
 import { post } from '@/util/fetch';
+import Textfield from "@/components/Shared/Textfield.vue";
+import Fieldset from "@/components/Shared/Fieldset.vue";
 
 /**
  * Validates an email address to ensure it is not empty and follows a valid email format.
@@ -179,60 +157,9 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
-}
 
-.text-label {
-  color: #355086;
-  font-size: 18px;
-  font-weight: 900;
-  outline: none;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-fieldset {
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 796px) {
-  form {
+  @media (min-width: 796px) {
     width: 768px;
   }
-
-  .form-fieldset {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.input {
-  height: 60px;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  color: #022826;
-  font-size: 18px;
-  font-weight: 500;
-  outline: none;
-}
-
-textarea {
-  width: 100%;
-  height: 135px;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  color: #022826;
-  font-size: 18px;
-  font-weight: 500;
-  outline: none;
-  resize: none;
 }
 </style>

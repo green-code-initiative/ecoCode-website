@@ -15,33 +15,16 @@
         </div>
       </div>
 
-      <div class="form-field">
-        <label for="subject" class="text-label">Je souhaite :</label>
-        <select v-model="subject" id="subject" aria-label="Sélectionnez votre sujet">
-          <option v-for="option in options" :key="option">{{ option }}</option>
-        </select>
-      </div>
+      <Selectfield id="subject" v-model="subject" label="Je souhaite :" :items="options"/>
 
-      <div class="form-field">
-        <label class="text-label" for="entity-name">Nom de l’entreprise / Personne :</label>
-        <input class="input" v-model="name" type="text" id="entity-name"/>
-      </div>
+      <Textfield id="entity-name" v-model="name" label="Nom de l’entreprise / Personne"/>
 
-      <div class="form-fieldset">
-        <div class="form-field">
-          <label class="text-label" for="email">E-mail * :</label>
-          <input class="input" required v-model="email" type="email" id="email" autocomplete="email"/>
-        </div>
-        <div class="form-field">
-          <label class="text-label" for="phone">Téléphone :</label>
-          <input class="input" v-model="phone" type="tel" id="phone" autocomplete="tel"/>
-        </div>
-      </div>
+      <Fieldset>
+        <Textfield id="email" v-model="email" type="email" label="E-mail * :" required autocomplete="email"/>
+        <Textfield id="phone" v-model="phone" type="tel" label="Téléphone :" autocomplete="tel"/>
+      </Fieldset>
 
-      <div class="form-field">
-        <label class="text-label" for="message">Des éléments supplémentaires ?</label>
-        <input class="input" v-model="message" type="text" id="message"/>
-      </div>
+      <Textfield id="message" v-model="message" label="Des éléments supplémentaires ?"/>
 
       <div class="hcaptcha">
         <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
@@ -63,6 +46,9 @@ import { ref, watch } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import { post } from '@/util/fetch';
 import ButtonBlock from "@/components/global/Button.vue";
+import Textfield from "@/components/Shared/Textfield.vue";
+import Fieldset from "@/components/Shared/Fieldset.vue";
+import Selectfield from "@/components/Shared/Selectfield.vue";
 
 let captcha = ref("");
 const error = ref("");
@@ -244,29 +230,10 @@ form {
   gap: 0.5rem;
 }
 
-.form-fieldset {
-  display: grid;
-  gap: 1rem;
-}
-
 .radio-field {
   display: flex;
   gap: 1rem;
   margin-block-end: 0.5rem;
-}
-
-select {
-  width: 100%;
-  padding: 1rem 3.5rem 1rem 1rem;
-  border-radius: 8px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
-  color: #022826;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 30px top 50%;
-  background-size: 0.65rem auto;
 }
 
 label {
@@ -287,30 +254,13 @@ input[type="radio"] {
   border-radius: 50%;
   font-size: 18px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.56;
-  letter-spacing: 0.21px;
-  color: #022826;
 
   &:checked {
     width: 20px;
     height: 20px;
-    border: 2px solid #57c18b;
-    background-color: #57c18b;
+    border: 2px solid var(--color-secondary);
+    background-color: var(--color-secondary);
   }
-}
-
-.input {
-  height: 60px;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  color: #022826;
-  font-size: 18px;
-  font-weight: 500;
-  outline: none;
 }
 
 .form-submit {
@@ -327,10 +277,6 @@ input[type="radio"] {
 
   form {
     width: 768px;
-  }
-
-  .form-fieldset {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
