@@ -1,27 +1,29 @@
-<template>
-    <div class="GraphRule">
-        <h1 class="title">Les étapes pour contribuer à ecoCode</h1>
-        <div class="container-rule">
-            <div class="top-graph">
-                <ProcessRule id="rule-1" :opacity="0" titlePosition="right" position="right" title="" text="Je rejoins GitHub"></ProcessRule>
-                <ProcessRule id="rule-2" :opacity="0.2" titlePosition="right" position="right" title="" text="Je me positionne sur un ou plusieurs projets"></ProcessRule>
-                <ProcessRule id="rule-3" :opacity="0.4" titlePosition="right" position="bottom" title="" text="Je m'approprie les code smells sur lesquels me baser pour écrire les règles"></ProcessRule>
-            </div>
-            <div class="bottom-graph">
-                <ProcessRule id="rule-4" image="true" :opacity="1" titlePosition="left" position="left"
-                    text="C'est parti !">
-                </ProcessRule>
-                <ProcessRule id="rule-5" :opacity="0.8" titlePosition="left" position="left"
-                    text="Je propose une PR pour validation et intégration à la solution ecoCode"></ProcessRule>
-                <ProcessRule id="rule-6" :opacity="0.6" titlePosition="left" position=""
-                    text="J'écris des règles de détection Sonar"></ProcessRule>
-            </div>
-        </div>
-    </div>
-</template>
 <script setup lang="ts">
 import ProcessRule from '@/components/global/ProcessRule.vue';
 </script>
+
+<template>
+  <div class="GraphRule">
+    <h2 class="heading-2">Les étapes pour contribuer à ecoCode</h2>
+    <div class="container-rule">
+      <div class="top-graph">
+        <ProcessRule id="rule-1" :opacity="0" titlePosition="right" position="right" title="" text="Je rejoins GitHub"/>
+        <ProcessRule id="rule-2" :opacity="0.2" titlePosition="right" position="right" title=""
+                     text="Je me positionne sur un ou plusieurs projets"/>
+        <ProcessRule id="rule-3" :opacity="0.4" titlePosition="right" position="bottom" title=""
+                     text="Je m'approprie les code smells sur lesquels me baser pour écrire les règles"/>
+      </div>
+      <div class="bottom-graph">
+        <ProcessRule id="rule-4" image="true" :opacity="1" titlePosition="left" position="left"
+                     text="C'est parti !"/>
+        <ProcessRule id="rule-5" :opacity="0.8" titlePosition="left" position="left"
+                     text="Je propose une PR pour validation et intégration à la solution ecoCode"/>
+        <ProcessRule id="rule-6" :opacity="0.6" titlePosition="left" position=""
+                     text="J'écris des règles de détection Sonar"/>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .GraphRule {
@@ -37,17 +39,8 @@ import ProcessRule from '@/components/global/ProcessRule.vue';
     padding-bottom: 50px;
 }
 
-.title {
-    max-width: 1050px;
-    font-size: 40px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #355086;
-    padding: 40px 0 0 0;
+.heading-2 {
+    margin-top: 40px;
 }
 
 .container-rule {
@@ -73,18 +66,6 @@ import ProcessRule from '@/components/global/ProcessRule.vue';
     justify-content: center;
 }
 
-.detail {
-    max-width: 463px;
-    font-size: 22px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #022826;
-    text-align: center;
-    padding: 50px 0 50px 0;
-}
 @media screen and (max-width: 1150px) {
     .container-rule {
         flex-direction: column;
@@ -108,25 +89,6 @@ import ProcessRule from '@/components/global/ProcessRule.vue';
 
     #rule-6 {
         order: 1;
-    }
-
-    .title{
-        font-size: 32px;
-        margin: 0 36px 0 36px;
-    }
-    .detail{
-        font-size: 25px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .title{
-        font-size: 28px;
-        margin: 0 36px 0 36px;
-    }
-    .detail{
-        font-size: 20px;
-        padding-bottom: 0px;
     }
 }
 </style>

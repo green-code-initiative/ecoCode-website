@@ -9,7 +9,7 @@
     <Textfield id="role" v-model="role" label="Rôle :" autocomplete="organization-title"/>
 
     <Fieldset>
-      <Textfield id="email" v-model="email" type="email" label="E-mail * :" autocomplete="email"/>
+      <Textfield id="email" v-model="email" type="email" label="E-mail * :" required autocomplete="email"/>
       <Textfield id="phone" v-model="phone" type="tel" label="Téléphone :" autocomplete="tel"/>
     </Fieldset>
 

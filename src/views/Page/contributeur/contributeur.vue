@@ -33,7 +33,10 @@ const scroll=() => {
                     libre...</li>
             </ul>
         </div>
-        <span class="titleSimple">Les technologies couvertes par ecoCode (en attendant d’aller plus loin !)</span>
+
+        <h3 class="heading-3" style="margin-top: 20px;max-width: none">
+          Les technologies couvertes par ecoCode (en attendant d’aller plus loin !)
+        </h3>
         <Technologies />
     </TitleBox>
     <GraphStep />

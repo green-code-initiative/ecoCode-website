@@ -1,6 +1,6 @@
 <template>
   <div class="container-block">
-    <h2 class="title" :class="computedTitleClass">{{ title }}</h2>
+    <h3 class="heading-3" :class="computedTitleClass">{{ title }}</h3>
     <div class="container">
       <div :style="subtitleStyle" class="container-text">
         <a
@@ -90,15 +90,8 @@ if (props.title === "utilisation" || props.image) {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  font-size: 25px;
-  font-weight: 900;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #57c18b;
+.heading-3 {
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 

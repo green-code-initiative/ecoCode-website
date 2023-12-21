@@ -1,10 +1,12 @@
 <template>
   <form @submit.prevent="submitForm">
-    <span class="title">Rejoins ecoCode !</span>
-    <span class="subtitle">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</span>
+    <div class="headings">
+      <h2 class="heading-2">Rejoins ecoCode !</h2>
+      <h3 class="heading-3">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</h3>
+    </div>
 
     <div class="text-field">
-      <Textfield id="email" v-model="email" type="email" label="E-mail * :" autocomplete="email" centered/>
+      <Textfield id="email" v-model="email" type="email" label="E-mail * :" required autocomplete="email" centered/>
     </div>
 
     <div style="margin-top: 15px;">
@@ -70,7 +72,7 @@ const submitForm = async () => {
 
 function getCaptcha(response: any) {
   captcha.value = response;
-};
+}
 
 let email = ref("");
 let captcha = ref("");
@@ -89,30 +91,10 @@ form {
     background-color: #f3f3f3;
 }
 
-.title {
-    max-width: 1089px;
-    font-size: 40px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: center;
-    color: #355086;
-    padding: 0px 0 0 0;
-}
-
-.subtitle {
-    font-size: 32px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.56;
-    letter-spacing: normal;
-    text-align: center;
-    color: #57c18b;
-    padding: 53px 0 0 0;
-    max-width: 779px;
+.headings {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .text-field {
@@ -131,29 +113,7 @@ form {
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 1150px) {
-  .title {
-    margin: 0 36px 0 36px;
-    font-size: 32px;
-  }
-
-  .subtitle {
-    margin: 0 36px 0 36px;
-    font-size: 25px;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .title {
-    margin: 0 36px 0 36px;
-    font-size: 28px;
-  }
-
-  .subtitle {
-    margin: 0 36px 0 36px;
-    font-size: 20px;
-  }
-
   .join-us {
     flex-direction: column;
     padding: 25px 25px 0;

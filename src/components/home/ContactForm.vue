@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="title">On discute d’ecoCode ?</h2>
+    <h2 class="heading-2">On discute d’ecoCode ?</h2>
 
     <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
       <div class="form-field" role="radiogroup" aria-labelledby="i-am">
@@ -203,14 +203,6 @@ watch(type, (newValue) => {
   background-color: #f3f3f3;
 }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: normal;
-  text-align: center;
-  color: #355086;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -271,10 +263,6 @@ input[type="radio"] {
 }
 
 @media (min-width: 768px) {
-  .title {
-    font-size: 2.5rem;
-  }
-
   form {
     width: 768px;
   }

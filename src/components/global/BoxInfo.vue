@@ -1,36 +1,20 @@
-<template>
-    <div class="container-block">
-        <h3 class="title">{{ title }}</h3>
-        <div class="container">
-            <div class="container-text">{{ text }}</div>
-        </div>
-    </div>
-</template>
-  
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
-import { useRoute } from 'vue-router';
-
-
-const props = defineProps({
-    title: String,
-    text: String,
-});
+defineProps<{ title: string; text: string }>();
 </script>
-  
-  
+
+<template>
+  <div class="container-block">
+    <h3 class="heading-3">{{ title }}</h3>
+    <div class="container">
+      <div class="container-text">{{ text }}</div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
-.title {
-    font-size: 25px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #57c18b;
-    text-transform: uppercase;
+.heading-3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 .right {

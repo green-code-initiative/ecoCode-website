@@ -120,9 +120,8 @@
 
 <script lang="ts" setup>
 import TitleBox from '@/components/global/Title.vue';
-import Header from '@/components/global/Header.vue';
 import ProcessRule from '@/components/global/ProcessRule.vue';
-import GraphRule from '@/components/Shared/GraphRule.vue';
+import GraphRule from '@/components/home/RuleProcess.vue';
 import GraphStep from '@/components/Shared/GraphStep.vue';
 import ButtonBlock from '@/components/global/Button.vue';
 import Boxinfo from '@/components/global/BoxInfo.vue';
