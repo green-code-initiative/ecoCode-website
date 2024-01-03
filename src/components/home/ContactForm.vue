@@ -100,7 +100,7 @@ const validatePhone = () => {
     error.value = '';
     return true;
   } else if (!phonePattern.test(phone.value)) {
-    error.value = 'Le téléphone doit contenir uniquement des chiffres, +, ,, . ou un espace.';
+    error.value = 'Le téléphone doit contenir uniquement des chiffres, +, ,, . ou des espaces.';
     return false;
   }else{
     error.value = '';
