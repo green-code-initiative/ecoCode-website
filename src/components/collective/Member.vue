@@ -12,7 +12,7 @@ const linkTypes: Record<MemberLinkType, { logo: Component; url: (v: string) => s
 
 const links = Object.entries(linkTypes)
     .filter(([key]) => member.links[key as MemberLinkType] != null)
-    .map(([key, value]) => ({ key, logo: value.logo, href: value.url(member.links[key as MemberLinkType]) }))
+    .map(([key, value]) => ({ key, logo: value.logo, href: value.url(member.links[key as MemberLinkType]!) }))
 </script>
 
 <template>
@@ -23,7 +23,8 @@ const links = Object.entries(linkTypes)
       <p v-if="member.company" class="company">{{ member.company }}</p>
     </div>
     <div class="links" v-if="links">
-      <a v-for="link in links" :key="link.key" :href="link.href" target="_blank">
+      <a v-for="link in links" :key="link.key" :href="link.href" target="_blank"
+         :aria-label="link.key + ' de ' + member.name">
         <Component :is="link.logo" width="24" height="24"/>
       </a>
     </div>

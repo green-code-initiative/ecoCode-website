@@ -4,5 +4,5 @@ declare type Member = {
     name: string
     company: string
     profile: string
-    links: Record<MemberLinkType, string>
+    links: Partial<Record<MemberLinkType, string>>
 }
