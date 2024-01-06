@@ -35,8 +35,8 @@
         subtitle="Quelques structures partenaires :">
       <PartnerOrganizationList :featured="true" />
       <div class="block-button-section-1">
-        <ButtonBlock typebutton="white" link="/collectif?tab=entreprise" text="Toutes les entreprises partenaires" />
-        <ButtonBlock typebutton="white" link="/collectif?tab=membre" text="Tous nos membres contributeurs" />
+        <ButtonBlock typebutton="white" link="/collectif/organisations" text="Toutes les entreprises partenaires" />
+        <ButtonBlock typebutton="white" link="/collectif/membres" text="Tous nos membres contributeurs" />
       </div>
     </TitleBox>
     <ContactForm />

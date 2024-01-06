@@ -3,7 +3,9 @@ import HomeView from '../views/Accueil/Home.vue'
 import Documentation from '../views/Accueil/Doc.vue'
 import ContributeurView from '../views/Page/contributeur/contributeur.vue'
 import EntrepriseView from '../views/Page/entreprise/entreprise.vue'
-import TeamView from '../views/Page/team/team.vue'
+import TeamView from '@/views/Page/team/Team.vue'
+import TeamMembers from '@/views/Page/team/TeamMembers.vue';
+import TeamPartnerOrganizations from '@/views/Page/team/TeamPartnerOrganizations.vue';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -26,7 +28,12 @@ const router = createRouter({
     {
       path: '/collectif',
       name: 'collectif',
-      component: TeamView
+      component: TeamView,
+      children: [
+          { path: '', redirect: '/collectif/membres' },
+          { path: 'membres', name: 'collectif-membres', component: TeamMembers },
+          { path: 'organisations', name: 'collectif-organisations', component: TeamPartnerOrganizations },
+      ]
     },
     {
       path: '/Documentation',

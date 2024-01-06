@@ -1,9 +1,9 @@
 <template>
-  <header :style="{ backgroundColor: pageColors[route.path] || defaultColor }">
+  <header :style="{ backgroundColor: pageColor }">
     <router-link to="/">
       <img class="logo-header" src="@/assets/img/logo.webp" width="167" height="25" alt="ecoCode logo" @click="closeMenu"/>
     </router-link>
-    <ul :style="{ backgroundColor: pageColors[route.path] || defaultColor }" :class="{ 'menu-open': isMenuOpen }">
+    <ul :style="{ backgroundColor: pageColor }" :class="{ 'menu-open': isMenuOpen }">
       <router-link to="/contributeur" @click="closeMenu">
         <img width="40" height="40" v-if="isContributeurPage" src="@/assets/img/icon/arrow-left-white.webp">
         <li :class="{ active: isContributeurPage }">Contributeur</li>
@@ -48,16 +48,18 @@ const closeMenu = () => {
 
 const isContributeurPage = computed(() => route.path === '/contributeur');
 const isEntreprisePage = computed(() => route.path === '/entreprise');
-const isTeamPage = computed(() => route.path === '/collectif');
-const isPage = computed(() => route.path === '/contributeur' || route.path === '/entreprise' || route.path === '/team');
+const isTeamPage = computed(() => route.path.startsWith('/collectif'));
 
-const pageColors: Record<string, string> = {
-  '/contributeur': '#529a75ff',
-  '/entreprise': '#4f65a0ff',
-  '/collectif': '#95353eff',
-};
-
-const defaultColor = '#3a4e72ff';
+const pageColor = computed(() => {
+  if (isContributeurPage.value) {
+    return '#529a75';
+  } else if (isEntreprisePage.value) {
+    return '#4f65a0';
+  } else if (isTeamPage.value) {
+    return '#95353e';
+  }
+  return '#3a4e72';
+});
 </script>
 
 <style lang="scss" scoped>
