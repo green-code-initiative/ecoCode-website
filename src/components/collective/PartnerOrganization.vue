@@ -1,3 +1,7 @@
+<script setup lang="ts">
+defineProps<{ name: string; logo: { filename: string; width: number; height: number } }>()
+</script>
+
 <template>
   <div class="container">
     <div class="image">
@@ -11,10 +15,6 @@
     <p class="name">{{ name }}</p>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{ name: string; logo: { filename: string; width: number; height: number } }>()
-</script>
 
 <style scoped lang="scss">
 .container {

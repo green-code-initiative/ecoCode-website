@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Justin Berque",
+    "company": "Snapp'",
+    "profile": "Justin_Berque.jpeg",
+    "links": {
+      "linkedin": "justin-berque-444412140",
+      "github": "Jberque"
+    }
+  },
+  {
+    "name": "Jean-Yves Cronier",
+    "company": "Crédit Agricole Payment Services ",
+    "profile": "Jean-Yves-Cronier.jpeg",
+    "links": {
+      "linkedin": "jean-yves-cronier-ba3b7a18",
+      "github": "jycr"
+    }
+  },
+  {
+    "name": "Johanna Duigou",
+    "company": "Orange Business Services",
+    "profile": "Johanna_Duigou.jpeg",
+    "links": {
+      "linkedin": "johannaduigou"
+    }
+  },
+  {
+    "name": "Emmanuel Espias",
+    "company": "Snapp'",
+    "profile": "Emmanuel_Espias.jpeg",
+    "links": {
+      "linkedin": "eespias"
+    }
+  },
+  {
+    "name": "Mikaël Picard",
+    "company": "Aubay",
+    "profile": "Mikael_Picard.jpg",
+    "links": {
+      "github": "MP-Aubay"
+    }
+  }
+]

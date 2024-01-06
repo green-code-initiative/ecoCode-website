@@ -1,0 +1,73 @@
+[
+  {
+    "name": "David De Carvalho",
+    "company": "Pages Jaunes",
+    "profile": "David_De_Carvalho.jpeg",
+    "links": {
+      "linkedin": "david--de--carvalho",
+      "github": "dedece35"
+    }
+  },
+  {
+    "name": "Jules Delecour",
+    "company": "Davidson",
+    "profile": "Jules_Delecour.jpeg",
+    "links": {
+      "linkedin": "jules-delecour-498680118",
+      "github": "jules-delecour-dav"
+    }
+  },
+  {
+    "name": "Maxime Dubois",
+    "company": "Snapp'",
+    "profile": "Maxime_Dubois.jpeg",
+    "links": {
+      "linkedin": "maxime-dubois-649a3a3",
+      "github": "mdubois81"
+    }
+  },
+  {
+    "name": "Gilles Grousset",
+    "company": "inside|app",
+    "profile": "Gilles_Grousset.jpeg",
+    "links": {
+      "linkedin": "gillesgrousset",
+      "github": "zippy1978"
+    }
+  },
+  {
+    "name": "Julien Hertout",
+    "company": "Snapp'",
+    "profile": "Julien_Hertout.jpeg",
+    "links": {
+      "linkedin": "julien-hertout-b1175449",
+      "github": "jhertout"
+    }
+  },
+  {
+    "name": "Geoffrey Lalloué",
+    "profile": "Geoffrey_Lalloué.jpeg",
+    "links": {
+      "linkedin": "geoffreylalloue",
+      "github": "glalloue"
+    }
+  },
+  {
+    "name": "Olivier Le Goaër",
+    "company": "LIUPPA",
+    "profile": "Olivier_Le_Goaer.jpeg",
+    "links": {
+      "linkedin": "olivierlegoaer",
+      "github": "olegoaer"
+    }
+  },
+  {
+    "name": "Maxime Malgorn",
+    "company": "Natixis (BPCE)",
+    "profile": "Maxime_Malgorn.jpeg",
+    "links": {
+      "linkedin": "maximemalgorn",
+      "github": "utarwyn"
+    }
+  }
+]

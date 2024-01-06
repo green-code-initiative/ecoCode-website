@@ -62,16 +62,6 @@
     </div>
 
     <div class="container-doc">
-        <h3>Voici le composant Espace Membre :</h3>
-        <ul>Params :
-            <li>team: Pour montrer les team qu'on souhaite</li>
-            <li>Exemple utiliser :</li>
-            <li>EspaceMembre team="core team" /EspaceMembre</li>
-        </ul>
-        <EspaceMembre team="core team"></EspaceMembre>
-    </div>
-
-    <div class="container-doc">
         <h3>Voici le composant Espace ButtonBlock :</h3>
         <ul>Params :
             <li>title: Pour donner un titre avant le bouton</li>
@@ -130,7 +120,6 @@ import BoxTechno from '@/components/contributor/Technologies.vue';
 import Newsletter from '@/components/contributor/Newsletter.vue';
 import Block3 from '@/components/Shared/Block3.vue';
 import FormSecond from '@/components/company/CaseStudyForm.vue';
-import EspaceMembre from '@/components/global/BoxMembre.vue';
 </script>
 
 <style scoped lang="scss">
