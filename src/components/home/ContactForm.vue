@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="contact">
     <h2 class="heading-2">On discute d’ecoCode ?</h2>
 
     <form @submit.prevent="submitForm" aria-label="Formulaire de contact">

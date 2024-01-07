@@ -1,33 +1,43 @@
-<template>
-    <TitleBox colorBackground="#5374c9" typetitle="white black"
-        title="Nous proposons aux organisations la création de règles d'éco-conception logicielle sur-mesure."
-        subtitle="En collaborant avec nous, vous réduisez votre impact numérique et contribuez à l'Open Source.">
-        <div style="padding-bottom: 50px;" class="block-button-section-1">
-            <ButtonBlock typebutton="white" link="/" text="Demande de contact"></ButtonBlock>
-            <ButtonBlock @click="scroll()" typebutton="white" link="#client-case" text="Recevez le cas client Société Générale"></ButtonBlock>
-        </div>
-    </TitleBox>
-    <TitleBox style="padding-bottom: 50px;" typetitle="title blue" title="Notre offre"
-        subtitle="Nous créons des extensions SonarQube pour analyser votre code et vous permettre de réduire son impact.">
-    </TitleBox>
-    <Block3 title="Le processus de création d'une règle"></Block3>
-    <TitleBox id="client-case" style="padding-bottom: 50px;" typetitle="title blue" title="Recevez notre cas client Société Générale par mail">
-        <CaseStudyForm />
-    </TitleBox>
-</template>
 <script setup lang="ts">
-import TitleBox from '@/components/global/Title.vue';
-import Block3 from '@/components/Shared/Block3.vue';
-import ButtonBlock from '@/components/global/Button.vue';
 import CaseStudyForm from '@/components/company/CaseStudyForm.vue';
+import RuleCreationProcess from '@/components/company/RuleCreationProcess.vue';
+import AppButton from '@/components/global/Button.vue';
+import TitleBox from '@/components/global/Title.vue';
 
-const scroll=() => {
-  const element = document.getElementById('client-case');
+const scroll = (elementId: string) => {
+  const element = document.getElementById(elementId);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 }
 </script>
+
+<template>
+    <TitleBox colorBackground="#5374c9" typetitle="white black"
+        title="Nous proposons aux organisations la création de règles d'éco-conception logicielle sur-mesure."
+        subtitle="En collaborant avec nous, vous réduisez votre impact numérique et contribuez à l'Open Source.">
+        <div class="button-container">
+            <AppButton @click="scroll('contact')" typebutton="white" link="/#contact" text="Demande de contact"/>
+            <AppButton @click="scroll('client-case')" typebutton="white" link="#client-case" text="Recevez le cas client Société Générale"/>
+        </div>
+    </TitleBox>
+    <TitleBox style="padding-bottom: 50px;" typetitle="title blue" title="Notre offre"
+        subtitle="Nous créons des extensions SonarQube pour analyser votre code et vous permettre de réduire son impact.">
+    </TitleBox>
+    <RuleCreationProcess />
+    <TitleBox id="client-case" style="padding-bottom: 50px;" typetitle="title blue" title="Recevez notre cas client Société Générale par mail">
+        <CaseStudyForm />
+    </TitleBox>
+</template>
+
 <style lang="scss" scoped>
-@import './scss/style.scss';
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: 921px) {
+    flex-direction: row;
+  }
+}
 </style>

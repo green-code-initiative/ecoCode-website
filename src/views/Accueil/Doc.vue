@@ -52,16 +52,6 @@
     </div>
 
     <div class="container-doc">
-        <h3>Voici le composant Block3 :</h3>
-        <ul>Params :
-            <li>title: Pour lui donner un titre</li>
-            <li>Exemple utiliser :</li>
-            <li>Block3 title="params : title" /Block3</li>
-        </ul>
-        <Block3 title="params: title"></Block3>
-    </div>
-
-    <div class="container-doc">
         <h3>Voici le composant Espace ButtonBlock :</h3>
         <ul>Params :
             <li>title: Pour donner un titre avant le bouton</li>
@@ -118,7 +108,6 @@ import Boxinfo from '@/components/global/BoxInfo.vue';
 import Form from '@/components/home/ContactForm.vue';
 import BoxTechno from '@/components/contributor/Technologies.vue';
 import Newsletter from '@/components/contributor/Newsletter.vue';
-import Block3 from '@/components/Shared/Block3.vue';
 import FormSecond from '@/components/company/CaseStudyForm.vue';
 </script>
 
