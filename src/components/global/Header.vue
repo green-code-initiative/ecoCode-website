@@ -1,186 +1,129 @@
-<template>
-  <header :style="{ backgroundColor: pageColor }">
-    <router-link to="/">
-      <img class="logo-header" src="@/assets/img/logo.webp" width="167" height="25" alt="ecoCode logo" @click="closeMenu"/>
-    </router-link>
-    <ul :style="{ backgroundColor: pageColor }" :class="{ 'menu-open': isMenuOpen }">
-      <router-link to="/contributeur" @click="closeMenu">
-        <img width="40" height="40" v-if="isContributeurPage" src="@/assets/img/icon/arrow-left-white.webp">
-        <li :class="{ active: isContributeurPage }">Contributeur</li>
-        <img width="40" height="40" v-if="isContributeurPage" src="@/assets/img/icon/arrow-right-white.webp">
-      </router-link>
-      <router-link to="/entreprise" @click="closeMenu">
-        <img width="40" height="40" v-if="isEntreprisePage" src="@/assets/img/icon/arrow-left-white.webp">
-        <li :class="{ active: isEntreprisePage }">Entreprises</li>
-        <img width="40" height="40" v-if="isEntreprisePage" src="@/assets/img/icon/arrow-right-white.webp">
-      </router-link>
-      <router-link to="/collectif" @click="closeMenu">
-        <img width="40" height="40" v-if="isTeamPage" src="@/assets/img/icon/arrow-left-white.webp">
-        <li :class="{ active: isTeamPage }">Notre collectif</li>
-        <img width="40" height="40" v-if="isTeamPage" src="@/assets/img/icon/arrow-right-white.webp">
-      </router-link>
-    </ul>
-    <div class="menu-burger" @click="toggleMenu">
-      <div class="burger-icon" :class="{ 'cross-icon': isMenuOpen }">
-        <div id="bar-1" class="bar" :class="{ 'hide': isMenuOpen }"></div>
-        <div id="bar-2" class="bar" :class="{ 'cross-bar': isMenuOpen }"></div>
-        <div id="bar-3" class="bar" :class="{ 'cross-bar2': isMenuOpen }"></div>
-      </div>
-    </div>
-  </header>
-</template>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?component';
+import ChevronRightIcon from '@/assets/icons/chevron_right.svg?component';
+import BurgerMenuButton from "@/components/global/header/BurgerMenuButton.vue";
 
 const route = useRoute();
 const isMenuOpen = ref(false);
 
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
+const closeMenu = () => isMenuOpen.value = false;
 
-const closeMenu = () => {
-  isMenuOpen.value = false;
-};
+const items = [
+  { name: "Contributeur", to: "/contributeur" },
+  { name: "Entreprises", to: "/entreprise" },
+  { name: "Notre collectif", to: "/collectif" },
+];
 
-
-const isContributeurPage = computed(() => route.path === '/contributeur');
-const isEntreprisePage = computed(() => route.path === '/entreprise');
-const isTeamPage = computed(() => route.path.startsWith('/collectif'));
-
-const pageColor = computed(() => {
-  if (isContributeurPage.value) {
+const currentColor = computed(() => {
+  if (route.path === '/contributeur') {
     return '#529a75';
-  } else if (isEntreprisePage.value) {
+  } else if (route.path === '/entreprise') {
     return '#4f65a0';
-  } else if (isTeamPage.value) {
+  } else if (route.path.startsWith('/collectif')) {
     return '#95353e';
   }
   return '#3a4e72';
 });
 </script>
 
+<template>
+  <header :style="{ backgroundColor: currentColor }">
+    <router-link to="/" class="go-to-home">
+      <img src="@/assets/img/logo.webp" width="167" height="25" alt="ecoCode logo" @click="closeMenu"/>
+    </router-link>
+    <nav :style="{ backgroundColor: currentColor }" :class="{ open: isMenuOpen }">
+      <router-link v-for="item of items" :key="item.name" :to="item.to" @click="closeMenu">
+        <ChevronLeftIcon aria-hidden="true" class="left"/>
+        {{ item.name }}
+        <ChevronRightIcon aria-hidden="true" class="right"/>
+      </router-link>
+    </nav>
+    <BurgerMenuButton v-model="isMenuOpen" class="burger-button"/>
+  </header>
+</template>
+
 <style lang="scss" scoped>
 header {
   height: 60px;
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  position: relative;
   justify-content: space-between;
-  z-index: 10;
-  user-select: none;
-}
+  padding: 0 2rem;
 
-.logo-header {
-  margin-left: 40px;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-a {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0 25px 0 25px;
-}
-
-.bar {
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  margin-top: 5px;
-  transition: transform 0.3s;
-}
-
-.cross-icon{
-    transform: rotate(-45deg);
-}
-.cross-bar {
- transform: translateY(7px)
-}
-
-.cross-bar2 {
-  transform: rotate(-90deg);
- }
-
-.hide{
-  display: none;
-}
-
-li {
-
-  opacity: 0.5;
-  color: white;
-  text-transform: uppercase;
-
-  &:hover {
-    cursor: pointer;
+  .go-to-home, .menu-burger {
+    display: flex;
+    align-items: center;
   }
 }
 
-.active {
-  opacity: 1;
-}
-
-.menu-burger {
+nav {
   display: none;
-  cursor: pointer;
-  padding: 10px;
-  margin-right: 50PX;
-
-}
-
-.burger-icon {
-  width: 25px;
-  height: 25px;
-  margin: 5px 0;
-}
-
-.bar{
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  margin-top: 5px;
-}
-
-.menu-open {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  list-style: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  background-color: #3a4e72ff;
-  z-index: 11;
+  gap: 4rem;
+
   > a {
-    margin-left: 65px;
-    padding-bottom: 25px;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    opacity: 0.8;
+
+    svg {
+      position: absolute;
+      opacity: 0;
+      transition: transform ease-in-out .2s, opacity ease-in-out .2s;
+    }
+
+    svg.left {
+      left: -1.5rem;
+      bottom: 0.3rem;
+      transform: translateY(1rem);
+    }
+
+    svg.right {
+      right: -1.5rem;
+      top: 0.3rem;
+      transform: translateY(-1rem);
+    }
+
+    &.router-link-active {
+      opacity: 1;
+      text-shadow: 0 0 1px white;
+
+      svg {
+        opacity: 1;
+        transform: rotateZ(35deg) translateY(0);
+      }
+    }
   }
 }
 
-@media screen and (max-width: 920px) {
-  ul{
+@media screen and (min-width: 920px) {
+  nav {
+    display: flex;
+  }
+
+  .burger-button {
     display: none;
   }
+}
 
-  .menu-burger{
-    display: block;
-  }
-  router-link-active{
-    margin-left: 25px;
+@media screen and (max-width: 919px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+
+    &.open {
+      display: flex;
+    }
   }
 }
 </style>
