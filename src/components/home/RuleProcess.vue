@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ProcessRule from "@/components/global/ProcessRule.vue";
-import ButtonBlock from "@/components/global/Button.vue";
+import AppButton from "@/components/global/Button.vue";
 </script>
 
 <template>
@@ -24,8 +24,8 @@ import ButtonBlock from "@/components/global/Button.vue";
                      text="Une équipe expérimentée étudie et valide la nouvelle règle"/>
       </div>
     </div>
-    <span class="detail">Nous travaillons également sur des règles sur-mesure pour des organisations clientes</span>
-    <ButtonBlock typebutton="blue" link="/Entreprise" text="En savoir plus"/>
+    <p class="detail">Nous travaillons également sur des règles sur-mesure pour des organisations clientes.</p>
+    <AppButton variant="primary" link="/entreprise" text="En savoir plus"/>
   </div>
 </template>
 
@@ -71,16 +71,11 @@ import ButtonBlock from "@/components/global/Button.vue";
 }
 
 .detail {
-    max-width: 463px;
+    max-width: 720px;
     font-size: 22px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #022826;
     text-align: center;
-    padding: 50px 0 50px 0;
+    padding: 50px 1rem;
 }
 
 @media screen and (max-width: 1150px) {
@@ -113,9 +108,8 @@ import ButtonBlock from "@/components/global/Button.vue";
 }
 
 @media screen and (max-width: 768px) {
-    .detail{
-        font-size: 20px;
-        padding-bottom: 0;
-    }
+  .detail {
+    font-size: 20px;
+  }
 }
 </style>

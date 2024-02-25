@@ -17,7 +17,8 @@ const scroll=() => {
 <template>
     <TitleBox colorBackground="#57c18b" typetitle="full white" title="Tu te soucies de réduire l'impact environnemental et social des solutions numériques ?"
         subtitle="Rejoins ecoCode et contribue à faire du numérique un domaine plus durable.">
-        <AppButton @click="scroll()" style="padding-bottom: 50px;" typebutton="white" link="#newsletter" text="Je rejoins la communauté" />
+      <AppButton @click="scroll()" variant="secondary" link="#newsletter" text="Je rejoins la communauté"
+                 style="margin-bottom: 40px"/>
     </TitleBox>
     <TitleBox typetitle="blue black light" title="ecoCode est un projet qui tire sa force du collectif">
       <ContributorProfiles />

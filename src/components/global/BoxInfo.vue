@@ -41,9 +41,8 @@ defineProps<{ title: string; text: string }>();
     width: 257px;
     height: 197px;
     padding: 0 19px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    border: solid 2px rgba(135, 204, 255, 0);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-border-small);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,7 +52,7 @@ defineProps<{ title: string; text: string }>();
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    background-color: white;
+    background-color: var(--color-card-background);
     margin-top: 10px;
 }
 

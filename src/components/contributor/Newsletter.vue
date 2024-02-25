@@ -15,7 +15,7 @@
     <div style="margin-top: 15px;" class="error-message" v-if="error">{{ error }}</div>
     <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
 
-    <ButtonBlock type="submit" typebutton="blue" text="Recevoir les informations"/>
+    <AppButton type="submit" variant="primary" text="Recevoir les informations"/>
 
     <div class="join-us">
       <p>Tu souhaites contribuer sans plus attendre ? Rejoins-nous sur</p>
@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import ButtonBlock from '@/components/global/Button.vue';
+import AppButton from '@/components/global/Button.vue';
 import { post } from '@/util/fetch';
 import Textfield from "@/components/Shared/Textfield.vue";
 

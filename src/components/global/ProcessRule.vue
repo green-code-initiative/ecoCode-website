@@ -119,7 +119,7 @@ if (props.title === "utilisation" || props.image) {
   height: 140px;
   padding: 0 19px;
   border-radius: 20px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-border-small);
   display: flex;
   flex-direction: row;
   align-items: center;

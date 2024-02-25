@@ -30,8 +30,8 @@ defineProps<{ name: string; logo: { filename: string; width: number; height: num
   align-items: center;
   width: 180px;
   height: 100px;
-  border: solid 1px #87ccff;
-  border-radius: 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-border-small);
 }
 
 .name {

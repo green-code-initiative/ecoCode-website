@@ -51,7 +51,7 @@ withDefaults(
     height: 56px;
     background-color: white;
     padding: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     border: solid 1px #d8dae5;
     font-size: 18px;
     font-weight: 500;

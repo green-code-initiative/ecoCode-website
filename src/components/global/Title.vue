@@ -166,26 +166,9 @@ const getSubtitleClass = computed(() => {
     margin: 0 36px 0 36px;
     padding-bottom: 20px;
   }
-
-  .title-blue,
-  .title-white {
-    margin: 0 36px 0 36px;
-    font-size: 28px;
-    padding-top: 0px;
-  }
-
-  .subtitle-white,
-  .subtitle-black,
-  .subtitle-green,
-  .subtitle-black-light {
-    margin: 10px 36px 0 36px;
-    font-size: 20px;
-    padding: 0 0 0 0;
-  }
 }
 
 @media screen and (max-width: 768px) {
-
   .title-blue,
   .title-white {
     margin: 0 36px 0 36px;
@@ -199,7 +182,6 @@ const getSubtitleClass = computed(() => {
   .subtitle-black-light {
     margin: 10px 36px 0 36px;
     font-size: 15px;
-    padding: 0 0 0 0;
   }
 }
 </style>

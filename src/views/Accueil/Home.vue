@@ -5,8 +5,8 @@
             style="padding-bottom: 50px"/>
 
   <div style="background-color: #57c18b;" class="block-button-section-1">
-    <ButtonBlock typebutton="white" link="/contributeur" text="Je souhaite contribuer au projet"/>
-    <ButtonBlock typebutton="white" link="/entreprise" text="Je souhaite une intégration sur-mesure"/>
+    <AppButton variant="secondary" link="/contributeur" text="Je souhaite contribuer au projet"/>
+    <AppButton variant="secondary" link="/entreprise" text="Je souhaite une intégration sur-mesure"/>
   </div>
 
     <TitleBox typetitle="title blue" title="ecoCode est une initiative qui prend racine dans la force du collectif"
@@ -35,8 +35,8 @@
         subtitle="Quelques structures partenaires :">
       <PartnerOrganizationList :featured="true" />
       <div class="block-button-section-1">
-        <ButtonBlock typebutton="white" link="/collectif/organisations" text="Toutes les entreprises partenaires" />
-        <ButtonBlock typebutton="white" link="/collectif/membres" text="Tous nos membres contributeurs" />
+        <AppButton variant="secondary" link="/collectif/organisations" text="Toutes les entreprises partenaires" />
+        <AppButton variant="secondary" link="/collectif/membres" text="Tous nos membres contributeurs" />
       </div>
     </TitleBox>
     <ContactForm />
@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
 import RuleProcess from '@/components/home/RuleProcess.vue';
-import ButtonBlock from '@/components/global/Button.vue';
+import AppButton from '@/components/global/Button.vue';
 import TitleBox from '@/components/global/Title.vue';
 import ContactForm from '@/components/home/ContactForm.vue';
 </script>

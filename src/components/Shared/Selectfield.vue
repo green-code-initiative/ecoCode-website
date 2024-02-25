@@ -42,7 +42,7 @@ defineProps<{ id: string; label: string; modelValue: string; items: string[] }>(
     position: relative;
     height: 56px;
     background-color: white;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     border: solid 1px #d8dae5;
     transition: box-shadow .08s ease-in-out;
     overflow: hidden;
@@ -64,6 +64,7 @@ defineProps<{ id: string; label: string; modelValue: string; items: string[] }>(
       width: 24px;
       height: 24px;
       color: var(--color-primary);
+      pointer-events: none;
     }
 
     &:focus, &:focus-within {

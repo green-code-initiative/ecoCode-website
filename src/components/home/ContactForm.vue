@@ -35,7 +35,7 @@
         <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
         <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
 
-        <ButtonBlock type="submit" typebutton="blue" text="Envoyer" aria-label="Envoyer le formulaire de contact"/>
+        <AppButton type="submit" variant="primary" text="Envoyer" aria-label="Envoyer le formulaire de contact"/>
       </div>
     </form>
   </div>
@@ -45,7 +45,7 @@
 import { ref, watch } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import { post } from '@/util/fetch';
-import ButtonBlock from "@/components/global/Button.vue";
+import AppButton from "@/components/global/Button.vue";
 import Textfield from "@/components/Shared/Textfield.vue";
 import Fieldset from "@/components/Shared/Fieldset.vue";
 import Selectfield from "@/components/Shared/Selectfield.vue";

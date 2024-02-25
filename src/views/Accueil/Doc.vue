@@ -54,16 +54,15 @@
     <div class="container-doc">
         <h3>Voici le composant Espace ButtonBlock :</h3>
         <ul>Params :
-            <li>title: Pour donner un titre avant le bouton</li>
             <li>text: Pour donner un text dans le bouton</li>
             <li>typebutton: Pour choisir un style au button : </li>
             <li>--------- blue : bouton bleu avec fleche blanche texte de couleur blanc</li>
             <li>--------- White : bouton blanc avec fleche verte texte de couleur bleu</li>
             <li>link: lien pour être rediriger ou on veut </li>
             <li>Exemple utiliser :</li>
-            <li>ButtonBlock title="params: title" text="params: text" typebutton="blue" link="/Documentation" /ButtonBlock</li>
+            <li>ButtonBlock text="params: text" typebutton="blue" link="/Documentation" /ButtonBlock</li>
         </ul>
-        <ButtonBlock title="params: title" text="params: text" typebutton="blue" link="/Documentation"></ButtonBlock>
+        <ButtonBlock text="params: text" typebutton="blue" link="/Documentation"></ButtonBlock>
     </div>
 
     <div class="container-doc">

@@ -17,8 +17,8 @@ const scroll = (elementId: string) => {
         title="Nous proposons aux organisations la création de règles d'éco-conception logicielle sur-mesure."
         subtitle="En collaborant avec nous, vous réduisez votre impact numérique et contribuez à l'Open Source.">
         <div class="button-container">
-            <AppButton @click="scroll('contact')" typebutton="white" link="/#contact" text="Demande de contact"/>
-            <AppButton @click="scroll('client-case')" typebutton="white" link="#client-case" text="Recevez le cas client Société Générale"/>
+            <AppButton variant="secondary" :link="{ path: '/', hash: '#contact' }" text="Demande de contact"/>
+            <AppButton variant="secondary" link="#client-case" text="Recevez le cas client Société Générale"/>
         </div>
     </TitleBox>
     <TitleBox style="padding-bottom: 50px;" typetitle="title blue" title="Notre offre"
@@ -34,10 +34,12 @@ const scroll = (elementId: string) => {
 .button-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin: 40px;
+  gap: 1.2rem;
 
   @media screen and (min-width: 921px) {
     flex-direction: row;
+    gap: 4rem;
   }
 }
 </style>

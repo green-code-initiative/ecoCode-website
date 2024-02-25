@@ -22,7 +22,7 @@
       <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
       <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
 
-      <ButtonBlock type="submit" typebutton="blue" text="Recevez notre cas client"
+      <AppButton type="submit" variant="primary" text="Recevez notre cas client"
                    aria-label="Soumettez le formulaire"/>
     </div>
   </form>
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import ButtonBlock from '@/components/global/Button.vue';
+import AppButton from '@/components/global/Button.vue';
 import { post } from '@/util/fetch';
 import Textfield from "@/components/Shared/Textfield.vue";
 import Fieldset from "@/components/Shared/Fieldset.vue";
@@ -157,6 +157,13 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  .form-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
   @media (min-width: 796px) {
     width: 768px;
