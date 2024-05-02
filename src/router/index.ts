@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/Accueil/Home.vue'
-import Documentation from '../views/Accueil/Doc.vue'
 import ContributeurView from '../views/Page/contributeur/contributeur.vue'
 import EntrepriseView from '../views/Page/entreprise/entreprise.vue'
 import TeamView from '@/views/Page/team/Team.vue'
@@ -34,11 +33,6 @@ const router = createRouter({
           { path: 'membres', name: 'collectif-membres', component: TeamMembers },
           { path: 'organisations', name: 'collectif-organisations', component: TeamPartnerOrganizations },
       ]
-    },
-    {
-      path: '/Documentation',
-      name: 'Documentation',
-      component: Documentation
     },
   ]
 })
