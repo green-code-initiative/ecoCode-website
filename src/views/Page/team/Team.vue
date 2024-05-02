@@ -13,6 +13,7 @@ import { RouterLink, RouterView } from 'vue-router';
 <style lang="scss" scoped>
 nav {
   background-color: var(--color-tertiary);
+  color: var(--color-on-tertiary);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -22,7 +23,7 @@ nav {
   > a {
     opacity: 0.5;
     text-align: center;
-    color: white;
+    color: inherit;
     font-size: 1.5rem;
     font-weight: 900;
 

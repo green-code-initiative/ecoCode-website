@@ -33,7 +33,7 @@ p {
     font-weight: 900;
     text-align: center;
     margin: 0 1rem;
-    max-width: 780px;
+    max-width: 1200px;
     color: var(--color-primary);
 }
 
@@ -42,7 +42,7 @@ p {
     font-weight: 900;
     text-align: center;
     margin: 0 1rem;
-    max-width: 780px;
+    max-width: 1050px;
     color: var(--color-secondary);
 }
 
