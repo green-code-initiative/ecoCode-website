@@ -52,7 +52,7 @@ defineProps<{ title: string; text: string }>();
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    background-color: var(--color-card-background);
+    background-color: var(--color-surface);
     margin-top: 10px;
 }
 

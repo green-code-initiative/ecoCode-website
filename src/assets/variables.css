@@ -10,9 +10,11 @@
     --color-on-tertiary: #ffffff;
     --color-quaternary: #5374c9;
     --color-on-quaternary: #ffffff;
+    --color-additionnal-1: hsl(40, 100%, 89%);
+    --color-additionnal-1-hover: hsl(40, 100%, 81%);
 
+    --color-surface: white;
     --color-on-surface: #022826;
-    --color-card-background: white;
 
     /* Shadows */
     --shadow-small: 0px 2px 2px rgba(0, 0, 0, .04);

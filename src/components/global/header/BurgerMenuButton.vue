@@ -5,26 +5,23 @@ defineProps<{ modelValue: boolean }>()
 
 <template>
   <button :class="{ active: modelValue }" @click="$emit('update:modelValue', !modelValue)">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
-      <g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
-        <path class="top-line" d="M10 10h40Z"/>
-        <path class="middle-line" d="M10 20h40Z"/>
-        <path class="bottom-line" d="M10 30h40Z"/>
-      </g>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path class="top-line" fill-rule="evenodd" d="m3 12 1-1h16a1 1 0 1 1 0 2H4l-1-1Z" clip-rule="evenodd"/>
+      <path class="middle-line" fill-rule="evenodd" d="m3 6 1-1h16a1 1 0 1 1 0 2H4L3 6Z" clip-rule="evenodd"/>
+      <path class="bottom-line" fill-rule="evenodd" d="m3 18 1-1h16a1 1 0 1 1 0 2H4l-1-1Z" clip-rule="evenodd"/>
     </svg>
   </button>
 </template>
 
 <style lang="scss" scoped>
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   appearance: none;
-  outline: none;
   background-color: transparent;
   border: none;
+  padding: 0.75rem;
   width: 48px;
+  height: 48px;
 
   svg {
     path {
@@ -52,13 +49,11 @@ button {
     transform: translateY(0px);
   }
   30% {
-    transform-origin: center;
     animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
   100% {
-    transform-origin: center;
-    transform: translateY(-10px) rotate(45deg) scale(0.9);
+    transform: translateY(-6px) rotate(45deg) scale(0.9);
   }
 }
 
@@ -68,13 +63,11 @@ button {
     transform: translateY(0px);
   }
   30% {
-    transform-origin: center;
     animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform: translateY(10px);
+    transform: translateY(0);
   }
   100% {
-    transform-origin: center;
-    transform: translateY(10px) rotate(-45deg) scale(0.9);
+    transform: translateY(0) rotate(-45deg) scale(0.9);
   }
 }
 
