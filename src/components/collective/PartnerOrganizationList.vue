@@ -14,6 +14,7 @@ const filteredOrganizations = props.featured
   <div class="partner-organization-list">
     <PartnerOrganization
         v-for="organization in filteredOrganizations"
+        :key="organization.name"
         :name="organization.name"
         :logo="{ filename: organization.img, width: organization.width, height: organization.height }"
     />

@@ -13,13 +13,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Use Node.js 18.X
       uses: actions/setup-node@v3
       with:
         node-version: 18.X
         cache: 'npm'
-    - run: npm install
-    - run: npm run build
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Lint
+      run: npm run lint
+
+    - name: Build
+      run: npm run build
+
     - name: Replace symlinks by the targeted file
       run: find ./dist -type l -exec sh -c 'cp --remove-destination "$(readlink "{}")" "{}"' \;
     - name: Archive production artifacts
