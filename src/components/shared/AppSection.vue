@@ -1,5 +1,9 @@
 <script setup lang="ts">
-defineProps<{ title: string; subTitle?: string; backgroundColor?: 'white' | 'grey' }>()
+defineProps<{
+  title: string;
+  subTitle?: string;
+  backgroundColor?: "white" | "grey";
+}>();
 </script>
 
 <template>
@@ -24,7 +28,7 @@ defineProps<{ title: string; subTitle?: string; backgroundColor?: 'white' | 'gre
   }
 
   &.grey {
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
   }
 }
 </style>

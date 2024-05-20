@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BurgerMenuButton from "@/components/global/header/BurgerMenuButton.vue";
+import BurgerMenuButton from "@/components/shared/layout/header/BurgerMenuButton.vue";
 import Github from "@/assets/icons/github.svg";
 import Linkedin from "@/assets/icons/linkedin.svg";
 import Trophy from "@/assets/icons/trophy.svg";
-import NavItem from "@/components/global/header/NavItem.vue";
+import NavItem from "@/components/shared/layout/header/HeaderNavItem.vue";
 
 const isMenuOpen = ref(false);
 

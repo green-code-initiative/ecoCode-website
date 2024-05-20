@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
-import AppButton from '@/components/global/Button.vue';
+import AppButton from '@/components/shared/AppButton.vue';
 import AppHero from '@/components/global/Hero.vue';
 import ContactForm from '@/components/home/ContactForm.vue';
 import RuleProcess from '@/components/home/RuleProcess.vue';
-import AppSection from "@/components/Shared/AppSection.vue";
+import AppSection from "@/components/shared/AppSection.vue";
 </script>
 
 <template>
@@ -62,12 +62,89 @@ import AppSection from "@/components/Shared/AppSection.vue";
 </template>
 
 <style lang="scss" scoped>
-@import './scss/style.scss';
+.block-button-section-1 {
+  width: 100%;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+
+  &.green {
+    background-color: var(--color-secondary);
+  }
+}
+
+.after-block-section-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 50px 0;
+}
+
+.container-after > p {
+  width: 600px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  padding: 0 97px 0 0;
+}
+
+.container-after {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-after:nth-child(2) > p {
+  text-align: left;
+  padding: 0 0 0 97px;
+}
 
 @media screen and (max-width: 768px) {
   img.hero {
     max-width: 60%;
     height: auto;
+  }
+
+  .container-after > p {
+    text-align: center;
+    padding: 50px 100px 0 100px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .container-after:nth-child(2) > p {
+    text-align: center;
+    padding: 0 100px 0 100px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container-after > p {
+    text-align: center;
+    padding: 50px 25px 0 25px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .container-after:nth-child(2) > p {
+    text-align: center;
+    padding: 0 25px 0 25px;
+  }
+
+}
+
+@media screen and (max-width: 920px) {
+  .block-button-section-1 {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.5rem;
   }
 }
 </style>

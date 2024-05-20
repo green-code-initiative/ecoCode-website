@@ -45,10 +45,10 @@
 import { ref, watch } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import { post } from '@/util/fetch';
-import AppButton from "@/components/global/Button.vue";
-import Textfield from "@/components/Shared/Textfield.vue";
-import Fieldset from "@/components/Shared/Fieldset.vue";
-import Selectfield from "@/components/Shared/Selectfield.vue";
+import AppButton from "@/components/shared/AppButton.vue";
+import Textfield from "@/components/shared/form/AppTextfield.vue";
+import Fieldset from "@/components/shared/form/AppFieldset.vue";
+import Selectfield from "@/components/shared/form/AppSelectfield.vue";
 
 let captcha = ref("");
 const error = ref("");
@@ -213,7 +213,7 @@ form {
 }
 
 .text-label {
-  color: #355086;
+  color: var(--color-primary);
   font-size: 18px;
   font-weight: 900;
   outline: none;

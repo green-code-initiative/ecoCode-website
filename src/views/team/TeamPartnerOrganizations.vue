@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
-import AppSection from '@/components/Shared/AppSection.vue';
+import AppSection from '@/components/shared/AppSection.vue';
 </script>
 
 <template>

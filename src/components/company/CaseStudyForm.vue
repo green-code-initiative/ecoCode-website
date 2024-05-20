@@ -31,10 +31,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import AppButton from '@/components/global/Button.vue';
+import AppButton from '@/components/shared/AppButton.vue';
 import { post } from '@/util/fetch';
-import Textfield from "@/components/Shared/Textfield.vue";
-import Fieldset from "@/components/Shared/Fieldset.vue";
+import Textfield from "@/components/shared/form/AppTextfield.vue";
+import Fieldset from "@/components/shared/form/AppFieldset.vue";
 
 /**
  * Validates an email address to ensure it is not empty and follows a valid email format.

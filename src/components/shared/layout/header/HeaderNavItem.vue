@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 
-const props = defineProps<{ name: string; to: string; icon?: any }>()
+const props = defineProps<{ name: string; to: string; icon?: any }>();
 
 const isExternal = computed(() => props.to.startsWith("http"));
 </script>
@@ -9,7 +9,7 @@ const isExternal = computed(() => props.to.startsWith("http"));
 <template>
   <a v-if="isExternal" :href="to" v-bind="$attrs">
     {{ name }}
-    <component v-if="icon" :is="icon" width="16" height="16"/>
+    <component v-if="icon" :is="icon" width="16" height="16" />
   </a>
   <router-link v-else :to="to">
     {{ name }}
@@ -22,7 +22,7 @@ a {
   color: inherit;
   padding: 0.4rem 0.75rem;
   border-radius: var(--radius);
-  transition: background-color .08s ease-in-out;
+  transition: background-color 0.08s ease-in-out;
 
   &.special {
     display: flex;
@@ -44,7 +44,9 @@ a {
 }
 
 @keyframes gelatine {
-  from, to, 16% {
+  from,
+  to,
+  16% {
     transform: scale(1, 1);
   }
   5% {

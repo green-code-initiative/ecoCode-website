@@ -29,9 +29,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import AppButton from '@/components/global/Button.vue';
+import AppButton from '@/components/shared/AppButton.vue';
 import { post } from '@/util/fetch';
-import Textfield from "@/components/Shared/Textfield.vue";
+import Textfield from "@/components/shared/form/AppTextfield.vue";
 
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

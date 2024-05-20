@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import BoxInfo from "@/components/global/BoxInfo.vue";
-import AppSection from "@/components/Shared/AppSection.vue";
+import AppSection from "@/components/shared/AppSection.vue";
 </script>
 
 <template>
@@ -36,6 +36,8 @@ import AppSection from "@/components/Shared/AppSection.vue";
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem;
 }
 
 p {

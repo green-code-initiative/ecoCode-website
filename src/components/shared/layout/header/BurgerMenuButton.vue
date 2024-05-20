@@ -1,14 +1,32 @@
 <script lang="ts" setup>
-defineEmits(['update:modelValue'])
-defineProps<{ modelValue: boolean }>()
+defineEmits(["update:modelValue"]);
+defineProps<{ modelValue: boolean }>();
 </script>
 
 <template>
-  <button :class="{ active: modelValue }" @click="$emit('update:modelValue', !modelValue)">
+  <button
+    :class="{ active: modelValue }"
+    @click="$emit('update:modelValue', !modelValue)"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path class="top-line" fill-rule="evenodd" d="m3 12 1-1h16a1 1 0 1 1 0 2H4l-1-1Z" clip-rule="evenodd"/>
-      <path class="middle-line" fill-rule="evenodd" d="m3 6 1-1h16a1 1 0 1 1 0 2H4L3 6Z" clip-rule="evenodd"/>
-      <path class="bottom-line" fill-rule="evenodd" d="m3 18 1-1h16a1 1 0 1 1 0 2H4l-1-1Z" clip-rule="evenodd"/>
+      <path
+        class="top-line"
+        fill-rule="evenodd"
+        d="m3 12 1-1h16a1 1 0 1 1 0 2H4l-1-1Z"
+        clip-rule="evenodd"
+      />
+      <path
+        class="middle-line"
+        fill-rule="evenodd"
+        d="m3 6 1-1h16a1 1 0 1 1 0 2H4L3 6Z"
+        clip-rule="evenodd"
+      />
+      <path
+        class="bottom-line"
+        fill-rule="evenodd"
+        d="m3 18 1-1h16a1 1 0 1 1 0 2H4l-1-1Z"
+        clip-rule="evenodd"
+      />
     </svg>
   </button>
 </template>

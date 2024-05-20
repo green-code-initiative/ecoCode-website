@@ -36,7 +36,6 @@ const props = defineProps({
   image: String,
 });
 
-const path = ref("/");
 const route = useRoute();
 
 const isPage = computed(

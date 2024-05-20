@@ -1,26 +1,29 @@
 <script setup lang="ts">
-import ChevronLeft from '@/assets/icons/chevron_left.svg';
-import ChevronRight from '@/assets/icons/chevron_right.svg';
+import ChevronLeft from "@/assets/icons/chevron_left.svg";
+import ChevronRight from "@/assets/icons/chevron_right.svg";
 import type { RouterLinkProps } from "vue-router";
 
-withDefaults(defineProps<{
-  text: string;
-  variant: 'primary' | 'secondary';
-  type?: 'button' | 'submit'
-  link?: RouterLinkProps['to'];
-}>(), { type: 'button' });
+withDefaults(
+  defineProps<{
+    text: string;
+    variant: "primary" | "secondary";
+    type?: "button" | "submit";
+    link?: RouterLinkProps["to"];
+  }>(),
+  { type: "button" },
+);
 </script>
 
 <template>
   <router-link v-if="link" :class="variant" :to="link">
-    <ChevronLeft/>
+    <ChevronLeft />
     {{ text }}
-    <ChevronRight/>
+    <ChevronRight />
   </router-link>
   <button v-else :class="variant" :type="type">
-    <ChevronLeft/>
+    <ChevronLeft />
     {{ text }}
-    <ChevronRight/>
+    <ChevronRight />
   </button>
 </template>
 

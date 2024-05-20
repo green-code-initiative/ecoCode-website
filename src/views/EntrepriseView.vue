@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import CaseStudyForm from '@/components/company/CaseStudyForm.vue';
 import RuleCreationProcess from '@/components/company/RuleCreationProcess.vue';
-import AppButton from '@/components/global/Button.vue';
+import AppButton from '@/components/shared/AppButton.vue';
 import AppHero from '@/components/global/Hero.vue';
-import AppSection from '@/components/Shared/AppSection.vue';
+import AppSection from '@/components/shared/AppSection.vue';
 </script>
 
 <template>

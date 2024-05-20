@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ProcessRule from "@/components/global/ProcessRule.vue";
-import AppButton from "@/components/global/Button.vue";
+import AppButton from "@/components/shared/AppButton.vue";
 </script>
 
 <template>
