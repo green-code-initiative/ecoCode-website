@@ -68,7 +68,7 @@ const { filters, filteredRules } = useRuleFilters({ items, meta });
   .content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 
     .filters {
       display: none;

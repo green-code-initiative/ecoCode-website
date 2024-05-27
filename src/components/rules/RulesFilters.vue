@@ -54,6 +54,20 @@ const filters = defineModel<RuleFilters>({ required: true });
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-right: .5rem;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    border-radius: 4px;
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #E8E8E8;
+    border-radius: 4px;
+  }
 
   .filter-type {
     display: flex;
