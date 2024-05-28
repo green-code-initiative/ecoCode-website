@@ -81,5 +81,11 @@
     "width": 160,
     "height": 66,
     "featured": 5
+  },
+  {
+    "img": "capgemini.png",
+    "name": "Capgemini",
+    "width": 160,
+    "height": 66
   }
 ]
