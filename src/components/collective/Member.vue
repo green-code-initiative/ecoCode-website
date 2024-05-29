@@ -44,6 +44,7 @@ const links = Object.entries(linkTypes)
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 img {
