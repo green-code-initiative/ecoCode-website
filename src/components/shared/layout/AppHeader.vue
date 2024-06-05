@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import BurgerMenuButton from "@/components/shared/layout/header/BurgerMenuButton.vue";
 import Github from "@/assets/icons/github.svg";
 import Linkedin from "@/assets/icons/linkedin.svg";
-import Trophy from "@/assets/icons/trophy.svg";
 import NavItem from "@/components/shared/layout/header/HeaderNavItem.vue";
 
 const isMenuOpen = ref(false);
@@ -25,7 +24,6 @@ const items = [
       </router-link>
       <nav :class="{ open: isMenuOpen }">
         <nav-item v-for="item of items" :key="item.name" :name="item.name" :to="item.to" @click="closeMenu" />
-        <nav-item name="Challenge 2024" to="https://challenge.ecocode.io" class="special" :icon="Trophy" @click="closeMenu"/>
       </nav>
     </div>
     <div class="right">
