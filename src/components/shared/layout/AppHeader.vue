@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import BurgerMenuButton from "@/components/shared/layout/header/BurgerMenuButton.vue";
+import Logo from "@/assets/img/logo.svg";
 import GitHubIcon from "@/assets/icons/github.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
 import SlackIcon from "@/assets/icons/slack.svg";
@@ -39,13 +40,7 @@ const socialItems = [
   <header>
     <div class="left">
       <router-link to="/" class="go-to-home">
-        <img
-          src="@/assets/img/logo-dark.webp"
-          width="150"
-          height="25"
-          alt="ecoCode logo"
-          @click="closeMenu"
-        />
+        <Logo width="148" height="24" alt="ecoCode logo" @click="closeMenu" />
       </router-link>
       <nav :class="{ open: isMenuOpen }">
         <nav-item
@@ -101,6 +96,7 @@ header {
   .menu-burger {
     display: flex;
     align-items: center;
+    color: inherit;
   }
 }
 
