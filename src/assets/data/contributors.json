@@ -19,18 +19,10 @@
   },
   {
     "name": "Johanna Duigou",
-    "company": "Orange Business Services",
+    "company": "Orange Business",
     "profile": "johanna_duigou.webp",
     "links": {
       "linkedin": "johannaduigou"
-    }
-  },
-  {
-    "name": "Emmanuel Espias",
-    "company": "Snapp'",
-    "profile": "emmanuel_espias.webp",
-    "links": {
-      "linkedin": "eespias"
     }
   },
   {
@@ -47,6 +39,15 @@
     "profile": "vianney_de_bellabre.webp",
     "links": {
       "github": "Djoums"
+    }
+  },
+  {
+    "name": "Jérôme Cardon",
+    "company": "Accenture",
+    "profile": "jerome_cardon.webp",
+    "links": {
+      "linkedin": "jcardon79",
+      "github": "jay-79"
     }
   }
 ]

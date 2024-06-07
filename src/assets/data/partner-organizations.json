@@ -87,5 +87,11 @@
     "name": "Capgemini",
     "width": 171,
     "height": 38
+  },
+  {
+    "img": "orange-business.webp",
+    "name": "Orange Business",
+    "width": 160,
+    "height": 55
   }
 ]
