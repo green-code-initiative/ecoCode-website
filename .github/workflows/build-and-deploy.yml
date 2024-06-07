@@ -4,38 +4,39 @@
 name: Build and deploy
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
+
+env:
+  VITE_RULES_URL: https://utarwyn.github.io/ecoCode/rules.json # only for testing purposes
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js 18.X
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.X
-        cache: 'npm'
+      - name: Use Node.js 18.X
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.X
+          cache: "npm"
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Lint
-      run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-    - name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-    - name: Replace symlinks by the targeted file
-      run: find ./dist -type l -exec sh -c 'cp --remove-destination "$(readlink "{}")" "{}"' \;
-    - name: Archive production artifacts
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: ./dist
-
+      - name: Replace symlinks by the targeted file
+        run: find ./dist -type l -exec sh -c 'cp --remove-destination "$(readlink "{}")" "{}"' \;
+      - name: Archive production artifacts
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist
 
   # Deploy job
   deploy:
@@ -44,8 +45,8 @@ jobs:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
     # Deploy to the github-pages environment
     environment:

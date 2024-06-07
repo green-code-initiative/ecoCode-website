@@ -38,6 +38,11 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/rules",
+      name: "rules",
+      component: () => import("@/views/RulesViews.vue"),
+    },
   ],
 });
 

@@ -1,7 +1,9 @@
 :root {
     /* Colors */
     --color-primary: #355086;
+    --color-primary-new: #035c25;
     --color-on-primary: #ffffff;
+    --color-primary-container: hsl(220 43% 37% / 5%);
     --color-primary-lighter: hsl(220, 43%, 65%);
     --color-primary-focus-ring: hsl(220, 43%, 37%, 20%);
     --color-secondary: #57c18b;
@@ -12,9 +14,12 @@
     --color-on-quaternary: #ffffff;
     --color-additionnal-1: hsl(40, 100%, 89%);
     --color-additionnal-1-hover: hsl(40, 100%, 81%);
+    --color-warning-container: rgba(255, 206, 133, 50%);
+    --color-on-warning-container: #97743f;
 
     --color-surface: white;
     --color-on-surface: #022826;
+    --color-on-surface-bright: #59646A;
 
     /* Shadows */
     --shadow-small: 0px 2px 2px rgba(0, 0, 0, .04);
