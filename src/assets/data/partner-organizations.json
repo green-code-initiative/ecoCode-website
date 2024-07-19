@@ -93,5 +93,11 @@
     "name": "Orange Business",
     "width": 160,
     "height": 55
+  },
+  {
+    "img": "accenture.webp",
+    "name": "Accenture",
+    "width": 160,
+    "height": 42
   }
 ]
