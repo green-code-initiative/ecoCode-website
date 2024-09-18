@@ -157,7 +157,7 @@ const submitForm = async () => {
     try {
       await post('contact', formData);
       success.value = "Votre demande a bien été enregistrée";
-    } catch (err) {
+    } catch {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
     }
   }
