@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import organizations from '@/assets/data/partner-organizations.json';
-import PartnerOrganization from '@/components/collective/PartnerOrganization.vue';
+import organizations from "@/assets/data/partner-organizations.json";
+import PartnerOrganization from "@/components/collective/PartnerOrganization.vue";
 
-const props = defineProps<{ featured: boolean }>()
+const props = defineProps<{ featured: boolean }>();
 const filteredOrganizations = props.featured
-    ? organizations
-        .filter(organization => organization.featured)
-        .sort((organization1, organization2) => organization1.featured! - organization2.featured!)
-    : organizations
+  ? organizations
+      .filter((organization) => organization.featured)
+      .sort(
+        (organization1, organization2) =>
+          organization1.featured! - organization2.featured!,
+      )
+  : organizations;
 </script>
 
 <template>
   <div class="partner-organization-list">
     <PartnerOrganization
-        v-for="organization in filteredOrganizations"
-        :key="organization.name"
-        :name="organization.name"
-        :logo="{ filename: organization.img, width: organization.width, height: organization.height }"
+      v-for="organization in filteredOrganizations"
+      :key="organization.name"
+      :name="organization.name"
+      :logo="{
+        filename: organization.img,
+        width: organization.width,
+        height: organization.height,
+      }"
     />
   </div>
 </template>

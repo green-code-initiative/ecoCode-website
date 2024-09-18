@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  variant: 'primary' | 'secondary' | 'quaternary';
+  variant: "primary" | "secondary" | "quaternary";
   title: string;
   subTitle: string;
-}>()
+}>();
 </script>
 
 <template>

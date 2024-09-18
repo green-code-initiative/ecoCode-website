@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router';
     <router-link to="membres">Membres contributeurs</router-link>
     <router-link to="organisations">Organisations partenaires</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss" scoped>

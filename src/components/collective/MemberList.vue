@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import MemberComponent from '@/components/collective/Member.vue';
+import MemberComponent from "@/components/collective/Member.vue";
 
-defineProps<{ members: Member[] }>()
+defineProps<{ members: Member[] }>();
 </script>
 
 <template>
   <div class="member-list">
-    <MemberComponent v-for="member in members" :key="member.name" :member="member" />
+    <MemberComponent
+      v-for="member in members"
+      :key="member.name"
+      :member="member"
+    />
   </div>
 </template>
 

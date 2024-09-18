@@ -4,7 +4,10 @@ import AppSection from "@/components/shared/AppSection.vue";
 </script>
 
 <template>
-  <AppSection backgroundColor="grey" title="Le processus de création d'une règle">
+  <AppSection
+    background-color="grey"
+    title="Le processus de création d'une règle"
+  >
     <div class="box-container">
       <BoxInfo
         title="Cadrage"
@@ -24,9 +27,9 @@ import AppSection from "@/components/shared/AppSection.vue";
       />
     </div>
     <p>
-      Toutes les règles sur-mesure, produites pour le compte d'organisations, tombent
-      dans l'Open Source. C'est votre contribution à rendre le numérique plus
-      responsable.
+      Toutes les règles sur-mesure, produites pour le compte d'organisations,
+      tombent dans l'Open Source. C'est votre contribution à rendre le numérique
+      plus responsable.
     </p>
   </AppSection>
 </template>

@@ -7,9 +7,14 @@
           v-if="image === 'true'"
           href="https://github.com/green-code-initiative"
           target="_blank"
-          >
+        >
           <span>{{ text }}</span>
-          <img width="120" height="32" src="@/assets/img/github.webp" alt="GitHub logo"/>
+          <img
+            width="120"
+            height="32"
+            src="@/assets/img/github.webp"
+            alt="GitHub logo"
+          />
         </a>
         <span v-else>{{ text }}</span>
       </div>
@@ -23,9 +28,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { useRoute } from "vue-router";
-import ArrowDown from '@/assets/icons/arrow_down.svg';
-import ArrowLeft from '@/assets/icons/arrow_left.svg';
-import ArrowRight from '@/assets/icons/arrow_right.svg';
+import ArrowDown from "@/assets/icons/arrow_down.svg";
+import ArrowLeft from "@/assets/icons/arrow_left.svg";
+import ArrowRight from "@/assets/icons/arrow_right.svg";
 
 const props = defineProps({
   title: String,
@@ -42,12 +47,16 @@ const isPage = computed(
   () =>
     route.path === "/contributeur" ||
     route.path === "/entreprise" ||
-    route.path === "/team"
+    route.path === "/team",
 );
 
 const subtitleStyle = computed(() => ({
-  backgroundColor: isPage.value ? `rgba(135, 204, 255, ${props.opacity})` : "white",
-  border: isPage.value ? "solid 2px #87ccff" : "solid 2px rgba(135, 204, 255, 0)",
+  backgroundColor: isPage.value
+    ? `rgba(135, 204, 255, ${props.opacity})`
+    : "white",
+  border: isPage.value
+    ? "solid 2px #87ccff"
+    : "solid 2px rgba(135, 204, 255, 0)",
 }));
 
 const isMobile = ref(false);
@@ -78,9 +87,15 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", checkMobile);
 });
 
-const showRightArrow = computed(() => props.position === "right" && !isMobile.value);
-const showLeftArrow = computed(() => props.position === "left" && !isMobile.value);
-const showBottomArrow = computed(() => props.position === "bottom" || isMobile.value);
+const showRightArrow = computed(
+  () => props.position === "right" && !isMobile.value,
+);
+const showLeftArrow = computed(
+  () => props.position === "left" && !isMobile.value,
+);
+const showBottomArrow = computed(
+  () => props.position === "bottom" || isMobile.value,
+);
 
 const isLastItem = ref(false);
 if (props.title === "utilisation" || props.image) {
@@ -173,12 +188,11 @@ if (props.title === "utilisation" || props.image) {
 }
 
 @media screen and (max-width: 768px) {
-
-  .title{
+  .title {
     font-size: 22px;
   }
 
-  .container-text > span{
+  .container-text > span {
     font-size: 17px;
   }
 }

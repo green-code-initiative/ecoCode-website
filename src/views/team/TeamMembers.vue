@@ -7,10 +7,10 @@ import AppSection from "@/components/shared/AppSection.vue";
 
 <template>
   <AppSection title="Core team" sub-title="L'équipe qui pilote ecoCode">
-    <MemberList :members="coreMembers"/>
+    <MemberList :members="coreMembers" />
   </AppSection>
 
   <AppSection title="Contributrices et contributeurs" background-color="grey">
-    <MemberList :members="contributors"/>
+    <MemberList :members="contributors" />
   </AppSection>
 </template>

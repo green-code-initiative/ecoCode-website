@@ -2,55 +2,81 @@
   <form @submit.prevent="submitForm">
     <div class="headings">
       <h2 class="heading-2">Rejoins ecoCode !</h2>
-      <h3 class="heading-3">Rejoins-nous et contribue à faire du numérique un domaine plus durable.</h3>
+      <h3 class="heading-3">
+        Rejoins-nous et contribue à faire du numérique un domaine plus durable.
+      </h3>
     </div>
 
     <div class="text-field">
-      <Textfield id="email" v-model="email" type="email" label="E-mail * :" required autocomplete="email" centered/>
+      <Textfield
+        id="email"
+        v-model="email"
+        type="email"
+        label="E-mail * :"
+        required
+        autocomplete="email"
+        centered
+      />
     </div>
 
-    <div style="margin-top: 15px;">
-      <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"></vue-hcaptcha>
+    <div style="margin-top: 15px">
+      <vue-hcaptcha
+        @verify="getCaptcha"
+        sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
+      ></vue-hcaptcha>
     </div>
-    <div style="margin-top: 15px;" class="error-message" v-if="error">{{ error }}</div>
-    <div style="margin-top: 15px;" class="success-message" v-if="success">{{ success }}</div>
+    <div style="margin-top: 15px" class="error-message" v-if="error">
+      {{ error }}
+    </div>
+    <div style="margin-top: 15px" class="success-message" v-if="success">
+      {{ success }}
+    </div>
 
-    <AppButton type="submit" variant="primary" text="Recevoir les informations"/>
+    <AppButton
+      type="submit"
+      variant="primary"
+      text="Recevoir les informations"
+    />
 
     <div class="join-us">
       <p>Tu souhaites contribuer sans plus attendre ? Rejoins-nous sur</p>
       <a href="https://github.com/green-code-initiative" target="_blank">
-        <img width="120" height="32" src="@/assets/img/github.webp" alt="GitHub logo"/>
+        <img
+          width="120"
+          height="32"
+          src="@/assets/img/github.webp"
+          alt="GitHub logo"
+        />
       </a>
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import AppButton from '@/components/shared/AppButton.vue';
-import { post } from '@/util/fetch';
+import { ref } from "vue";
+import VueHcaptcha from "@hcaptcha/vue3-hcaptcha";
+import AppButton from "@/components/shared/AppButton.vue";
+import { post } from "@/util/fetch";
 import Textfield from "@/components/shared/form/AppTextfield.vue";
 
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!email.value) {
-        error.value = 'L\'e-mail est requis.';
-    } else if (!emailPattern.test(email.value)) {
-        error.value = 'L\'e-mail n\'est pas valide.';
-    } else {
-        error.value = '';
-        return true
-    }
+  if (!email.value) {
+    error.value = "L'e-mail est requis.";
+  } else if (!emailPattern.test(email.value)) {
+    error.value = "L'e-mail n'est pas valide.";
+  } else {
+    error.value = "";
+    return true;
+  }
 };
 
 const validateCaptcha = () => {
   if (!captcha.value) {
-    error.value = 'Le captcha est requis.';
+    error.value = "Le captcha est requis.";
   } else {
-    error.value = '';
-    return true
+    error.value = "";
+    return true;
   }
 };
 
@@ -58,11 +84,11 @@ const submitForm = async () => {
   if (validateEmail() && validateCaptcha()) {
     const formData = {
       email: email.value,
-      captcha: captcha.value
+      captcha: captcha.value,
     };
 
     try {
-      await post('newsletter', formData);
+      await post("newsletter", formData);
       success.value = "Votre demande a bien été enregistrée";
     } catch {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
@@ -82,13 +108,13 @@ let success = ref("");
 
 <style scoped lang="scss">
 form {
-    min-height: 396px;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f3f3f3;
+  min-height: 396px;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
 }
 
 .headings {

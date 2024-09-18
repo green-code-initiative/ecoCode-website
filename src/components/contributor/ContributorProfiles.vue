@@ -1,9 +1,17 @@
 <template>
   <div class="contributor-profiles">
-    <span class="heading">Les profils des contributrices et contributeurs :</span>
+    <span class="heading"
+      >Les profils des contributrices et contributeurs :</span
+    >
     <ul>
-      <li>Salariées et salariés en poste avec un temps dédié par leur organisation sur ecoCode </li>
-      <li>Indépendantes et indépendants pour une contribution bénévole à l'Open Source</li>
+      <li>
+        Salariées et salariés en poste avec un temps dédié par leur organisation
+        sur ecoCode
+      </li>
+      <li>
+        Indépendantes et indépendants pour une contribution bénévole à l'Open
+        Source
+      </li>
       <li>Salariées et salariés sur leur temps libre...</li>
     </ul>
   </div>

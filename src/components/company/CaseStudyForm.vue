@@ -1,38 +1,92 @@
 <template>
   <form @submit.prevent="submitForm" aria-label="Formulaire de contact">
     <Fieldset>
-      <Textfield id="lastname" v-model="lastname" label="Nom :" autocomplete="family-name"/>
-      <Textfield id="firstname" v-model="firstname" label="Prénom :" autocomplete="given-name"/>
+      <Textfield
+        id="lastname"
+        v-model="lastname"
+        label="Nom :"
+        autocomplete="family-name"
+      />
+      <Textfield
+        id="firstname"
+        v-model="firstname"
+        label="Prénom :"
+        autocomplete="given-name"
+      />
     </Fieldset>
 
-    <Textfield id="company" v-model="company" label="Organisation :" autocomplete="organization"/>
-    <Textfield id="role" v-model="role" label="Rôle :" autocomplete="organization-title"/>
+    <Textfield
+      id="company"
+      v-model="company"
+      label="Organisation :"
+      autocomplete="organization"
+    />
+    <Textfield
+      id="role"
+      v-model="role"
+      label="Rôle :"
+      autocomplete="organization-title"
+    />
 
     <Fieldset>
-      <Textfield id="email" v-model="email" type="email" label="E-mail * :" required autocomplete="email"/>
-      <Textfield id="phone" v-model="phone" type="tel" label="Téléphone :" autocomplete="tel"/>
+      <Textfield
+        id="email"
+        v-model="email"
+        type="email"
+        label="E-mail * :"
+        required
+        autocomplete="email"
+      />
+      <Textfield
+        id="phone"
+        v-model="phone"
+        type="tel"
+        label="Téléphone :"
+        autocomplete="tel"
+      />
     </Fieldset>
 
-    <Textfield id="message" type="textarea" v-model="message" label="Votre besoin :"/>
+    <Textfield
+      id="message"
+      type="textarea"
+      v-model="message"
+      label="Votre besoin :"
+    />
 
-    <vue-hcaptcha @verify="getCaptcha" sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
-                  aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"/>
+    <vue-hcaptcha
+      @verify="getCaptcha"
+      sitekey="359a430d-a0bf-4548-a583-959e93110b6d"
+      aria-label="Rendez vous sur https://www.hcaptcha.com/accessibility pour obtenir un passe-droit accessible"
+    />
 
     <div class="form-submit">
-      <div class="error-message" v-if="error" aria-live="assertive">{{ error }}</div>
-      <div style="margin-top: 15px;" class="success-message" v-if="success" aria-live="assertive">{{ success }}</div>
+      <div class="error-message" v-if="error" aria-live="assertive">
+        {{ error }}
+      </div>
+      <div
+        style="margin-top: 15px"
+        class="success-message"
+        v-if="success"
+        aria-live="assertive"
+      >
+        {{ success }}
+      </div>
 
-      <AppButton type="submit" variant="primary" text="Recevez notre cas client"
-                   aria-label="Soumettez le formulaire"/>
+      <AppButton
+        type="submit"
+        variant="primary"
+        text="Recevez notre cas client"
+        aria-label="Soumettez le formulaire"
+      />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
-import AppButton from '@/components/shared/AppButton.vue';
-import { post } from '@/util/fetch';
+import { ref } from "vue";
+import VueHcaptcha from "@hcaptcha/vue3-hcaptcha";
+import AppButton from "@/components/shared/AppButton.vue";
+import { post } from "@/util/fetch";
 import Textfield from "@/components/shared/form/AppTextfield.vue";
 import Fieldset from "@/components/shared/form/AppFieldset.vue";
 
@@ -56,7 +110,7 @@ const validateEmail = () => {
   } else if (!emailPattern.test(email.value)) {
     error.value = "L'e-mail n'est pas valide.";
   } else {
-    error.value = '';
+    error.value = "";
     return true;
   }
 };
@@ -75,10 +129,11 @@ const validatePhone = () => {
    */
   const phonePattern = /^\+?[\d,. ]+$/;
   if (!phone.value) {
-    error.value = '';
+    error.value = "";
     return true;
   } else if (!phonePattern.test(phone.value)) {
-    error.value = 'Le téléphone doit contenir uniquement des chiffres, +, ,, . ou un espace.';
+    error.value =
+      "Le téléphone doit contenir uniquement des chiffres, +, ,, . ou un espace.";
     return false;
   }
 };
@@ -90,9 +145,9 @@ const validatePhone = () => {
  */
 const validateCaptcha = () => {
   if (!captcha.value) {
-    error.value = 'Le captcha est requis.';
+    error.value = "Le captcha est requis.";
   } else {
-    error.value = '';
+    error.value = "";
     return true;
   }
 };
@@ -104,15 +159,16 @@ const validateCaptcha = () => {
  */
 const validateForm = () => {
   const validationFunctions = [
-    validateEmail,    // Function to validate email
-    validatePhone,    // Function to validate phone number
-    validateCaptcha  // Function to validate CAPTCHA
+    validateEmail, // Function to validate email
+    validatePhone, // Function to validate phone number
+    validateCaptcha, // Function to validate CAPTCHA
   ];
 
   // Return true if all form fields are valid, otherwise return false.
-  return validationFunctions.every((validationFunction) => validationFunction());
+  return validationFunctions.every((validationFunction) =>
+    validationFunction(),
+  );
 };
-
 
 const submitForm = async () => {
   if (validateForm()) {
@@ -124,11 +180,11 @@ const submitForm = async () => {
       phone: phone.value,
       email: email.value,
       message: message.value,
-      captcha: captcha.value
+      captcha: captcha.value,
     };
 
     try {
-      await post('client_case', formData);
+      await post("client_case", formData);
       success.value = "Votre demande a bien été enregistrée";
     } catch {
       error.value = "Erreur d'envoi, veuillez réessayer plus tard.";
