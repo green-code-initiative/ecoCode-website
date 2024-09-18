@@ -1,29 +1,39 @@
 <script setup lang="ts">
-defineEmits(['update:modelValue'])
-defineOptions({ inheritAttrs: false })
+defineEmits(["update:modelValue"]);
+defineOptions({ inheritAttrs: false });
 withDefaults(
-    defineProps<{ id: string; label: string; modelValue: string; type?: string; centered?: boolean }>(),
-    { type: 'text', centered: false }
-)
+  defineProps<{
+    id: string;
+    label: string;
+    modelValue: string;
+    type?: string;
+    centered?: boolean;
+  }>(),
+  { type: "text", centered: false },
+);
 </script>
 
 <template>
   <div class="app-textfield">
     <label :for="id" :class="centered ? 'centered' : ''">{{ label }}</label>
     <input
-        v-if="type !== 'textarea'"
-        :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-        :type="type"
-        :id="id"
-        v-bind="$attrs"
+      v-if="type !== 'textarea'"
+      :value="modelValue"
+      @input="
+        $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+      "
+      :type="type"
+      :id="id"
+      v-bind="$attrs"
     />
     <textarea
-        v-else
-        :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-        :id="id"
-        v-bind="$attrs"
+      v-else
+      :value="modelValue"
+      @input="
+        $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+      "
+      :id="id"
+      v-bind="$attrs"
     />
   </div>
 </template>
@@ -56,9 +66,10 @@ withDefaults(
     font-size: 18px;
     font-weight: 500;
     outline: none;
-    transition: box-shadow .08s ease-in-out;
+    transition: box-shadow 0.08s ease-in-out;
 
-    &:focus, &:focus-within {
+    &:focus,
+    &:focus-within {
       border-color: var(--color-primary-lighter);
       box-shadow: var(--color-primary-focus-ring) 0 0 0 3px;
     }

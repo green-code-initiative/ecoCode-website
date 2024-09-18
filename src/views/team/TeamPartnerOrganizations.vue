@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import PartnerOrganizationList from '@/components/collective/PartnerOrganizationList.vue';
-import AppSection from '@/components/shared/AppSection.vue';
+import PartnerOrganizationList from "@/components/collective/PartnerOrganizationList.vue";
+import AppSection from "@/components/shared/AppSection.vue";
 </script>
 
 <template>
   <AppSection title="De nombreuses organisations s'impliquent sur ecoCode">
-    <PartnerOrganizationList :featured="false"/>
+    <PartnerOrganizationList :featured="false" />
   </AppSection>
 </template>
 

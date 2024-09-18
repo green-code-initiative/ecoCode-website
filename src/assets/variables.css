@@ -1,25 +1,25 @@
 :root {
-    /* Colors */
-    --color-primary: #355086;
-    --color-on-primary: #ffffff;
-    --color-primary-lighter: hsl(220, 43%, 65%);
-    --color-primary-focus-ring: hsl(220, 43%, 37%, 20%);
-    --color-secondary: #57c18b;
-    --color-on-secondary: #ffffff;
-    --color-tertiary: #f05067;
-    --color-on-tertiary: #ffffff;
-    --color-quaternary: #5374c9;
-    --color-on-quaternary: #ffffff;
-    --color-additionnal-1: hsl(40, 100%, 89%);
-    --color-additionnal-1-hover: hsl(40, 100%, 81%);
+  /* Colors */
+  --color-primary: #355086;
+  --color-on-primary: #ffffff;
+  --color-primary-lighter: hsl(220, 43%, 65%);
+  --color-primary-focus-ring: hsl(220, 43%, 37%, 20%);
+  --color-secondary: #57c18b;
+  --color-on-secondary: #ffffff;
+  --color-tertiary: #f05067;
+  --color-on-tertiary: #ffffff;
+  --color-quaternary: #5374c9;
+  --color-on-quaternary: #ffffff;
+  --color-additionnal-1: hsl(40, 100%, 89%);
+  --color-additionnal-1-hover: hsl(40, 100%, 81%);
 
-    --color-surface: white;
-    --color-on-surface: #022826;
+  --color-surface: white;
+  --color-on-surface: #022826;
 
-    /* Shadows */
-    --shadow-small: 0px 2px 2px rgba(0, 0, 0, .04);
-    --shadow-border: 0 0 0 1px rgba(0, 0, 0, .08);
-    --shadow-border-small: var(--shadow-border), var(--shadow-small);
+  /* Shadows */
+  --shadow-small: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-border: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-border-small: var(--shadow-border), var(--shadow-small);
 
-    --radius: 0.75rem;
+  --radius: 0.75rem;
 }

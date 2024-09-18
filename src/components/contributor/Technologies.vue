@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import technologies from '@/assets/data/technologies.json';
+import technologies from "@/assets/data/technologies.json";
 
-const baseLogoUrl = '/img/tech/';
+const baseLogoUrl = "/img/tech/";
 </script>
 
 <template>
   <div class="grid">
-    <img v-for="technnology in technologies"
-         :key="technnology.name"
-         :src="baseLogoUrl + technnology.logo"
-         :alt="technnology.name"
-         width="120"
-         height="120"/>
+    <img
+      v-for="technnology in technologies"
+      :key="technnology.name"
+      :src="baseLogoUrl + technnology.logo"
+      :alt="technnology.name"
+      width="120"
+      height="120"
+    />
   </div>
 </template>
 

@@ -1,31 +1,54 @@
 <script setup lang="ts">
 import type { Component } from "vue";
-import Github from '@/assets/icons/github.svg?component'
-import Linkedin from '@/assets/icons/linkedin.svg?component'
+import Github from "@/assets/icons/github.svg?component";
+import Linkedin from "@/assets/icons/linkedin.svg?component";
 
-const { member } = defineProps<{ member: Member }>()
+const { member } = defineProps<{ member: Member }>();
 
-const linkTypes: Record<MemberLinkType, { logo: Component; url: (v: string) => string }> = {
-  linkedin: { logo: Linkedin, url: (value: string) => `https://www.linkedin.com/in/${value}` },
-  github: { logo: Github, url: (value: string) => `https://github.com/${value}` },
-}
+const linkTypes: Record<
+  MemberLinkType,
+  { logo: Component; url: (v: string) => string }
+> = {
+  linkedin: {
+    logo: Linkedin,
+    url: (value: string) => `https://www.linkedin.com/in/${value}`,
+  },
+  github: {
+    logo: Github,
+    url: (value: string) => `https://github.com/${value}`,
+  },
+};
 
 const links = Object.entries(linkTypes)
-    .filter(([key]) => member.links[key as MemberLinkType] != null)
-    .map(([key, value]) => ({ key, logo: value.logo, href: value.url(member.links[key as MemberLinkType]!) }))
+  .filter(([key]) => member.links[key as MemberLinkType] != null)
+  .map(([key, value]) => ({
+    key,
+    logo: value.logo,
+    href: value.url(member.links[key as MemberLinkType]!),
+  }));
 </script>
 
 <template>
   <div class="container">
     <div class="info">
-      <img :src="'/img/profil/' + member.profile" width="80" height="80" :alt="'Photo de profil ' + member.name"/>
+      <img
+        :src="'/img/profil/' + member.profile"
+        width="80"
+        height="80"
+        :alt="'Photo de profil ' + member.name"
+      />
       <p class="name">{{ member.name }}</p>
       <p v-if="member.company" class="company">{{ member.company }}</p>
     </div>
     <div class="links" v-if="links">
-      <a v-for="link in links" :key="link.key" :href="link.href" target="_blank"
-         :aria-label="link.key + ' de ' + member.name">
-        <Component :is="link.logo" width="24" height="24"/>
+      <a
+        v-for="link in links"
+        :key="link.key"
+        :href="link.href"
+        target="_blank"
+        :aria-label="link.key + ' de ' + member.name"
+      >
+        <Component :is="link.logo" width="24" height="24" />
       </a>
     </div>
   </div>

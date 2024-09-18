@@ -1,15 +1,18 @@
 <script setup lang="ts">
-defineProps<{ name: string; logo: { filename: string; width: number; height: number } }>()
+defineProps<{
+  name: string;
+  logo: { filename: string; width: number; height: number };
+}>();
 </script>
 
 <template>
   <div class="container">
     <div class="image">
       <img
-          :src="'/img/organizations/' + logo.filename"
-          :width="logo.width"
-          :height="logo.height"
-          :alt="'Logo ' + name"
+        :src="'/img/organizations/' + logo.filename"
+        :width="logo.width"
+        :height="logo.height"
+        :alt="'Logo ' + name"
       />
     </div>
     <p class="name">{{ name }}</p>
